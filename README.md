@@ -1,8 +1,6 @@
 # proyecto_integrador_grupo_3
 ### Nombre del sitio:
-***
  "4Music"
-***
 ### Temática:
 Sitio de compra de instrumentos musicales y accesorios. 
 ### Descripción:
