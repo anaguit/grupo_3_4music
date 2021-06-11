@@ -9,29 +9,27 @@ Sitio de compra de instrumentos musicales y accesorios.
 El sitio está destinado a todo público que desee adquirir Instrumentos Musicales o accesorios, incluyendo a Profesionales del Rubro como así también a Estudiantes y Docentes de música. 
 
 ### Sitios  referencia:
-https://www.guitarguitar.co.uk/
-https://www.casalibertella.com/efectos/repuestos/72533-switch-mxr-ecb035-repuesto-footswitch-6-conectores-nuevo.html#
-https://reverb.com/
-https://www.guitarcenter.com/
-https://www.antiguacasanunez.com/
-https://fusionmusical.com.ar/
-https://daiammusica.com.ar/
-https://www.lacasadelinstrumentomusical.com.ar/
+##### https://www.guitarguitar.co.uk/
+##### https://www.casalibertella.com/
+##### https://www.guitarcenter.com/
+##### https://fusionmusical.com.ar/
+##### https://daiammusica.com.ar/
+
 
 ### Integrantes:
-#### Ana Santoandré:
+**Ana Santoandré:**
 Edad: 37 años 
 Guitarrista, activa en 2 proyectos 
 
-Agustín Faggiano: 
+**Agustín Faggiano:** 
 30 años
 Músico & Fotógrafo
 
-Estefania Colodro: 
+**Estefania Colodro:**
 Edad 22 años 
 Estudiante de Actuario en Economía
 
-Julián Polimeni: 
+**Julián Polimeni:** 
 Edad: 21 años
 Entrenador 
 Estudiante
