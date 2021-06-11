@@ -27,7 +27,6 @@ Agustín Faggiano:
 30 años
 Músico & Fotógrafo
 
-
 Estefania Colodro: 
 Edad 22 años 
 Estudiante de Actuario en Economía
@@ -37,10 +36,10 @@ Edad: 21 años
 Entrenador 
 Estudiante
 
-Tablero de trabajo:
+### Tablero de trabajo:
 https://trello.com/proyectointgrupo3/account
 
-Wireframes: 
+### Wireframes: 
 
 Página de Inicio (Home):
 https://wireframe.cc/pro/pp/1bbf76969449508
