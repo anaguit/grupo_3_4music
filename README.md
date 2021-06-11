@@ -1,16 +1,16 @@
 # proyecto_integrador_grupo_3
-Nombre del sitio:
+### Nombre del sitio:
 ***
-### "4Music"
+ "4Music"
 ***
-### Temática del sitio:
+### Temática:
 Sitio de compra de instrumentos musicales y accesorios. 
-Descripción del sitio:
+### Descripción:
 4Music te permite realizar la compra de instrumentos musicales y accesorios del mismo, brindando herramientas de búsqueda tradicionales (por tipo de instrumento / accesorio) y, a la vez, haciendo posible un refinamiento de la búsqueda por "Estilo musical", ayudándote a encontrar fácilmente elementos característicos de cada estilo.
-Público objetivo:
+### Público objetivo:
 El sitio está destinado a todo público que desee adquirir Instrumentos Musicales o accesorios, incluyendo a Profesionales del Rubro como así también a Estudiantes y Docentes de música. 
 
-Sitios  referencia:
+### Sitios  referencia:
 https://www.guitarguitar.co.uk/
 https://www.casalibertella.com/efectos/repuestos/72533-switch-mxr-ecb035-repuesto-footswitch-6-conectores-nuevo.html#
 https://reverb.com/
@@ -20,7 +20,7 @@ https://fusionmusical.com.ar/
 https://daiammusica.com.ar/
 https://www.lacasadelinstrumentomusical.com.ar/
 
-Integrantes:
+### Integrantes:
 Ana Santoandré:
 Edad: 37 años 
 Profesión: Guitarrista, activa en 2 proyectos 
