@@ -1,4 +1,4 @@
-# proyecto_integrador_grupo_3
+## proyecto_integrador_grupo_3
 Nombre del sitio:
 "4Music"
 Temática del sitio:
