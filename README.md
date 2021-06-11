@@ -27,7 +27,7 @@ Edad: 30 años - Músico & Fotógrafo.
 Edad: 22 años - Estudiante de Actuario en Economía.
 
 **Julián Polimeni:** 
-Edad: 21 años - Entrenador Personal.
+Edad: 21 años - Entrenador.
 
 
 ### Tablero de trabajo:
