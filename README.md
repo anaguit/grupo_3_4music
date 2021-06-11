@@ -21,13 +21,13 @@ El sitio está destinado a todo público que desee adquirir Instrumentos Musical
 Edad: 37 años - Guitarrista.
 
 **Agustín Faggiano:** 
-30 años - Músico & Fotógrafo.
+Edad: 30 años - Músico & Fotógrafo.
 
 **Estefania Colodro:**
-22 años - Estudiante de Actuario en Economía.
+Edad: 22 años - Estudiante de Actuario en Economía.
 
 **Julián Polimeni:** 
-21 años- Entrenador Personal.
+Edad: 21 años- Entrenador Personal.
 
 
 ### Tablero de trabajo:
