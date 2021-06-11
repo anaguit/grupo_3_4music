@@ -34,7 +34,8 @@ Estudiante de Actuario en Economía
 
 Julián Polimeni: 
 Edad: 21 años
-Entrenador ahre.
+Entrenador 
+Estudiante
 
 Tablero de trabajo:
 https://trello.com/proyectointgrupo3/account
