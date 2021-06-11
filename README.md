@@ -3,7 +3,7 @@ Nombre del sitio:
 ***
 ## "4Music"
 ***
-Temática del sitio:
+###Temática del sitio:
 Sitio de compra de instrumentos musicales y accesorios. 
 Descripción del sitio:
 4Music te permite realizar la compra de instrumentos musicales y accesorios del mismo, brindando herramientas de búsqueda tradicionales (por tipo de instrumento / accesorio) y, a la vez, haciendo posible un refinamiento de la búsqueda por "Estilo musical", ayudándote a encontrar fácilmente elementos característicos de cada estilo.
