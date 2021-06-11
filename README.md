@@ -19,7 +19,7 @@ El sitio está destinado a todo público que desee adquirir Instrumentos Musical
 ### Integrantes:
 **Ana Santoandré:**
 Edad: 37 años 
-Guitarrista, activa en 2 proyectos 
+Guitarrista
 
 **Agustín Faggiano:** 
 30 años
@@ -32,7 +32,7 @@ Estudiante de Actuario en Economía
 **Julián Polimeni:** 
 Edad: 21 años
 Entrenador 
-Estudiante
+
 
 ### Tablero de trabajo:
 https://trello.com/proyectointgrupo3/account
