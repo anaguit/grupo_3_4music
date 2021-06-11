@@ -19,9 +19,9 @@ https://daiammusica.com.ar/
 https://www.lacasadelinstrumentomusical.com.ar/
 
 ### Integrantes:
-Ana Santoandré:
+#### Ana Santoandré:
 Edad: 37 años 
-Profesión: Guitarrista, activa en 2 proyectos 
+Guitarrista, activa en 2 proyectos 
 
 Agustín Faggiano: 
 30 años
