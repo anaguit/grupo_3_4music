@@ -24,10 +24,10 @@ Edad: 37 años - Guitarrista.
 30 años - Músico & Fotógrafo.
 
 **Estefania Colodro:**
-Edad 22 años - Estudiante de Actuario en Economía.
+22 años - Estudiante de Actuario en Economía.
 
 **Julián Polimeni:** 
-Edad: 21 años- Entrenador Personal.
+21 años- Entrenador Personal.
 
 
 ### Tablero de trabajo:
