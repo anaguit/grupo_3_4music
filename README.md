@@ -31,7 +31,7 @@ Edad: 21 años - Entrenador.
 
 
 ### Tablero de trabajo:
-https://trello.com/proyectointgrupo3/account
+https://trello.com/b/B6EX14IH/tareas-proyecto-grupo-3
 
 ### Wireframes: 
 
