@@ -35,17 +35,17 @@ https://trello.com/proyectointgrupo3/account
 
 ### Wireframes: 
 
-Página de Inicio (Home):
+**Página de Inicio (Home):**
 https://wireframe.cc/pro/pp/1bbf76969449508
 
-Detalle de un Producto:
+**Detalle de un Producto:**
 https://wireframe.cc/pro/pp/c3a515bdf449641
 
-Carrito de Compras:
+**Carrito de Compras:**
 
 
-Formulario de Registro:
+**Formulario de Registro:**
 https://wireframe.cc/pro/pp/ad2cd1e92449626
 
-Formulario de Login:
+**Formulario de Login:**
 https://wireframe.cc/pro/pp/fd015d855449628
