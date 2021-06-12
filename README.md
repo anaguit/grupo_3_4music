@@ -42,7 +42,7 @@ https://wireframe.cc/pro/pp/1bbf76969449508
 https://wireframe.cc/pro/pp/c3a515bdf449641
 
 **Carrito de Compras:**
-
+https://wireframe.cc/pro/pp/60142a233449581
 
 **Formulario de Registro:**
 https://wireframe.cc/pro/pp/ad2cd1e92449626
