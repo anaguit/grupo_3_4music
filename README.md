@@ -34,7 +34,7 @@ Edad: 21 años - Entrenador.
 https://trello.com/b/B6EX14IH/tareas-proyecto-grupo-3
 
 ### Wireframes: 
-####(En caso de que no funcionen los Links por haber caducado la cuenta de Wireframe.cc, se adjuntan los PDF correspondientes)
+**(En caso de que no funcionen los Links por haber caducado la cuenta de Wireframe.cc, se adjuntan los PDF correspondientes)**
 
 **Página de Inicio (Home):**
 https://wireframe.cc/pro/pp/1bbf76969449508
