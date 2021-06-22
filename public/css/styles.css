@@ -1,0 +1,4 @@
+
+* {
+    box-sizing: border-box; /*Para que el ancho de los elementos no supere al ancho estipulado*/
+}
