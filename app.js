@@ -11,5 +11,17 @@ app.listen(3000,function(){
 });
 
 app.get("/", (req,res)=> {
-    res.sendFile(path.resolve(__dirname,"./views/home.html"));
+    res.sendFile(path.resolve(__dirname,"./views/index.html"));
+});
+app.get("/login", (req,res)=> {
+    res.sendFile(path.resolve(__dirname,"./views/login.html"));
+});
+app.get("/register", (req,res)=> {
+    res.sendFile(path.resolve(__dirname,"./views/register.html"));
+});
+app.get("/cart", (req,res)=> {
+    res.sendFile(path.resolve(__dirname,"./views/cart.html"));
+});
+app.get("/item-detail", (req,res)=> {
+    res.sendFile(path.resolve(__dirname,"./views/item-detail.html"));
 });
