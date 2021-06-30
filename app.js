@@ -6,7 +6,7 @@ let rutaCarpetaPublic = path.resolve(__dirname,"./public"); //genero ruta absolu
 app.use(express.static(rutaCarpetaPublic)); //indico los archivos estáticos publicos
 
 
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
     console.log("Servidor corriendo en Puerto 3000");
 });
 

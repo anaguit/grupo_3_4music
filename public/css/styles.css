@@ -1,6 +1,13 @@
 
 * {
-    box-sizing: border-box; /*Para que el ancho de los elementos no supere al ancho estipulado*/
+    box-sizing: border-box; 
+}
+body { 
+    padding-top: 220px; 
+}
+a {
+    text-decoration: none;
+    color: black;
 }
 
 #headerSuperior {
@@ -8,17 +15,101 @@
     padding: 20px;
 }
 #headerInferior {
-    margin-top:172px;
+    margin-top:140px;
     display: flex;
-    background-color: seagreen;
+    background-color: black;
    
 }
-body { padding-top: 220px; }
-
-.opcionesUsuario, .contenedorLogosRedes {
+.headerIzquierda {
+    padding-right: 10px;
+}
+.headerDerecha {
+    width:22%;
+    padding-left: 15px;
+}
+.contenedorOpcionesUsuario, .contenedorLogosRedes {
     display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 30px;
+    align-items: center;
+}
+.logoRedes, .opcionUsuario, .logoCarrito {
+    padding-left: 10px;
+}
+.logoRedes i{
+    font-size: 26px;
+    padding-top:20px;
+}
+#linkLogo img{
+    max-height: 100px;
 }
 
-#linkLogo img{
-    max-height: 60px;
+.input-group{
+    width: 60%;
+    padding-right: 5px;
+}
+
+.menu {
+    justify-content: center !important;
+}
+.oculto {
+    display: none; 
+}
+@media (max-width:576px) {
+
+}
+
+
+@media (max-width:768px) {
+    #headerInferior, .headerDerecha{
+        display: none !important;
+    }
+    .input-group{
+        width: 90%;
+        padding-top: 10px;
+        margin-left:auto;
+    }
+    
+}
+
+
+@media (max-width:992px) {
+    .headerDerecha {
+        width: 60%;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left:50%;
+    }
+    .contenedorOpcionesUsuario{
+        width: 60%;
+    }
+    .contenedorLogosRedes{
+        width: 40%;
+    }
+    .logoRedes i{
+        padding-top: 0;
+    }
+    #headerInferior{
+        margin-top: 170px;
+    }
+    
+}
+
+
+@media (max-width:1200px) {
+    .btn {
+        font-size: 0.8rem;
+    }
+    .visible {
+        display: none;
+    }
+    .oculto {
+        display: inline;
+    }
+    .opcionUsuario,.logoCarrito {
+        font-size: 20px;
+    }
 }
