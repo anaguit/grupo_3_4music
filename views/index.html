@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>4Music</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="shortcut icon" href="/images/logo4music1RojoChico.jpg">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/normalize.css"> 
@@ -14,22 +15,25 @@
     <link rel="stylesheet" href="/css/styles.css">
  
 </head>
-<body>
+<body class="fourMusic">
     <header class="contenedorHeader">
         <nav id="headerSuperior" class="navbar fixed-top navbar-expand-lg pl-3">
             <div class="container" style="position:relative;">
                 <div class="headerIzquierda">
-                    <a id="linkLogo" class="navbar-brand" href="#">
+                    <a id="linkLogo" class="navbar-brand" href="/">
                         <img src="/images/logo4musicTransparente2.png" alt="4Music">
                     </a>
                 </div>
                 <div class="input-group">
                     <input type="text" id="busqueda" class="form-control" placeholder="Buscar Productos...">
                     <div class="input-group-append" >
-                      <button class="btn btn-secondary"  type="button">
-                        <i class="fa fa-search"></i>
+                      <button class="btn btn-secondary botonLupa"  type="button">
+                        <i class="fa fa-search lupa"></i>
                       </button>
                     </div>
+                </div>
+                <div class="menuHamburguesa">
+                    <i class="fas fa-bars"></i>
                 </div>             
                 <div class="headerDerecha">
                     <div class="contenedorOpcionesUsuario">
@@ -147,74 +151,326 @@
         </nav>      
     </header>
     <main>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+        
+            <!--Carrusel de imagenes Bootstrap-->
+    
+            <section id="contenedor-carrusel1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-s12">
+                    
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="images/banner1.jpg" alt="First slide" >
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="images/banner2.jpg" alt="Second slide" >
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="images/banner3.jpg" alt="Third slide" >
+                                </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <!--<span class="sr-only">Previous</span> Texto del boton previous-->
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <!--<span class="sr-only">Next</span> Texto del boton next-->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Imagenes debajo del primer carrusel-->
+            <section id="contenedor-imgs">
+                <div class="imgEstilo">
+                    <a href="#">
+                        <img src="images/tango.jpg" alt="">
+                        <p>Tango</p>
+                    </a>
+                </div>
+                <div class="imgEstilo">
+                    <a href="#">
+                        <img src="images/folklore.jpg" alt="">
+                        <p>Folklore</p>
+                    </a>
+                </div>
+                <div class="imgEstilo">
+                    <a href="#">
+                        <img src="images/rock.jpg" alt="">
+                        <p>Rock & Blues</p>
+                    </a>
+                </div>
+                <div class="imgEstilo">
+                    <a href="#">
+                        <img src="images/jazz.jpg" alt="">
+                        <p>Jazz</p>
+                    </a>
+                </div>
+                <div class="imgEstilo">
+                    <a href="#">
+                        <img src="images/otros.jpg" alt="">
+                        <p>Otros</p>
+                    </a>
+                </div>
+            </section>
+        <div class="contenedorMain">
+            <!--Slider de mas vistos | ultimos lanzamientos-->
+            <section id="contenedor-carrusel">
+                <div class="container">
+                    <h2 class="titulos">Mas vistos | Ultimos lanzamientos</h2>
+                    <!--Slider-->
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    <!--Slider 1-->
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-3">
+                                    <a href="/item-detail">
+                                        <img class="d-block w-100" src="/images/products/guitarra.jpg" alt="A"  > 
+                                        <p class="titulo">Guitarra Yamaha GC41</p>
+                                        <p class="precio">$145.000</p> 
+                                    </a>
+                                </div>
+                                <div class="col-3 oculta576">
+                                    <a href="/item-detail">
+                                        <img class="d-block w-100" src="/images/products/bateria.jpg" alt="B">
+                                        <p class="titulo">Batería Sonor</p>
+                                        <p class="precio">$200.000</p>
+                                    </a> 
+                                </div>
+                                <div class="col-3 oculta768">
+                                    <a href="/item-detail">
+                                        <img class="d-block w-100" src="/images/products/bandoneon.jpg" alt="C">
+                                        <p class="titulo">Bandoneón AA</p>
+                                        <p class="precio">$350.000</p> 
+                                    </a>
+                                </div>
+                                <div class="col-3 oculta991">
+                                    <a href="/item-detail">
+                                        <img class="d-block w-100" src="/images/products/teclado.jpg" alt="D">
+                                        <p class="titulo">Teclado Yamaha</p>
+                                        <p class="precio">$224.290</p> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <!--Fin Slider 1-->
+                    
+                    <!--Slider 2-->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-3">
+                                    <a href="/item-detail">
+                                        <img class="d-block w-100" src="/images/products/teclado.jpg" alt="A"  > 
+                                        <p class="titulo">Teclado</p>
+                                        <p class="precio">$345.000</p> 
+                                    </a>
+                                </div>
+                                <div class="col-3 oculta576">
+                                    <a href="/item-detail">
+                                        <img class="d-block w-100" src="/images/products/trompeta.jpg" alt="B">
+                                        <p class="titulo">Trompeta</p>
+                                        <p class="precio">$500.000</p>
+                                    </a> 
+                                </div>
+                                <div class="col-3 oculta768">
+                                    <a href="/item-detail">
+                                        <img class="d-block w-100" src="/images/products/Contrabajo.jpg" alt="C">
+                                        <p class="titulo">Contrabajo Artesanal</p>
+                                        <p class="precio">$950.000</p> 
+                                    </a>
+                                </div>
+                                <div class="col-3 oculta991">
+                                    <a href="/item-detail">
+                                        <img class="d-block w-100" src="/images/products/bajo.jpg" alt="D">
+                                        <p class="titulo">Bajo Fender</p>
+                                        <p class="precio">$524.290</p> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <!--Fin Slider 2-->
+                    </div>
+                    </div>
+                </div>
+                <div id="controlCarrusel1">
+                    <button class="prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <a class="next" role="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </section>
+            
+
+            <!--Slider de Ofertas-->
+            <section id="contenedor-carrusel">
+                <div class="container">
+                    <h2 class="titulos">Ofertas</h2>
+                    <!--Slider-->
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <!--Slider 3-->
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <a href="/item-detail">
+                                            <img class="d-block w-100" src="/images/products/guitarra.jpg" alt="A"  > 
+                                            <p class="titulo">Guitarra Yamaha GC41</p>
+                                            <p class="precio">$145.000</p> 
+                                        </a>
+                                    </div>
+                                    <div class="col-3 oculta576">
+                                        <a href="/item-detail">
+                                            <img class="d-block w-100" src="/images/products/bateria.jpg" alt="B">
+                                            <p class="titulo">Batería Sonor</p>
+                                            <p class="precio">$200.000</p>
+                                        </a> 
+                                    </div>
+                                    <div class="col-3 oculta768">
+                                        <a href="/item-detail">
+                                            <img class="d-block w-100" src="/images/products/bandoneon.jpg" alt="C">
+                                            <p class="titulo">Bandoneón AA</p>
+                                            <p class="precio">$350.000</p> 
+                                        </a>
+                                    </div>
+                                    <div class="col-3 oculta991">
+                                        <a href="/item-detail">
+                                            <img class="d-block w-100" src="/images/products/teclado.jpg" alt="D">
+                                            <p class="titulo">Teclado Yamaha</p>
+                                            <p class="precio">$224.290</p> 
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Slider 3-->
+
+                            <!--Slider 4-->
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <a href="/item-detail">
+                                            <img class="d-block w-100" src="/images/products/teclado.jpg" alt="A"  > 
+                                            <p class="titulo">Teclado</p>
+                                            <p class="precio">$345.000</p> 
+                                        </a>
+                                    </div>
+                                    <div class="col-3 oculta576">
+                                        <a href="/item-detail">
+                                            <img class="d-block w-100" src="/images/products/trompeta.jpg" alt="B">
+                                            <p class="titulo">Trompeta</p>
+                                            <p class="precio">$500.000</p>
+                                        </a> 
+                                    </div>
+                                    <div class="col-3 oculta768">
+                                        <a href="/item-detail">
+                                            <img class="d-block w-100" src="/images/products/Contrabajo.jpg" alt="C">
+                                            <p class="titulo">Contrabajo Artesanal</p>
+                                            <p class="precio">$950.000</p> 
+                                        </a>
+                                    </div>
+                                    <div class="col-3 oculta991">
+                                        <a href="/item-detail">
+                                            <img class="d-block w-100" src="/images/products/bajo.jpg" alt="D">
+                                            <p class="titulo">Bajo Fender</p>
+                                            <p class="precio">$524.290</p> 
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Slider 4-->
+
+                        </div>
+                    </div>
+                </div>
+                <div id="controlCarrusel1">
+                    <button class="prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <a class="next" role="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </section>
+            
+        </div>
     </main>
     <footer>
-        <section>
-            <article>
-                <img src= "/images/epiphone.jpeg">
-                <img src= "/images/Fender.jpeg">
-                <img src= "/images/Gibson.jpeg">
-                <img src= "/images/ibanez.jpeg">
-                <img src= "/images/roland.jpeg">
-                <img src= "/images/yamaha.jpeg">
-            </article>
-        </section>
-
-
-        <section>
-            <article>
-                <h4>Información</h4>
-                <lu>
-                    <li>Sobre nosotros</li>
-                    <li>Contacto</li>
-                    <li>Cambios y devoluciones</li>
-                    <li>Formas de envío</li>
-                    <li>Políticas de privacidad</li>
-                </lu>
-            </article>
-            
-            <article>
-                <h4>Medios de Pago</h4>
-                <lu>
-                    <li>Tarjetas Crédito/Débito</li>
-                    <li>Mercado Pago</li>
-                    <li>Pago Fácil</li>
-                    <li>Rapipago</li>
-                    <li>Tarjeta Shopping</li>
-                    <li>Tarjeta Naranja</li>
-                    <li>Tarjeta Nativa</li>
-                </lu>
-            </article>
-            
-            <article>
-                <h4>Donde Estamos</h4>
+        
+        <section class="footer-superior">
+            <div class="contenedor-marcas">
                 <div>
-                  <p>Av Rivadavia 3507, Caba</p><br>
-                  <p>Horarios de Atención></p><br>
-                  <p>Lunes a Viernes 9hs a 20hs</p><br>
-                  <p>Sábados 9hs a 13hs</p>
-                </div>
-                <div>
-                    <img src= "/images/ubicacion.jpeg">
-                </div>
-            </article>
-
-            <div>
-                <p>Copyright 2021 - Todos los derechos reservados</p>
+                    <img src= "/images/casio.jpg" class="marcas"></div>
+                <div><img src= "/images/epiphone.jpeg" class="marcas"></div>
+                <div><img src= "/images/Fender.jpeg" class="marcas"></div>
+                <div><img src= "/images/gibson.jpeg" class="marcas"></div>
+                <div><img src= "/images/ibanez.jpeg" class="marcas"></div>
+                <div><img src= "/images/yamaha.jpeg" class="marcas"></div>
             </div>
         </section>
+
+
+        <section class="footer-inferior">
+            <div class="contenedor-inferior">
+                <div class="informacion-contacto">
+                    <h4>Información</h4>
+                    <lu class="lista-footer">
+                        <li><a href="">Sobre nosotros</a></li>
+                        <li><a href="">Contacto</a></li>
+                        <li><a href="">Cambios y devoluciones</a></li>
+                        <li><a href="">Formas de envío</a></li>
+                        <li><a href="">Políticas de privacidad</a></li>
+                    </lu>
+                </div>
+                
+                <div class="medios-pago">
+                    <h4>Medios de Pago</h4>
+                    <lu class="lista-footer">
+                        <li>Tarjetas Crédito/Débito</li>
+                        <li>Mercado Pago</li>
+                        <li>Pago Fácil</li>
+                        <li>Rapipago</li>
+                        <li>Tarjeta Shopping</li>
+                        <li>Tarjeta Naranja</li>
+                        <li>Tarjeta Nativa</li>
+                    </lu>
+                </div>
+                <div class="horario-ubicacion">
+                    <h4>Donde Estamos</h4>
+                    <div>
+                        <p>Av Rivadavia 3507, Caba</p>
+                        <p>Horarios de Atención</p>
+                        <p>Lunes a Viernes 9hs a 20hs</p>
+                        <p>Sábados 9hs a 13hs</p>
+                        <img class="mapa" src="/images/mapa.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class= "copyright">
+                <p>Copyright 2021 - Todos los derechos reservados</p>
+            </div>
+                
+        </section>
+        
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     
 </body>
 </html>

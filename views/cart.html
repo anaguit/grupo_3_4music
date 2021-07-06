@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Carrito de Compras | 4Music</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <link rel="shortcut icon" href="/images/logo4music1RojoChico.jpg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/normalize.css"> 
+    <script src="https://kit.fontawesome.com/b23bb642b5.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="/css/styles.css">
+ 
+</head>
+<body class="fourMusic">
+    <header class="contenedorHeader">
+        <nav id="headerSuperior" class="navbar fixed-top navbar-expand-lg pl-3">
+            <div class="container" style="position:relative;">
+                <div class="headerIzquierda">
+                    <a id="linkLogo" class="navbar-brand" href="/">
+                        <img src="/images/logo4musicTransparente2.png" alt="4Music">
+                    </a>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="busqueda" class="form-control" placeholder="Buscar Productos...">
+                    <div class="input-group-append" >
+                      <button class="btn btn-secondary botonLupa"  type="button">
+                        <i class="fa fa-search lupa"></i>
+                      </button>
+                    </div>
+                </div>
+                <div class="menuHamburguesa">
+                    <i class="fas fa-bars"></i>
+                </div>             
+                <div class="headerDerecha">
+                    <div class="contenedorOpcionesUsuario">
+                        <div class="opcionUsuario">
+                            <a href="/login"> <i class="fas fa-user"></i> Ingresar</a>
+                        </div>
+                        <div class="opcionUsuario visible">
+                            <a href="/register">Registrarse</a>
+                        </div>
+                        <div class="logoCarrito">
+                            <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="contenedorLogosRedes">
+                        <div class="logoRedes">
+                            <a href="http://facebook.com"><i class="fab fa-facebook" ></i></a>
+                        </div>
+                        <div class="logoRedes">
+                            <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="logoRedes">
+                            <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav> 
+        <nav id="headerInferior" class="navbar fixed-top navbar-expand-lg" color-on-scroll="100">
+            <div class="container menu" style="position:relative;">
+                <div class="dropdown visible">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        INICIO
+                    </button>
+                </div>
+                <div class="dropdown visible">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        AMPLIFICADORES
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">GUITARRA</button>
+                        <button class="dropdown-item" type="button">BAJO</button>
+                        <button class="dropdown-item" type="button">MULTIUSO</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        INSTRUMENTOS DE CUERDAS
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">GUITARRAS</button>
+                        <button class="dropdown-item" type="button">BAJOS</button>
+                        <button class="dropdown-item" type="button">UKELELES</button>
+                        <button class="dropdown-item" type="button">CHARANGOS</button>
+                        <button class="dropdown-item" type="button">VIOLINES</button>
+                        <button class="dropdown-item" type="button">ACCESORIOS</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        PERCUSIÓN
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">BATERIAS</button>
+                        <button class="dropdown-item" type="button">ACCESORIOS PERCUSIÓN</button>
+                        <button class="dropdown-item" type="button">PARCHES</button>
+                        <button class="dropdown-item" type="button">PALILLOS</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        TECLAS
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">PIANOS</button>
+                        <button class="dropdown-item" type="button">TECLADOS</button>
+                        <button class="dropdown-item" type="button">SINTETIZADORES</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        VIENTOS
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">TROMPETAS</button>
+                        <button class="dropdown-item" type="button">SAXOS</button>
+                        <button class="dropdown-item" type="button">TUBAS</button>
+                        <button class="dropdown-item" type="button">CLARINETES</button>
+                        <button class="dropdown-item" type="button">ACORDEONES</button>
+                        <button class="dropdown-item" type="button">FLAUTAS</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        AUDIO
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">MICRÓFONOS</button>
+                        <button class="dropdown-item" type="button">CONSOLAS</button>
+                        <button class="dropdown-item" type="button">INTERFASES</button>
+                        <button class="dropdown-item oculto" type="button">AMPLIFICADORES GUITARRA</button>
+                        <button class="dropdown-item oculto" type="button">AMPLIFICADORES BAJO</button>
+                        <button class="dropdown-item oculto" type="button">AMPLIFICADORES MULTIUSO</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        VARIOS
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">ACCESORIOS GRABACIÓN</button>
+                        <button class="dropdown-item" type="button">EFECTOS</button>
+                        <button class="dropdown-item" type="button">SSS</button>
+                    </div>
+                </div>
+        </nav>      
+    </header>
+    <main>
+        <div class="contenedorMain contenedorCarrito">
+            <h1 class="tituloCarrito">Tu carrito</h1>
+            <div class="cajaPrincipal">
+                <div class="caja1">
+                    <div class="columnaGrande oculto394"> 
+                        <p id="producto">Producto</p>
+                    </div>
+                    <div class="columnaGrande"> 
+                        <p id="descripcion">Nombre</p>
+                    </div>
+                    <div class="columna"> 
+                        <p id="precio">Precio</p>
+                    </div>
+                    <div class="columna"> 
+                        <p id="cantidad">Cantidad</p>
+                    </div>
+                    <div class="columna"> 
+                        <p id="total">Total</p>
+                    </div>
+                </div>
+                <div class="contenedor-producto">
+                    <div id="imagen" class="columnaGrande oculto394">
+                        <img src="/images/products/Yamaha1.png" alt="A" class="fotoProductoCarrito">
+                    </div>
+                    <div class="columnaGrande">
+                        <a href="/item-detail">
+                            <p class="texto">Guitarra Yamaha GC-41</p>
+                        </a>
+                    </div>
+                    <div class="columna">
+                        <p class="precioCarrito">$145.000</p>
+                    </div>
+                    <div class="columna">
+                        <i>
+                            <select class="selectorCantidad">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                            </select>
+                        </i>
+                    </div>
+                    <div class="columna">
+                        <p class="total">$145.000</p>
+                    </div>          
+                </div>
+            </div>
+            <div class="caja2">
+                <div class="entrega">
+                    <h2> Entrega </h2>
+                    <p>
+                        <i class="fas fa-check-circle"></i> Entrega segura 
+                    </p>
+                    <p>
+                        <i class="fas fa-check-circle"></i> Entrega rápida 
+                    </p>
+                </div>
+                <div class="sumatoria">
+                    <h2> Sumatoria </h2>
+                    <p class="subtotal"> Subtotal: </p>
+                    <p class="envio"> Costo de envio:  </p>
+                    <hr class="linea">
+                    <p class="total"> Total:  </p>
+
+                </div>
+                <div class="retiro">
+                    <a href="#">
+                        <button class="boton-registro enLinea"> 
+                            <i class="fas fa-home"></i> 
+                            Retirar en sucursal 
+                        </button>
+                    </a>
+                    <a href="#">
+                        <button class="boton-registro enLinea"> 
+                            <i class="fas fa-shipping-fast"></i> 
+                            Continuar con envío 
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="cajaPrincipal inferior">
+                <div class="cajaInferior">
+                    <div class="retiro">
+                            <a href="#" >
+                                <button class="boton-registro" class="btn btn-primary"> 
+                                Finalizar compra 
+                                </button>
+                            </a>
+                            <a href="#" class="medioPago">MasterCard </a>
+                            <a href="#" class="medioPago">Visa  </a>
+                            <a href="#" class="medioPago">Amex </a>
+                           
+                    </div>
+                    <div class="retiro">
+                            <a href="/" > 
+                                <button class="btn btn-primary"> 
+                                    Buscar más articulos
+                                </button>
+                            </a>        
+                    </div>
+                </div>  
+            </div>
+        </div>
+</main>
+<footer>
+    
+    <section class="footer-superior">
+        <div class="contenedor-marcas">
+            <div>
+                <img src= "/images/casio.jpg" class="marcas"></div>
+            <div><img src= "/images/epiphone.jpeg" class="marcas"></div>
+            <div><img src= "/images/Fender.jpeg" class="marcas"></div>
+            <div><img src= "/images/gibson.jpeg" class="marcas"></div>
+            <div><img src= "/images/ibanez.jpeg" class="marcas"></div>
+            <div><img src= "/images/yamaha.jpeg" class="marcas"></div>
+        </div>
+    </section>
+
+
+    <section class="footer-inferior">
+        <div class="contenedor-inferior">
+            <div class="informacion-contacto">
+                <h4>Información</h4>
+                <lu class="lista-footer">
+                    <li><a href="">Sobre nosotros</a></li>
+                    <li><a href="">Contacto</a></li>
+                    <li><a href="">Cambios y devoluciones</a></li>
+                    <li><a href="">Formas de envío</a></li>
+                    <li><a href="">Políticas de privacidad</a></li>
+                </lu>
+            </div>
+            
+            <div class="medios-pago">
+                <h4>Medios de Pago</h4>
+                <lu class="lista-footer">
+                    <li>Tarjetas Crédito/Débito</li>
+                    <li>Mercado Pago</li>
+                    <li>Pago Fácil</li>
+                    <li>Rapipago</li>
+                    <li>Tarjeta Shopping</li>
+                    <li>Tarjeta Naranja</li>
+                    <li>Tarjeta Nativa</li>
+                </lu>
+            </div>
+            <div class="horario-ubicacion">
+                <h4>Donde Estamos</h4>
+                <div>
+                    <p>Av Rivadavia 3507, Caba</p>
+                    <p>Horarios de Atención</p>
+                    <p>Lunes a Viernes 9hs a 20hs</p>
+                    <p>Sábados 9hs a 13hs</p>
+                    <img class="mapa" src="/images/mapa.jpg">
+                </div>
+            </div>
+        </div>
+        <div class= "copyright">
+            <p>Copyright 2021 - Todos los derechos reservados</p>
+        </div>
+            
+    </section>
+    
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+   
