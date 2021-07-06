@@ -1,6 +1,5 @@
 # Retrospectiva del Trabajo
-### :
- "Proyecto Grupo 3 - 4Music".
+### "Proyecto Grupo 3 - 4Music".
 
 ### Qué cosas han funcionado bien.
 Habiendo llegado a la culminación del Sprint 2, podemos decir que estamos conformes con el desempeño del equipo de trabajo.
