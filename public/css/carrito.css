@@ -1,0 +1,720 @@
+*{
+    box-sizing: border-box; /*Para que el ancho de los elementos no supere al ancho estipulado*/
+    
+}
+
+body{
+    background-color: #ebe6d8;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+
+.div-media{
+    display: none;
+}
+
+h1{
+    color: #14254a;
+    display: inline-block;
+    position:relative;
+    left: 50px;
+    margin-top: 50px;
+    
+}
+
+.caja1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+
+
+
+.contenedor-producto{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    border: black solid 1px;
+    
+}
+
+
+#imagen{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+
+
+.texto{
+    overflow: hidden;
+    width: 180px;
+    position: relative;
+    left: 50px;
+}
+
+.precio{
+    position: relative;
+    left: 90px;
+    height: 50%;
+}
+
+.numeros{
+    overflow: hidden;
+    height: 20px;
+    width: 40px;
+    position: relative;
+    left: 205px;
+    background-color: #ebe6d8;
+    margin-top: 15px;
+}
+
+
+.total{
+    position: relative;
+    left: 405px;
+    height: 50%;
+}
+
+
+@media (min-width:360px) AND (max-width:780px){
+    *{
+        border: black solid 1px;
+    }
+
+    body{
+        width: 400px;
+        margin: 0;
+        border: solid 1px black;
+    }
+
+    #precio, #cantidad, #total{
+        display: none;
+    }
+
+    #imagen {
+        height: 200px;
+    }
+
+    .texto{
+        overflow: hidden;
+        height: 180px;
+        position: relative;
+        right: 100px;
+        
+    }
+
+    .contenedor-producto{
+        height: 500px;
+        width: 400px;
+    }
+
+    .div-media{
+        height: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+        top: 240px;
+        right: 140px;
+        text-align: center;
+    }
+
+    .precio{
+        display: none;
+    }
+    #precio{
+        display: none;
+    }
+
+    #nombre-producto{
+        width: 100px;
+        position: relative;
+        left: 30px;
+        bottom: 10px;
+    }
+
+    .caja1{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+/* CSS de Estefi */
+
+.entrega {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px 20px 20px 20px;
+    margin: 100px 490px 400px 200px;
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    background: lightgray;
+    width: 340px;
+    height: 230px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid black;
+    justify-content: space-around;
+    position: relative;
+    right: 130px;
+}
+
+#sumatoria {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px 20px 20px 20px;
+    margin: 100px 100px 100px 100px;
+    bottom: 450px;
+    right: 50px;
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    background: lightgray;
+    width: 500px;
+    height: 470px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid black;
+    justify-content: space-around;
+    position: relative;
+    display: block;
+    left: 390px;
+    bottom: 800px;
+}
+
+.subtotal {
+    text-align: center;
+}
+
+.envio {
+    text-align: center;
+}
+
+.total {
+    text-align:center;
+}
+
+.retirar {
+    text-align: center;
+    background-color: lightslategrey;
+    font-family: Georgia;
+    font-size: 20px;
+    padding: 3px 3px 3px 3px;
+}
+
+.continuar {
+    text-align: center;
+    background-color: lightsteelblue;
+    box-sizing: border-box;
+    font-family: Georgia;
+    font-size: 20px;
+    padding: 3px 3px 3px 3px;
+}
+
+#finalizar {
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    width: 330px;
+    height: 80px;
+    box-sizing: border-box;
+    font-size: 20px;
+    bottom: 1300px;
+    left: 1050px;
+    position: relative;
+}
+.medios-de-pago {
+    text-align: center;
+    border: 3px solid gray;
+    width: 300px;
+    
+}
+
+#buscar {
+    text-align: center;
+    position: relative;
+    padding: 5px 5px 5px 5px;
+    width: 250px;
+    height: 80px;
+    bottom: 1200px;
+    left: 1100px;
+    font-size: 15px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+#botones {
+    box-sizing: border-box;
+    border: 3px solid black;
+}
+
+/* Medias de Estefi*/
+
+@media screen and (max-width:394px) {
+    .entrega {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 400px 490px 400px 200px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 10px;
+        font-weight: 200;
+        background: lightgray;
+        width: 200px;
+        height: 150px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        right: 100px;
+    }
+
+    #sumatoria {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 100px 100px 100px 100px;
+        bottom: 300px;
+        right: 50px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 10px;
+        font-weight: 400;
+        background: lightgray;
+        width: 300px;
+        height: 200px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+    }
+
+    .subtotal {
+        text-align: left;
+    }
+
+    .envio {
+        text-align: left;
+    }
+
+    .total {
+        text-align: justify;
+    }
+
+    .retirar {
+        text-align: center;
+        background-color: lightslategrey;
+        font-family: Georgia;
+        font-size: 15px;
+        padding: 3px 3px 3px 3px;
+    }
+
+    .continuar {
+        text-align: center;
+        background-color: lightsteelblue;
+        box-sizing: border-box;
+        font-family: Georgia;
+        font-size: 15px;
+        padding: 3px 3px 3px 3px;
+    }
+
+    .finish {
+        text-align: center;
+    }
+
+    .medios-de-pago {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .entrega {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 400px 490px 400px 200px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 100;
+        background: lightgray;
+        width: 230px;
+        height: 150px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        right: 180px;
+    }
+
+    #sumatoria {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 100px 100px 100px 100px;
+        bottom: 450px;
+        right: 50px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 200;
+        background: lightgray;
+        width: 300px;
+        height: 280px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        display: block;
+        left: 150px;
+        bottom: 700px;
+    }
+
+    .subtotal {
+        text-align: left;
+    }
+
+    .envio {
+        text-align: left;
+    }
+
+    .total {
+        text-align:left;
+    }
+
+    .retirar {
+        text-align: center;
+        background-color: lightslategrey;
+        font-family: Georgia;
+        font-size: 15px;
+        padding: 3px 3px 3px 3px;
+    }
+
+    .continuar {
+        text-align: center;
+        background-color: lightsteelblue;
+        box-sizing: border-box;
+        font-family: Georgia;
+        font-size: 15px;
+        padding: 3px 3px 3px 3px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .entrega {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 400px 490px 400px 200px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 100;
+        background: lightgray;
+        width: 240px;
+        height: 170px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        right: 150px;
+    }
+
+    #sumatoria {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 100px 100px 100px 100px;
+        bottom: 450px;
+        right: 50px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 15px;
+        font-weight: 200;
+        background: lightgray;
+        width: 340px;
+        height: 290px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        display: block;
+        left: 230px;
+        bottom: 750px;
+    }
+
+    .subtotal {
+        text-align: left;
+        margin: 5px;
+    }
+
+    .envio {
+        text-align: left;
+    }
+
+    .total {
+        text-align:left;
+    }
+
+    .retirar {
+        text-align: center;
+        background-color: lightslategrey;
+        font-family: Georgia;
+        font-size: 15px;
+        padding: 3px 3px 3px 3px;
+    }
+
+    .continuar {
+        text-align: center;
+        background-color: lightsteelblue;
+        box-sizing: border-box;
+        font-family: Georgia;
+        font-size: 15px;
+        padding: 3px 3px 3px 3px;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .entrega {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 400px 490px 400px 200px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 100;
+        background: lightgray;
+        width: 270px;
+        height: 200px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        right: 130px;
+    }
+
+    #sumatoria {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 100px 100px 100px 100px;
+        bottom: 450px;
+        right: 50px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+        background: lightgray;
+        width: 490px;
+        height: 390px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        display: block;
+        left: 310px;
+        bottom: 750px;
+    }
+
+    .subtotal {
+        text-align: left;
+        margin: 13px;
+    }
+
+    .envio {
+        text-align: left;
+    }
+
+    .total {
+        text-align:left;
+    }
+
+    .retirar {
+        text-align: center;
+        background-color: lightslategrey;
+        font-family: Georgia;
+        font-size: 23px;
+        padding: 2px 2px 2px 2px;
+    }
+
+    .continuar {
+        text-align: center;
+        background-color: lightsteelblue;
+        box-sizing: border-box;
+        font-family: Georgia;
+        font-size: 23px;
+        padding: 2px 2px 2px 2px;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .entrega {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 400px 490px 400px 200px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 100;
+        background: lightgray;
+        width: 280px;
+        height: 230px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        right: 110px;
+    }
+
+    #sumatoria {
+        text-align: center;
+        box-sizing: border-box;
+        padding: 20px 20px 20px 20px;
+        margin: 100px 100px 100px 100px;
+        bottom: 450px;
+        right: 50px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 23px;
+        font-weight: 200;
+        background: lightgray;
+        width: 620px;
+        height: 470px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid black;
+        justify-content: space-around;
+        position: relative;
+        display: block;
+        left: 400px;
+        bottom: 770px;
+    }
+
+    .subtotal {
+        text-align: left;
+        margin: 25px;
+    }
+
+    .envio {
+        text-align: left;
+    }
+
+    .total {
+        text-align:left;
+    }
+
+    .retirar {
+        text-align: center;
+        background-color: lightslategrey;
+        font-family: Georgia;
+        font-size: 27px;
+        padding: 3px 3px 3px 3px;
+    }
+
+    .continuar {
+        text-align: center;
+        background-color: lightsteelblue;
+        box-sizing: border-box;
+        font-family: Georgia;
+        font-size: 27px;
+        padding: 3px 3px 3px 3px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

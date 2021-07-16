@@ -13,3 +13,7 @@ app.listen(3000,function(){
 app.get("/", (req,res)=> {
     res.sendFile(path.resolve(__dirname,"./views/home.html"));
 });
+
+app.get("/carrito", (req,res)=> {
+    res.sendFile(path.resolve(__dirname,"./views/carrito.html"));
+});
