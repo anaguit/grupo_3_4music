@@ -228,7 +228,7 @@ h1{
 }
 .contenedor-inferior{
     display:flex;
-    justify-content:space-between;
+    justify-content: center;
     padding-top: 3%;
     
 }
@@ -240,7 +240,7 @@ h1{
     width: 30vw;
     font-size: 18px;
     padding-left: 15px;
-    margin-bottom: 20%;
+    margin-bottom: 2%;
 }
 
 a:hover{
@@ -250,7 +250,7 @@ a:hover{
     width: 30vw;
     font-size: 18px;
     padding-left: 15px;
-    margin-bottom: 20%;
+    margin-bottom: 2%;
 }
 .horario-ubicacion{
     width: 30vw;
@@ -534,6 +534,13 @@ input:hover{
 	height: 35px;
 }
 
+.areaTexto {
+    width:80%;
+    padding:15px;
+    min-height: 150px;
+    align-items: flex-start;
+}
+
 /*-------Carrito--------*/
 
 .div-media{
@@ -652,7 +659,7 @@ input:hover{
     }
     .contenedor-inferior{
         display: inline;
-        justify-content: center;
+        
         flex-wrap: wrap;
         text-align: center;
         padding-top:15px;

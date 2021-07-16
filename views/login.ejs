@@ -10,7 +10,7 @@
         <div class="contenedorMain">
             <div class="formulario">         
                 <h2 class="bienvenida">Bienvenido a 4Music!</h2>
-                <form id="ingresar" action="/" method="GET" >
+                <form id="ingresar" action="/users/profile" method="GET" >
                     <div class="lineaForm">
                         <label for="email">Correo Electrónico:</label>
                         <input type="email" name="email" id="email" required  minlength="6" maxlength="25">     
@@ -29,10 +29,10 @@
                         <input type="checkbox" class="check" name="recibir-ofertas">Permanecer conectado
                     </div>
                     <div class="lineaForm"> 
-                        <a href="/register">No tenés cuenta?</a>
+                        <a href="/users/register">No tenés cuenta?</a>
                     </div>
                     <div class="lineaForm"> 
-                        <a href="/register"><button type="button" class="boton-registro">Crea tu cuenta</button></a>
+                        <a href="/users/profile"><button type="button" class="boton-registro">Crea tu cuenta</button></a>
                     </div>
                 </form>
             </div>

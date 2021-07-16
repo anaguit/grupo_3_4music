@@ -1,0 +1,58 @@
+<%-include("../partials/head.ejs")%>
+
+    <title>Publicar Nuevo Producto | 4Music</title>
+    
+<body class="fourMusic">
+    
+    <%-include("../partials/header.ejs")%>
+
+    <main>
+        <div class="contenedorMain">
+            <div class="formulario">         
+                <h2 class="bienvenida">Publicar Nuevo Producto</h2>
+                <form id="publicarProducto" action="/" method="GET" >
+                    <div class="lineaForm">
+                        <label for="marca">Marca</label>
+                        <input type="text" name="marca" id="marca" required  minlength="2" maxlength="25">     
+                    </div>
+                    <div class="lineaForm">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" required  minlength="2" maxlength="30">    
+                    </div>
+                    <div class="lineaForm"> 
+                        <label for="selectCategoria">Categoría</label>
+                        <select name="selectCategoria">
+                            <option value="cat1">Instrumentos de Cuerdas</option>
+                            <option value="cat2" selected>Instrumentos de Percusión</option>
+                            <option value="cat3">Instrumentos de Viento</option>
+                            <option value="cat4">Accesorios</option>
+                          </select>
+                    </div>
+                    <div class="lineaForm">
+                        <label for="descripcion">Descripción</label>
+                       <textarea class="areaTexto" required name="descripcion" placeholder="Ingresá la Descripción del producto" minlength="5" maxlength="400">
+
+                       </textarea>   
+                    </div>
+                    <div class="lineaForm">
+                        <label for="imagenes">Imágenes</label>
+                        <input type="file" name="imagenes" accept="image/png, image/gif, image/jpeg" multiple required/>
+                    </div>
+                    <div class="lineaForm">
+                        <label for="precio">Precio: $</label>
+                        <input type="text" name="precio" id="precio" required>    
+                    </div>
+                   
+                    <div class="lineaForm"> 
+                        <a href="/"><button type="button" class="boton-registro">Publicar</button></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <%-include("../partials/footer.ejs")%>
+
+ 
+</body>
+</html>
