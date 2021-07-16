@@ -1,0 +1,124 @@
+<%-include("partials/head.ejs")%>
+<title>Carrito</title>
+
+<body class="fourMusic">
+    
+    <%-include("partials/header.ejs")%>
+
+    <main>
+        <div class="contenedorMain contenedorCarrito">
+            <h1 class="tituloCarrito">Tu carrito</h1>
+            <div class="cajaPrincipal">
+                <div class="caja1">
+                    <div class="columnaGrande oculto394"> 
+                        <p id="producto">Producto</p>
+                    </div>
+                    <div class="columnaGrande"> 
+                        <p id="descripcion">Nombre</p>
+                    </div>
+                    <div class="columna"> 
+                        <p id="precio">Precio</p>
+                    </div>
+                    <div class="columna"> 
+                        <p id="cantidad">Cantidad</p>
+                    </div>
+                    <div class="columna"> 
+                        <p id="total">Total</p>
+                    </div>
+                </div>
+                <div class="contenedor-producto">
+                    <div id="imagen" class="columnaGrande oculto394">
+                        <img src="/images/products/Yamaha1.png" alt="A" class="fotoProductoCarrito">
+                    </div>
+                    <div class="columnaGrande">
+                        <a href="/item-detail">
+                            <p class="texto">Guitarra Yamaha GC-41</p>
+                        </a>
+                    </div>
+                    <div class="columna">
+                        <p class="precioCarrito">$145.000</p>
+                    </div>
+                    <div class="columna">
+                        <i>
+                            <select class="selectorCantidad">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                                <option value="">5</option>
+                            </select>
+                        </i>
+                    </div>
+                    <div class="columna">
+                        <p class="total">$145.000</p>
+                    </div>          
+                </div>
+            </div>
+            <div class="caja2">
+                <div class="entrega">
+                    <h2> Entrega </h2>
+                    <p>
+                        <i class="fas fa-check-circle"></i> Entrega segura 
+                    </p>
+                    <p>
+                        <i class="fas fa-check-circle"></i> Entrega rápida 
+                    </p>
+                </div>
+                <div class="sumatoria">
+                    <h2> Sumatoria </h2>
+                    <p class="subtotal"> Subtotal: </p>
+                    <p class="envio"> Costo de envio:  </p>
+                    <hr class="linea">
+                    <p class="total"> Total:  </p>
+
+                </div>
+                <div class="retiro">
+                    <a href="#">
+                        <button class="boton-registro enLinea"> 
+                            <i class="fas fa-home"></i> 
+                            Retirar en sucursal 
+                        </button>
+                    </a>
+                    <a href="#">
+                        <button class="boton-registro enLinea"> 
+                            <i class="fas fa-shipping-fast"></i> 
+                            Continuar con envío 
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="cajaPrincipal inferior">
+                <div class="cajaInferior">
+                    <div class="retiro">
+                            <a href="#" >
+                                <button class="boton-registro" class="btn btn-primary"> 
+                                Finalizar compra 
+                                </button>
+                            </a>
+                            <a href="#" class="medioPago">MasterCard </a>
+                            <a href="#" class="medioPago">Visa  </a>
+                            <a href="#" class="medioPago">Amex </a>
+                           
+                    </div>
+                    <div class="retiro">
+                            <a href="/" > 
+                                <button class="btn btn-primary"> 
+                                    Buscar más articulos
+                                </button>
+                            </a>        
+                    </div>
+                </div>  
+            </div>
+        </div>
+</main>
+
+<%-include("partials/footer.ejs")%>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+   

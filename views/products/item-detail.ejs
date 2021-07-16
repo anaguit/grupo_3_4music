@@ -1,0 +1,141 @@
+<%-include("../partials/head.ejs")%>
+
+    <title>Guitarra Yamaha GC41 | 4Music</title>
+    
+<body class="fourMusic">
+    
+    <%-include("../partials/header.ejs")%>
+
+    <main>
+        <div class="contenedorMain">
+            <div class="tituloBloque">
+                <a href="/"><h5>Inicio  ></h5></a>
+                <a href="#"><h5>Instrumentos de Cuerdas  ></h5></a> 
+                <a href="#"><h5>Guitarras Clásicas</h5></a>
+            </div>
+            <div class="contenedorSuperior">
+                <div class="contenedorImagenes">
+                    <div id="content-wrapper">
+                        <div class="column">
+                            <div class="contenedorFeatured">
+                                <img id="featured" src="/images/products/Yamaha1.png" alt="imagen1">
+                            </div>
+                            <div id="slide-wrapper" class="">
+                                <img id="slideLeft" class="arrow" src="images/arrow-left.png">
+                                <div id="slider" class="">
+                                    <img src="/images/products/Yamaha1.png" alt="imagen1" class="thumbnail active">
+                                    <img src="/images/products/Yamaha2.jpg" alt="imagen2" class="thumbnail">
+                                    <img src="/images/products/Yamaha3.jpg" alt="imagen3" class="thumbnail">
+                                    <img src="/images/products/Yamaha4.jpg" alt="imagen4" class="thumbnail">
+                                </div>
+                                <img id="slideRight" class="arrow" src="images/arrow-right.png">
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+                <div class="contenedorDatos">
+                    <div class="nombreProducto">
+                        <h2>Guitarra Yamaha GC41</h2>
+                    </div>
+                    <div class="precioProducto">
+                        <h3>$145.000</h3>
+                    </div>
+                    <div class="">
+                        <a href=#>Consultar por otros medios de pago</a>
+                    </div>
+                    <div class="sectorComprar">
+                        <div class="tituloCantidad"><p>Cantidad</p></div>
+                        <div><input class="cantidadAComprar" type="number" value="1"></div>
+                        <div class="contenedorBotonCompra">
+                            <a href="/cart"><button type="button" class="btn btn-dark botonComprar"><i class="fas fa-cart-plus carrito"></i>COMPRAR</button></a>
+                        </div>
+                    </div>
+                    <div class="sectorFlex">
+                        <div class="envio">
+                            <p>ENVÍO GRATIS!</p> 
+                        </div>
+                        <div class="envio">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                    </div>
+                    <div class="sectorFlex">
+                        <div class="">
+                            <h4>Garantía: 6 Meses</h4> 
+                        </div>
+                    </div>
+                    <div class="sectorFlex compartir">
+                        <h4>COMPARTIR</h4>
+                        <div class="iconoRedes">
+                            <a href="http://facebook.com"><i class="fab fa-facebook-square"></i></a>
+                        </div>
+                        <div class="iconoRedes">
+                            <a href="http://instagram.com"><i class="fab fa-instagram-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedorDescripcionYFicha">
+                <div class="descripcionItem">
+                    <h3 class="tituloBloque">DESCRIPCIÓN</h3>
+                    <p>Guitarra Clásica Yamaha acústica; Desde su lanzamiento a principios de la década de los 90's, nuestra querida GC41 ha ido coleccionando premios y reconocimientos, estableciéndose por derecho propio como la guitarra clásica mejor valorada entre profesores, alumnos y guitarristas principiantes, gracias a su increíble relación calidad-precio.</p> 
+                    <p>La guitarra destaca por su excepcional sonido, confort y prestaciones, dignas de instrumentos de precios superiores.<p>  
+                    </p>
+                </div>
+                <div class="fichaItem">
+                    <h3 class="tituloBloque">ESPECIFICACIONES</h3>
+                    <div class="especificaciones">
+                        <p class="grilla">Ancho</p>
+                        <p class="grilla">Alto</p>
+                        <p class="grilla">Profundidad</p>
+                        <p class="grilla">Maderas</p>
+                    </div>
+                    <div class="valores">
+                        <p class="grilla">37cm</p>
+                        <p class="grilla">99.5cm</p>
+                        <p class="grilla">10cm</p>
+                        <p class="grilla">Pino Abeto, Nogal, Ébano</p>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <%-include("../partials/footer.ejs")%>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        let thumbnails = document.getElementsByClassName('thumbnail')
+        let activeImages = document.getElementsByClassName('active')
+        for(var i = 0; i < thumbnails.length; i++){
+            thumbnails[i].addEventListener('mouseover',function(){
+                console.log(activeImages)
+                if(activeImages.length > 0){
+                    activeImages[0].classList.remove('active')
+                }
+                this.classList.add('active')
+                document.getElementById('featured').src = this.src
+            })
+        }
+        let buttonRight = document.getElementById('slideRight');
+		let buttonLeft = document.getElementById('slideLeft');
+
+		buttonLeft.addEventListener('click', function(){
+			document.getElementById('slider').scrollLeft -= 180
+		})
+
+		buttonRight.addEventListener('click', function(){
+			document.getElementById('slider').scrollLeft += 180
+		})
+
+
+    </script>
+
+
+
+    
+
+</body>
+</html>

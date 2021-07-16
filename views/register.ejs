@@ -1,0 +1,60 @@
+<%-include("partials/head.ejs")%>
+
+    <title>Registración | 4Music</title>
+    
+
+<body class="fourMusic">
+    
+    <%-include("partials/header.ejs")%>
+
+    <main>
+        <div class="contenedorMain">
+            <div class="formulario">
+                <h2 class="bienvenida">Bienvenido a 4Music!</h2>
+                <form id="registrar" action="/" method="GET">
+                    
+                    <div class="lineaForm">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="18" >
+                    </div>
+                    <div class="lineaForm">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" name="apellido" id="apellido" required minlength="2" maxlength="18">
+                    </div>
+                    <div class="lineaForm">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" required  minlength="6" maxlength="25">
+                    </div>
+                    <div class="lineaForm">
+                        <label for="dni">Dni:</label>
+                        <input type="text" name="dni" id= "dni" required minlength="6" maxlength="9">
+                    </div>
+                    <div class="lineaForm">
+                        <label for="contraseña">Contraseña:</label>
+                        <input type="password" name="contraseña" id="contraseña" required minlength="6" maxlength="15">
+                    </div>
+                    <div class="lineaForm">
+                        <label for="repetir-contraseña">Repetir contraseña:</label>
+                        <input type="password" name="repetir-contraseña" id= "repetir-contraseña" required minlength="6" maxlength="14">
+                    </div>
+                    <div class="lineaForm">
+                        <button type="reset" value="borrar" class="boton-registro">Borrar datos</button>
+                    </div>
+                    <div class="lineaForm">
+                        <button type="submit" class="boton-registro">Crear cuenta</button>
+                    </div>
+                    <div class="lineaForm">
+                        <input type="checkbox" name="recibir-ofertas" class="check">Deseo recibir ofertas y novedades por email
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <%-include("partials/footer.ejs")%>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
