@@ -2,10 +2,8 @@
 ### "Proyecto Grupo 3 - 4Music".
 
 ### Qué cosas han funcionado bien.
-Habiendo llegado a la culminación del Sprint 2, podemos decir que estamos conformes con el desempeño del equipo de trabajo.
-Los canales de comunicación funcionaron óptimamente y hemos podido cumplir con el plazo de entrega.
+Finalizando el Sprint 3, se puede destacar: el esfuerzo grupal, la comunicación que hay entre los integrantes y la predisposición de cada uno. Se supo mejorar el manejo de GitHub, acción que facilitó la visualización del trabajo y poder controlar los potenciales errores que surgían en el proceso.
 
 ### A mejorar:
-Debemos mejorar el proceso de integración de lo realizado por cada miembro, lo que nos permitirá agilizar el ritmo de trabajo y optimizar los tiempos de desarrollo.
-Es primordial que podamos profundizar en el manejo de ciertas herramientas claves para el desarrollo en equipo, tales como GitHub, y de esta forma aprender a resolver eventuales conflictos que puedan surgir, evitando echar a perder trabajo valioso.
+Respecto al Sprint anterior, se supo remediar el manejo de ciertas herramientas para agilizar el trabajo.  La integración de lo realizado sigue siendo un problema pero con la práctica se irá resolviendo. 
 
