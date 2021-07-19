@@ -1,6 +1,6 @@
 <%-include("../partials/head.ejs")%>
 
-    <title>Publicar Nuevo Producto | 4Music</title>
+    <title>Editar Producto | 4Music</title>
     
 <body class="fourMusic">
     
@@ -13,11 +13,11 @@
                 <form id="publicarProducto" action="/" method="GET" >
                     <div class="lineaForm">
                         <label for="marca">Marca</label>
-                        <input type="text" name="marca" id="marca" required  minlength="2" maxlength="25">     
+                        <input type="text" name="marca" id="marca" placeholder="Ej: Fender" required  minlength="2" maxlength="25">     
                     </div>
                     <div class="lineaForm">
                         <label for="modelo">Modelo</label>
-                        <input type="text" name="modelo" id="modelo" required  minlength="2" maxlength="30">    
+                        <input type="text" name="modelo" id="modelo" required  placeholder="Ej: Stratocaster"  minlength="2" maxlength="30">    
                     </div>
                     <div class="lineaForm"> 
                         <label for="selectCategoria">Categoría</label>
@@ -26,6 +26,8 @@
                             <option value="cat2" selected>Instrumentos de Percusión</option>
                             <option value="cat3">Instrumentos de Viento</option>
                             <option value="cat4">Accesorios</option>
+                            <option value="cat2">Audio</option>
+                            <option value="cat3">Otros</option>
                           </select>
                     </div>
                     <div class="lineaForm">
@@ -42,7 +44,9 @@
                         <label for="precio">Precio: $</label>
                         <input type="text" name="precio" id="precio" required>    
                     </div>
-                   
+                    <div class="lineaForm"> 
+                        <a href="/users/profile"><button type="button" class="boton-registro">Volver</button></a>
+                    </div>
                     <div class="lineaForm"> 
                         <a href="/"><button type="button" class="boton-registro">Publicar</button></a>
                     </div>

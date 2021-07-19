@@ -13,11 +13,11 @@ const controlador = {
 
     detalleItems: (req, res) =>{
         res.render ("item-detail")
-    }*/,
+    },
 
     carrito: (req, res) => {
         res.render("cart")
-    }
+    }*/
 
 }
 

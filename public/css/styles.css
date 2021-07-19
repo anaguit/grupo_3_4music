@@ -235,28 +235,19 @@ h1{
 .lista-footer{
     list-style:none;
 }
-.informacion-contacto{
-
+.informacion-contacto, .medios-pago, .horario-ubicacion{
     width: 30vw;
     font-size: 18px;
-    padding-left: 15px;
+    padding-left: 6%;
     margin-bottom: 2%;
+
 }
 
 a:hover{
     color:rgb(93, 93, 247);
 }
-.medios-pago{
-    width: 30vw;
-    font-size: 18px;
-    padding-left: 15px;
-    margin-bottom: 2%;
-}
-.horario-ubicacion{
-    width: 30vw;
-    font-size: 18px;
-    padding-left: 15px;
-}
+
+
 .mapa{
     width: 80%;
 }
@@ -631,6 +622,9 @@ input:hover{
     width:90%;
 }
 
+.contenedorPerfilUsuario {
+    margin-top: 20px;
+}
 
 /*------Media Queries-------*/
 
@@ -795,7 +789,9 @@ input:hover{
     .retiro{
         padding-bottom: 0;
     }
-
+    .informacion-contacto, .medios-pago, .horario-ubicacion{
+        padding-left:1% !important;
+    } 
     
 }
 
@@ -866,5 +862,7 @@ input:hover{
     .cajaInferior{
         width: 60%;
     }
-        
+    .informacion-contacto, .medios-pago, .horario-ubicacion{
+        padding-left:3%;
+    }    
 }

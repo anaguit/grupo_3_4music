@@ -1,14 +1,14 @@
 <%-include("partials/head")%>
 
-<title>Perfil</title>
+<title>Perfil de Usuario | 4Music</title>
 
 <body class="fourMusic">
 
 <%-include("partials/header.ejs")%>
 
 
-
-<h2 class="bienvenida">Bienvenido Usuario XXXX!</h2>
+<div class="contenedorPerfilUsuario">
+    <h2 class="bienvenida">Bienvenido Usuario XXXX!</h2>
 
     <a href="/products/nuevoProducto">
         <button type="button" class="boton-registro">
@@ -17,11 +17,35 @@
     </a>
     <a href="/products/edicionProducto">
         <button type="button" class="boton-registro">
-            Editar Producto
+            Editar producto
         </button>
     </a>
-
-
+    <a href="#">
+        <button type="button" class="boton-registro">
+            Mis datos
+        </button>
+    </a>
+    <a href="/products">
+        <button type="button" class="boton-registro">
+            Mis publicaciones
+        </button>
+    </a>
+    <a href="#">
+        <button type="button" class="boton-registro">
+            Mis ventas
+        </button>
+    </a>
+    <a href="#">
+        <button type="button" class="boton-registro">
+            Mis compras
+        </button>
+    </a>
+    <a href="/cart">
+        <button type="button" class="boton-registro">
+            Carrito de Compras
+        </button>
+    </a>
+</div>
 <%-include("partials/footer")%>
 
 </body>
