@@ -1,0 +1,62 @@
+[
+ {
+  "id": 1,
+  "titulo": "Guitarra",
+  "marca": "Yamaha",
+  "modelo": "GC-200",
+  "precio": 179850,
+  "categoria": "1",
+  "descripcion": "Guitarra Clásica Yamaha acústica; Desde su lanzamiento a principios de la década de los 90's, nuestra querida GC41 ha ido coleccionando premios y reconocimientos, estableciéndose por derecho propio como la guitarra clásica mejor valorada entre profesores, alumnos y guitarristas principiantes, gracias a su increíble relación calidad-precio.",
+  "dimensiones": "37cm x 99cm x 10cm",
+  "materiales": "Pino Aberto Alemán, Jacarandá de Bahía, Ebano",
+  "imagen": "guitarra.jpg"
+ },
+ {
+  "id": 2,
+  "titulo": "Bateria",
+  "marca": "Sonor",
+  "modelo": "Smart Force",
+  "precio": 133500,
+  "categoria": "2",
+  "descripcion": "Bateria Sonor Smart Force WR 6 Cuerpos, Madera de Alamo, 9 Capas + Baquetas Zildjian (Con Funda p/baquetas). Fabricada con madera de álamo en 9 capas. Acabado en celuloide de alta calidad. Herrajes de doble perfil. Sistema ball y memorias para el soportes de los toms. Parche de bombo con muffled. Patas de bombo con picos antideslizantes. Pedal de bombo y soporte de Hi-Hat con plataforma.",
+  "dimensiones": "95cm x 120cm",
+  "materiales": "Alamo de 9 capas",
+  "imagen": "bateria.jpg"
+ },
+ {
+  "id": 3,
+  "titulo": "Trompeta",
+  "marca": "Stagg",
+  "modelo": "Bb Wstr115",
+  "precio": 41500,
+  "categoria": "3",
+  "descripcion": "Trompeta Stagg Ws Tr115 - Con Estuche Abs.Sintonizar: Bb. Válvulas de acero inoxidable. Tubo de plomo: latón. Diámetro de la campana de bronce: 123 mm o 4.84 in.2 llaves de agua",
+  "dimensiones": "20cm x 50cm",
+  "materiales": "Latón",
+  "imagen": "trompeta.jpg"
+ },
+ {
+  "id": 4,
+  "titulo": "Bajo",
+  "marca": "Ibanez",
+  "modelo": "JS45",
+  "precio": "54000",
+  "categoria": "1",
+  "descripcion": "\r\n                       Muy bueno",
+  "dimensiones": "                       ",
+  "materiales": "                       ",
+  "imagen": "1627782325761aprender-a-tocar-guitarra-española.jpg"
+ },
+ {
+  "id": 5,
+  "titulo": "Armónica",
+  "marca": "Yamaha",
+  "modelo": "Ejs234",
+  "precio": "2500",
+  "categoria": "3",
+  "descripcion": "Excelente calidad, super profesional.",
+  "dimensiones": "20x15x30",
+  "materiales": "",
+  "imagen": "1627782589899Astronomia-Luna-NASA-Investigacion_377473014_115076220_1706x960.jpg"
+ }
+]

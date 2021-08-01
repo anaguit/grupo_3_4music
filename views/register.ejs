@@ -10,8 +10,7 @@
         <div class="contenedorMain">
             <div class="formulario">
                 <h2 class="bienvenida">Bienvenido a 4Music!</h2>
-                <form id="registrar" action="/users/profile" method="GET">
-                    
+                <form id="registrar" action="/users/register" method="POST" enctype="multipart/form-data">
                     <div class="lineaForm">
                         <label for="nombre">Nombre:</label>
                         <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="18" >
@@ -25,16 +24,24 @@
                         <input type="email" name="email" id="email" required  minlength="6" maxlength="25">
                     </div>
                     <div class="lineaForm">
-                        <label for="dni">Dni:</label>
-                        <input type="text" name="dni" id= "dni" required minlength="6" maxlength="9">
-                    </div>
-                    <div class="lineaForm">
                         <label for="contraseña">Contraseña:</label>
                         <input type="password" name="contraseña" id="contraseña" required minlength="6" maxlength="15">
                     </div>
                     <div class="lineaForm">
-                        <label for="repetir-contraseña">Repetir contraseña:</label>
-                        <input type="password" name="repetir-contraseña" id= "repetir-contraseña" required minlength="6" maxlength="14">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" name="telefono" id="telefono" required  minlength="6" maxlength="25">
+                    </div>
+                    <div class="lineaForm">
+                        <label for="avatar">Seleccionar Foto de Perfil:</label>
+                        <input type="file" name="avatar" id="avatar" required  >
+                    </div>
+                    <div class="lineaForm">
+                        <label for="tipoUsuario">Tipo de Usuario</label>
+                        <select name="tipoUsuario" id="tipoUsuario" required> 
+                            <option value="">Seleccionar</option>
+                            <option value="1">Comprador</option>
+                            <option value="2">Vendedor</option>
+                        </select>
                     </div>
                     <div class="lineaForm">
                         <button type="reset" value="borrar" class="boton-registro">Borrar datos</button>

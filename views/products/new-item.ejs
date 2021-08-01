@@ -10,7 +10,11 @@
         <div class="contenedorMain">
             <div class="formulario">         
                 <h2 class="bienvenida">Publicar Nuevo Producto</h2>
-                <form id="publicarProducto" action="/" method="GET" >
+                <form id="publicarProducto" action="/products" method="POST" enctype="multipart/form-data" >
+                    <div class="lineaForm">
+                        <label for="titulo">Título del Aviso</label>
+                        <input type="text" placeholder="Ej: Fender" name="titulo" id="titulo" required  minlength="2" maxlength="25">     
+                    </div>
                     <div class="lineaForm">
                         <label for="marca">Marca</label>
                         <input type="text" placeholder="Ej: Fender" name="marca" id="marca" required  minlength="2" maxlength="25">     
@@ -19,36 +23,49 @@
                         <label for="modelo">Modelo</label>
                         <input type="text" name="modelo" id="modelo" placeholder="Ej: Stratocaster" required  minlength="2" maxlength="30">    
                     </div>
+                    <div class="lineaForm">
+                        <label for="precio">Precio: $</label>
+                        <input type="text" name="precio" id="precio" required>    
+                    </div>
                     <div class="lineaForm"> 
-                        <label for="selectCategoria">Categoría</label>
-                        <select name="selectCategoria">
-                            <option value="cat1">Instrumentos de Cuerdas</option>
-                            <option value="cat2" selected>Instrumentos de Percusión</option>
-                            <option value="cat3">Instrumentos de Viento</option>
-                            <option value="cat4">Accesorios</option>
-                            <option value="cat2">Audio</option>
-                            <option value="cat3">Otros</option>
+                        <label for="categoria">Categoría</label>
+                        <select name="categoria">
+                            <option value="">Seleccionar</option>
+                            <option value="1">Instrumentos de Cuerdas</option>
+                            <option value="2">Instrumentos de Percusión</option>
+                            <option value="3">Instrumentos de Viento</option>
+                            <option value="4">Accesorios</option>
+                            <option value="5">Audio</option>
+                            <option value="6">Otros</option>
                           </select>
                     </div>
                     <div class="lineaForm">
                         <label for="descripcion">Descripción</label>
                        <textarea class="areaTexto" required name="descripcion"  minlength="5" maxlength="400">
-
+                       </textarea>   
+                    </div>
+                    <div class="lineaForm">
+                        <label for="dimensiones">Dimensiones</label>
+                       <textarea class="areaTexto" name="dimensiones"  minlength="2" maxlength="50">
+                       </textarea>   
+                    </div>
+                    <div class="lineaForm">
+                        <label for="materiales">Materiales</label>
+                       <textarea class="" name="materiales"  minlength="3" maxlength="100">
                        </textarea>   
                     </div>
                     <div class="lineaForm">
                         <label for="imagenes">Imágenes</label>
                         <input type="file" name="imagenes" accept="image/png, image/gif, image/jpeg" multiple required/>
                     </div>
+                   
+                    <div class="lineaForm"> 
+                        <a href="/users/profile">
+                            <button type="button" class="boton-registro">Volver</button>
+                        </a>
+                    </div>
                     <div class="lineaForm">
-                        <label for="precio">Precio: $</label>
-                        <input type="text" name="precio" id="precio" required>    
-                    </div>
-                    <div class="lineaForm"> 
-                        <a href="/users/profile"><button type="button" class="boton-registro">Volver</button></a>
-                    </div>
-                    <div class="lineaForm"> 
-                        <a href="/"><button type="submit" class="boton-registro">Publicar</button></a>
+                        <button type="submit" class="boton-registro">Publicar Artículo</button>
                     </div>
                 </form>
             </div>
