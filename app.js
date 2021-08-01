@@ -18,6 +18,10 @@ app.use(express.json());
 
 // ************ Template Engine ************
 app.set("view engine", "ejs");
+app.set('views', [path.join(__dirname, '/views'),
+                      path.join(__dirname, '/views/products/'),  // Define la ubicación de la carpeta de las Vistas y Subcarpetas
+                      path.join(__dirname, '/views/users/')]);
+
 
 
 // Routers:

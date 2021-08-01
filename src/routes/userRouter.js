@@ -39,6 +39,7 @@ usersRouter.get("/profile", controladorUsers.perfil);
 usersRouter.get("/register", controladorUsers.registro);
 usersRouter.post("/register", uploadFile.single('avatar'), controladorUsers.crearNuevoUsuario);
 
+/* Registración Exitosa */
 usersRouter.get("/registracionOK", controladorUsers.registracionExitosa);
 
 

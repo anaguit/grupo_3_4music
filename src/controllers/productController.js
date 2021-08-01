@@ -1,20 +1,62 @@
+/* Requires */
+const fs = require('fs');
+const path = require('path');
+
+
+/* Lectura de Productos del Json */
+const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+
 const controladorProducto = {
         listadoProductos: (req, res) =>{
-            res.render("products/all-items");
+            res.render("all-items");
         },
 
         detalleProducto: (req, res) => {
-            res.render("products/item-detail");
+            res.render("item-detail");
         },
 
         productoNuevo: (req, res) => {
-            res.render("products/new-item");
+            res.render("new-item");
         },
 
         almacenarNuevoProducto: (req, res) => {
-            res.render("products/all-items"); //Provisorio. Luego debe almacenar en Json el nuevo producto
-        },
+            idNuevo=0;
 
+            for (let i of productos){
+                if (idNuevo<i.id){
+                    idNuevo=i.id;
+                }
+            }
+
+            idNuevo++;
+
+            let nombreImagen = req.file.filename;
+            
+
+            let productoNuevo =  {
+                id:   idNuevo,
+                titulo: req.body.titulo ,    
+                marca: req.body.marca ,
+                modelo: req.body.modelo ,
+                precio: req.body.precio,
+                categoria: req.body.categoria,
+                descripcion: req.body.descripcion,
+                dimensiones: req.body.dimensiones,
+                materiales:req.body.materiales,
+                imagen: nombreImagen
+            };
+
+            productos.push(productoNuevo);
+
+            fs.writeFileSync(productsFilePath, JSON.stringify(productos,null,' '));
+            res.redirect("/products/all-ok");    
+        
+        },
+        publicacionExitosa: (req, res) => {
+            res.render("sucess");
+        },
         editarProducto: (req, res) => {
             res.render("products/edit-item");
         },

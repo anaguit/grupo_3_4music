@@ -1,6 +1,9 @@
+/* Requires */
 const fs = require('fs');
 const path = require('path');
 
+
+/* Lectura de Usuarios del Json */
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
