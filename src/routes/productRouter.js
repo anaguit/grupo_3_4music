@@ -30,7 +30,7 @@ const uploadFile = multer({ storage: configuracionImagen });
 productRouter.get("/", controladorProducto.listadoProductos); // Listado de Productos
 
 /* Detalle de 1 Producto */
-productRouter.get("/id", controladorProducto.detalleProducto); // Detalle de un producto particular
+productRouter.get("/:id", controladorProducto.detalleProducto); // Detalle de un producto particular
 
 
 /* Publicar Nuevo Producto */

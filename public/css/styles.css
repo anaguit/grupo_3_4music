@@ -357,9 +357,12 @@ input:hover{
 }
 .especificaciones {
     width: 50%;
+    padding-right:5px;
+    border-right:solid 0.7px gray;
 }
 .valores {
     width: 50%;
+    padding-left:5px;
 }
 .tituloBloque{
     width: 100%;
