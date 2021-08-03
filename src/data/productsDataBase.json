@@ -42,9 +42,9 @@
   "modelo": "JS45",
   "precio": "54000",
   "categoria": "1",
-  "descripcion": "\r\n                       Muy bueno",
-  "dimensiones": "                       ",
-  "materiales": "                       ",
+  "descripcion": "Muy bueno",
+  "dimensiones": "",
+  "materiales": "",
   "imagen": "1627782325761aprender-a-tocar-guitarra-española.jpg"
  },
  {
@@ -58,5 +58,41 @@
   "dimensiones": "20x15x30",
   "materiales": "",
   "imagen": "1627782589899Astronomia-Luna-NASA-Investigacion_377473014_115076220_1706x960.jpg"
+ },
+ {
+  "id": 6,
+  "titulo": "Bandoneón",
+  "marca": "Premier",
+  "modelo": "B125C",
+  "precio": "459500",
+  "categoria": "3",
+  "descripcion": "Bandoneón Premier B125C. Gran calida de construcción. Ideal para grabaciones. Sonido de alta fidelidad.",
+  "dimensiones": "45x60x46",
+  "materiales": "Cedro Paraguayo, Ebano de Nigeria",
+  "imagen": "bandoneon.jpg"
+ },
+ {
+  "id": 7,
+  "titulo": "Armónica",
+  "marca": "Yamaha",
+  "modelo": "Ejs234",
+  "precio": "2500",
+  "categoria": "3",
+  "descripcion": "Excelente calidad, super profesional.",
+  "dimensiones": "20x15x30",
+  "materiales": "",
+  "imagen": "1627782589899Astronomia-Luna-NASA-Investigacion_377473014_115076220_1706x960.jpg"
+ },
+ {
+  "id": 8,
+  "titulo": "Guitarra Eléctrica",
+  "marca": "Fender",
+  "modelo": "Telecaster",
+  "precio": "245000",
+  "categoria": "1",
+  "descripcion": "Guitarra Telecaster Gran Calidad",
+  "dimensiones": "                       ",
+  "materiales": "                       ",
+  "imagen": "1627947850386aprender-a-tocar-guitarra-española.jpg"
  }
 ]

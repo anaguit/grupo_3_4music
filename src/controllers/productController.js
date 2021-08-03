@@ -14,11 +14,20 @@ const controladorProducto = {
         },
 
         detalleProducto: (req, res) => {
-            res.render("item-detail");
+            let idURL = req.params.id;
+            let productoEncontrado;
+
+            for (let p of productos){
+                if (p.id==idURL){
+                    productoEncontrado=p;
+                    break;
+                }
+            }
+            res.render("item-detail", {productoDetalle: productoEncontrado});
         },
 
         productoNuevo: (req, res) => {
-            res.render("new-item");
+           res.render("new-item");
         },
 
         almacenarNuevoProducto: (req, res) => {
