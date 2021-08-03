@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<%-include("../partials/head.ejs", {title: 'Listado de productos'})%>
+
+
+<body class="fourMusic">
+
+    <%-include("../partials/header.ejs")%>
+    <main>
+
+        <div class="contenedorMain">
+            <!--Slider-->
+            <section id="contenedor-carrusel">
+                <div class="container">
+                    <h2 class="titulos">Listado de productos</h2>
+                    <!--Slider-->
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    <!--Slider 1-->
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-3">
+                                    <a href="/products">
+                                        <img class="d-block w-100" src="/images/products/guitarra.jpg" alt="A"  > 
+                                        <p class="titulo">Guitarra Yamaha GC41</p>
+                                        <p class="precio">$145.000</p> 
+                                    </a>
+                                </div>
+                                <div class="col-3 oculta576">
+                                    <a href="/products/detalle">
+                                        <img class="d-block w-100" src="/images/products/bateria.jpg" alt="B">
+                                        <p class="titulo">Batería Sonor</p>
+                                        <p class="precio">$200.000</p>
+                                    </a> 
+                                </div>
+                                <div class="col-3 oculta768">
+                                    <a href="/products/detalle">
+                                        <img class="d-block w-100" src="/images/products/bandoneon.jpg" alt="C">
+                                        <p class="titulo">Bandoneón AA</p>
+                                        <p class="precio">$350.000</p> 
+                                    </a>
+                                </div>
+                                <div class="col-3 oculta991">
+                                    <a href="/products/detalle">
+                                        <img class="d-block w-100" src="/images/products/teclado.jpg" alt="D">
+                                        <p class="titulo">Teclado Yamaha</p>
+                                        <p class="precio">$224.290</p> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <!--Fin Slider 1-->
+                    
+                    <!--Slider 2-->
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-3">
+                                    <a href="/products/detalle">
+                                        <img class="d-block w-100" src="/images/products/teclado.jpg" alt="A"  > 
+                                        <p class="titulo">Teclado</p>
+                                        <p class="precio">$345.000</p> 
+                                    </a>
+                                </div>
+                                <div class="col-3 oculta576">
+                                    <a href="/products/detalle">
+                                        <img class="d-block w-100" src="/images/products/trompeta.jpg" alt="B">
+                                        <p class="titulo">Trompeta</p>
+                                        <p class="precio">$500.000</p>
+                                    </a> 
+                                </div>
+                                <div class="col-3 oculta768">
+                                    <a href="/products/detalle">
+                                        <img class="d-block w-100" src="/images/products/Contrabajo.jpg" alt="C">
+                                        <p class="titulo">Contrabajo Artesanal</p>
+                                        <p class="precio">$950.000</p> 
+                                    </a>
+                                </div>
+                                <div class="col-3 oculta991">
+                                    <a href="/products/detalle">
+                                        <img class="d-block w-100" src="/images/products/bajo.jpg" alt="D">
+                                        <p class="titulo">Bajo Fender</p>
+                                        <p class="precio">$524.290</p> 
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <!--Fin Slider 2-->
+                    </div>
+                    </div>
+                </div>
+                <div id="controlCarrusel1">
+                    <button class="prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <a class="next" role="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </section>
+            <div class="lineaForm"> 
+                <a href="/users/profile"><button type="button" class="boton-registro">Volver</button></a>
+            </div>
+        </div>
+    </main>
+    <%-include("../partials/footer.ejs")%>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+</body>
+</html>

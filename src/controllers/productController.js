@@ -5,15 +5,17 @@ const path = require('path');
 
 /* Lectura de Productos del Json */
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const controladorProducto = {
         listadoProductos: (req, res) =>{
-            res.render("all-items");
+            productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            res.render("all-items", {productos: productos});
         },
 
         detalleProducto: (req, res) => {
+            
             let idURL = req.params.id;
             let productoEncontrado;
 
@@ -27,7 +29,7 @@ const controladorProducto = {
         },
 
         productoNuevo: (req, res) => {
-           res.render("new-item");
+            res.render("new-item");
         },
 
         almacenarNuevoProducto: (req, res) => {
