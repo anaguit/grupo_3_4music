@@ -79,118 +79,28 @@
                 </div>
             </section>
         <div class="contenedorMain">
-            <!--Slider de mas vistos | ultimos lanzamientos-->
-            <section id="contenedor-carrusel">
-                <div class="container">
-                    <h2 class="titulos">Mas vistos | Ultimos lanzamientos</h2>
-                    <!--Slider-->
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                        <!--Slider 1-->
-                            <div class="carousel-item active">
-                            
-                                <div class="row">
-                                    <% if(productos.length >= 4) { 
-                                        for(let i=1; i<=4; i++){ %>
-                                    <div class="col-3">
-                                        <a href="/products/<%=productos[i].id %>">
-                                            <img class="d-block w-100" src="/images/products/<%=productos[i].imagen %>" alt="A"  > 
-                                            <p class="titulo"><%=productos[i].titulo + ' ' + productos[i].marca + ' ' + productos[i].modelo %></p>
-                                            <p class="precio">$<%=productos[i].precio %></p> 
-                                        </a>
-                                    </div>
-                                        <% }
-                                    } %>
-                                    <!--
-                                    <div class="col-3 oculta576">
-                                        <a href="/products/id">
-                                            <img class="d-block w-100" src="/images/products/bateria.jpg" alt="B">
-                                            <p class="titulo">Batería Sonor</p>
-                                            <p class="precio">$200.000</p>
-                                        </a> 
-                                    </div>
-                                    <div class="col-3 oculta768">
-                                        <a href="/products/id">
-                                            <img class="d-block w-100" src="/images/products/bandoneon.jpg" alt="C">
-                                            <p class="titulo">Bandoneón AA</p>
-                                            <p class="precio">$350.000</p> 
-                                        </a>
-                                    </div>
-                                    <div class="col-3 oculta991">
-                                        <a href="/products/id">
-                                            <img class="d-block w-100" src="/images/products/teclado.jpg" alt="D">
-                                            <p class="titulo">Teclado Yamaha</p>
-                                            <p class="precio">$224.290</p> 
-                                        </a>
-                                    </div>-->
-                                </div>
-                            </div>
-                        <!--Fin Slider 1-->
-                        
-                        <!--Slider 2--> 
-                            <% if(productos.length >= 8) { %>
-                                <div class="carousel-item">
-                                    <div class="row">
-                                    <% for(let i=5; i<=8; i++){ %>
-                                            <div class="col-3">
-                                                <a href="/products/<%=productos[i].id %>">
-                                                    <img class="d-block w-100" src="/images/products/<%=productos[i].imagen %>" alt="A"  > 
-                                                    <p class="titulo"><%=productos[i].titulo + ' ' + productos[i].marca + ' ' + productos[i].modelo %></p>
-                                                    <p class="precio">$<%=productos[i].precio %></p> 
-                                                </a>
-                                            </div>
-                                        <% }%>
-                                        <!--
-                                        <div class="col-3">
-                                            <a href="/products/id">
-                                                <img class="d-block w-100" src="/images/products/teclado.jpg" alt="A"  > 
-                                                <p class="titulo">Teclado</p>
-                                                <p class="precio">ssss</p> 
-                                            </a>
-                                        </div>
-                                        <div class="col-3 oculta576">
-                                            <a href="/products/id">
-                                                <img class="d-block w-100" src="/images/products/trompeta.jpg" alt="B">
-                                                <p class="titulo">Trompeta</p>
-                                                <p class="precio">$500.000</p>
-                                            </a> 
-                                        </div>
-                                        <div class="col-3 oculta768">
-                                            <a href="/products/id">
-                                                <img class="d-block w-100" src="/images/products/Contrabajo.jpg" alt="C">
-                                                <p class="titulo">Contrabajo Artesanal</p>
-                                                <p class="precio">$950.000</p> 
-                                            </a>
-                                        </div>
-                                        <div class="col-3 oculta991">
-                                            <a href="/products/id">
-                                                <img class="d-block w-100" src="/images/products/bajo.jpg" alt="D">
-                                                <p class="titulo">Bajo Fender</p>
-                                                <p class="precio">$524.290</p> 
-                                            </a>
-                                        </div>-->
-                                    </div>
-                                </div> 
-                            <% } %>
-                            <!--Fin Slider 2-->
-                        </div>
+            <div class="container products-wrapper">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="products-title">Todos los productos</h2>
                     </div>
+                    <% for(let producto of productos) { %>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <section class="product-box">
+                                <a href="/products/<%=producto.id %>" >
+                                    <figure class="product-box_image">
+                                        <img class="d-block w-100" src="/images/products/<%=producto.imagen%>" alt="A">
+                                    </figure>
+                                    <article class="product-box_data">
+                                        <h2>$<%=producto.precio %></h2>
+                                        <p><%=producto.titulo + ' ' + producto.marca + ' ' + producto.modelo %></p>
+                                    </article>
+                                </a>
+                            </section>
+                        </div>
+                    <% } %>       
                 </div>
-                <div id="controlCarrusel1">
-                    <button class="prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <a class="next" role="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </a>
-                </div>
-            </section>
-            
-
-           
-            
+            </div>
         </div>
     </main>
     
