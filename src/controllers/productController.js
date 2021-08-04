@@ -69,15 +69,55 @@ const controladorProducto = {
             res.render("sucess");
         },
         editarProducto: (req, res) => {
-            res.render("products/edit-item");
+
+            let idURL = req.params.id;
+            let productoEncontrado;
+
+            for(let p of productos){
+                if (idURL == p.id){
+                    productoEncontrado = p;
+                }
+            }
+
+            res.render("edit-item", {productoaEditar: productoEncontrado});
         },
 
         almacenarProductoEditado: (req, res) => {
-            res.render("products/new-item"); //Provisorio. Luego debe almacenar en Json el producto editado (Actualizar BD)
+
+            let idURL = req.params.id;
+            let productoEncontrado;
+
+            for (let p of productos){
+                if(idURL == p.id){
+                    p.titulo = req.body.titulo;
+                    p.marca = req.body.marca;
+                    p.modelo = req.body.modelo;
+                    p.precio = req.body.precio;
+                    p.categoria = req.body.categoria;
+                    p.descripcion = req.body.descripcion;
+                    p.dimensiones = req.body.dimensiones;
+                    p.materiales = req.body.materiales;
+                    break;
+                }
+            }
+
+            fs.writeFileSync(productsFilePath, JSON.stringify(productos,null," "))
+
+            res.redirect("/products"); //Provisorio. Luego debe almacenar en Json el producto editado (Actualizar BD) El anterior era "products/new-item"
+
         },
         
         eliminarProducto: (req, res) => {
-            res.render("products/all-items"); //Provisorio. Luego debe borrar de la BD (Json) el producto recibido por ID.
+
+            let idURL = req.params.id;
+
+            let Nproductos = productos.filter(function(e){
+                return idURL != e.id;
+            })
+
+            fs.writeFileSync(productsFilePath, JSON.stringify(Nproductos,null," "));
+
+            res.redirect("/"); //Provisorio. Luego debe borrar de la BD (Json) el producto recibido por ID. El anterior era "products/all-items"
         }
 }
 

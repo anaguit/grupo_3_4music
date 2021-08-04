@@ -72,6 +72,10 @@
                         <div class="iconoRedes">
                             <a href="http://instagram.com"><i class="fab fa-instagram-square"></i></a>
                         </div>
+                        <br>
+                        <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres borrar este articulo?');">
+                            <button type="submit" class="boton-registro">Borrar articulo</button>
+                        </form>
                     </div>
                 </div>
             </div>

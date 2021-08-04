@@ -36,18 +36,6 @@
   "imagen": "trompeta.jpg"
  },
  {
-  "id": 4,
-  "titulo": "Bajo",
-  "marca": "Ibanez",
-  "modelo": "JS45",
-  "precio": "54.000",
-  "categoria": "1",
-  "descripcion": "Muy bueno",
-  "dimensiones": "",
-  "materiales": "",
-  "imagen": "bajo.jpg"
- },
- {
   "id": 5,
   "titulo": "Armónica",
   "marca": "Yamaha",
@@ -96,15 +84,15 @@
   "imagen": "telecaster.jpg"
  },
  {
-    "id": 9,
-    "titulo": "Contrabajo",
-    "marca": "Verdi",
-    "modelo": "B420",
-    "precio": "551.400",
-    "categoria": "1",
-    "descripcion": "Contrabajo Artesanal fabricado por Verdi Hermanos. Maderas de Primera Calidad. ",
-    "dimensiones": "180x60x40",
-    "materiales": "Algarrobo, Cedro, Ebano",
-    "imagen": "Contrabajo.jpg"
-   }
+  "id": 9,
+  "titulo": "Contrabajo",
+  "marca": "Verdi",
+  "modelo": "B420",
+  "precio": "551.400",
+  "categoria": "1",
+  "descripcion": "Contrabajo Artesanal fabricado por Verdi Hermanos. Maderas de Primera Calidad. ",
+  "dimensiones": "180x60x40",
+  "materiales": "Algarrobo, Cedro, Ebano",
+  "imagen": "Contrabajo.jpg"
+ }
 ]

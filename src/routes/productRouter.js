@@ -43,7 +43,7 @@ productRouter.get("/all-ok", controladorProducto.publicacionExitosa); //Vista de
 
 /* Editar Producto */
 productRouter.get("/:id/edit", controladorProducto.editarProducto); // Formulario Edición del Producto
-productRouter.put("/:id", controladorProducto.almacenarProductoEditado); // Guardar Producto Editado
+productRouter.put("/:id/edit", controladorProducto.almacenarProductoEditado); // Guardar Producto Editado
 
 /* Borrar Producto */
 productRouter.delete("/:id", controladorProducto.eliminarProducto); // Eliminar un Producto 

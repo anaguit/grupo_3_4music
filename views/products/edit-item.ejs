@@ -10,14 +10,14 @@
         <div class="contenedorMain">
             <div class="formulario">         
                 <h2 class="bienvenida">Editar Producto</h2>
-                <form id="publicarProducto" action="/" method="GET" >
+                <form id="publicarProducto" action="/products/<%=productoaEditar.id%>/edit?_method=PUT" method="POST" >
                     <div class="lineaForm">
                         <label for="marca">Marca</label>
-                        <input type="text" name="marca" id="marca" placeholder="Ej: Fender" required  minlength="2" maxlength="25">     
+                        <input value="<%=productoaEditar.marca %>" type="text" name="marca" id="marca" placeholder="Ej: Fender" required  minlength="2" maxlength="25">     
                     </div>
                     <div class="lineaForm">
                         <label for="modelo">Modelo</label>
-                        <input type="text" name="modelo" id="modelo" required  placeholder="Ej: Stratocaster"  minlength="2" maxlength="30">    
+                        <input value="<%=productoaEditar.modelo %>" type="text" name="modelo" id="modelo" required  placeholder="Ej: Stratocaster"  minlength="2" maxlength="30">    
                     </div>
                     <div class="lineaForm"> 
                         <label for="selectCategoria">Categoría</label>
@@ -32,24 +32,27 @@
                     </div>
                     <div class="lineaForm">
                         <label for="descripcion">Descripción</label>
-                       <textarea class="areaTexto" required name="descripcion" placeholder="Ingresá la Descripción del producto" minlength="5" maxlength="400">
-
-                       </textarea>   
+                       <textarea class="areaTexto" required name="descripcion" placeholder="Ingresá la Descripción del producto" minlength="5" maxlength="400"><%=productoaEditar.descripcion %>
+                    </textarea>   
                     </div>
                     <div class="lineaForm">
                         <label for="imagenes">Imágenes</label>
-                        <input type="file" name="imagenes" accept="image/png, image/gif, image/jpeg" multiple required/>
+                        <input type="file" name="imagenes" accept="image/png, image/gif, image/jpeg" multiple/>
                     </div>
                     <div class="lineaForm">
                         <label for="precio">Precio: $</label>
-                        <input type="text" name="precio" id="precio" required>    
+                        <input value="<%=productoaEditar.precio %>" type="text" name="precio" id="precio" required>    
                     </div>
                     <div class="lineaForm"> 
                         <a href="/users/profile"><button type="button" class="boton-registro">Volver</button></a>
                     </div>
                     <div class="lineaForm"> 
-                        <a href="/"><button type="submit" class="boton-registro">Publicar</button></a>
+                        <button type="submit" class="boton-registro">Publicar</button>
+                    
                     </div>
+                    
+                    
+                
                 </form>
             </div>
         </div>
