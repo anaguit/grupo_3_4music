@@ -30,7 +30,7 @@ const uploadFile = multer({ storage: configuracionImagen });
 productRouter.get("/", controladorProducto.listadoProductos); // Listado de Productos
 
 /* Detalle de 1 Producto */
-productRouter.get("/:id", controladorProducto.detalleProducto); // Detalle de un producto particular
+productRouter.get("/detail/:id", controladorProducto.detalleProducto); // Detalle de un producto particular
 
 
 /* Publicar Nuevo Producto */
@@ -43,7 +43,7 @@ productRouter.get("/all-ok", controladorProducto.publicacionExitosa); //Vista de
 
 /* Editar Producto */
 productRouter.get("/:id/edit", controladorProducto.editarProducto); // Formulario Edición del Producto
-productRouter.put("/:id/edit", controladorProducto.almacenarProductoEditado); // Guardar Producto Editado
+productRouter.put("/:id/edit", uploadFile.single('imagenes') ,controladorProducto.almacenarProductoEditado); // Guardar Producto Editado
 
 /* Borrar Producto */
 productRouter.delete("/:id", controladorProducto.eliminarProducto); // Eliminar un Producto 

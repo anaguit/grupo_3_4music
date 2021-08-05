@@ -73,38 +73,20 @@
                             <a href="http://instagram.com"><i class="fab fa-instagram-square"></i></a>
                         </div>
                         <br>
-                        <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres borrar este articulo?');">
-                            <button type="submit" class="boton-registro">Borrar articulo</button>
-                        </form>
+                        
                     </div>
+                    <form action="/products/<%=productoDetalle.id%>/edit" method="GET">
+                        <button type="submit" class="boton-registro">Editar</button>
+                    </form>
+                    <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres borrar este articulo?');">
+                        <button type="submit" class="boton-registro">Borrar</button>
+                    </form>
                 </div>
             </div>
             <div class="contenedorDescripcionYFicha">
                 <div class="descripcionItem">
                     <h3 class="tituloBloque">DESCRIPCIÓN</h3>
                     <p><%=productoDetalle.descripcion%></p>
-                </div>
-                <div class="fichaItem">
-                    <h3 class="tituloBloque">ESPECIFICACIONES</h3>
-                    <div class="especificaciones">
-                        <p class="grilla">Materiales</p>
-                        <%=productoDetalle.materiales%>
-                        <!--
-                        <p class="grilla">Ancho</p>
-                        <p class="grilla">Alto</p>
-                        <p class="grilla">Profundidad</p>
-                        <p class="grilla">Maderas</p>-->
-                    </div>
-                    <div class="valores">
-                        <p class="grilla">Dimensiones</p>
-                        <%=productoDetalle.dimensiones%>
-                        <!--
-                        <p class="grilla">37cm</p>
-                        <p class="grilla">99.5cm</p>
-                        <p class="grilla">10cm</p>
-                        <p class="grilla">Pino Abeto, Nogal, Ébano</p>-->
-                    </div>
-                  
                 </div>
             </div>
         </div>

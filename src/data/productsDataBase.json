@@ -6,9 +6,7 @@
   "modelo": "GC-200",
   "precio": "179.850",
   "categoria": "1",
-  "descripcion": "Guitarra Clásica Yamaha acústica; Desde su lanzamiento a principios de la década de los 90's, nuestra querida GC41 ha ido coleccionando premios y reconocimientos, estableciéndose por derecho propio como la guitarra clásica mejor valorada entre profesores, alumnos y guitarristas principiantes, gracias a su increíble relación calidad-precio.",
-  "dimensiones": "37cm x 99cm x 10cm",
-  "materiales": "Pino Aberto Alemán, Jacarandá de Bahía, Ebano",
+  "descripcion": "Guitarra Clásica Yamaha acústica; Desde su lanzamiento a principios de la década de los 90's, nuestra querida GC41 ha ido coleccionando premios y reconocimientos, estableciéndose por derecho propio como la guitarra clásica mejor valorada entre profesores, alumnos y guitarristas principiantes, gracias a su increíble relación calidad-precio.\r\n                    \r\n                    ",
   "imagen": "guitarra.jpg"
  },
  {
@@ -16,11 +14,9 @@
   "titulo": "Bateria",
   "marca": "Sonor",
   "modelo": "Smart Force",
-  "precio": "133.500",
+  "precio": "138.500",
   "categoria": "2",
-  "descripcion": "Bateria Sonor Smart Force WR 6 Cuerpos, Madera de Alamo, 9 Capas + Baquetas Zildjian (Con Funda p/baquetas). Fabricada con madera de álamo en 9 capas. Acabado en celuloide de alta calidad. Herrajes de doble perfil. Sistema ball y memorias para el soportes de los toms. Parche de bombo con muffled. Patas de bombo con picos antideslizantes. Pedal de bombo y soporte de Hi-Hat con plataforma.",
-  "dimensiones": "95cm x 120cm",
-  "materiales": "Alamo de 9 capas",
+  "descripcion": "Bateria Sonor Smart Force WR 6 Cuerpos, Madera de Alamo, 9 Capas + Baquetas Zildjian (Con Funda p/baquetas). Fabricada con madera de álamo en 9 capas. Acabado en celuloide de alta calidad. Herrajes de doble perfil. Sistema ball y memorias para el soportes de los toms.",
   "imagen": "bateria.jpg"
  },
  {
@@ -31,20 +27,26 @@
   "precio": "41.500",
   "categoria": "3",
   "descripcion": "Trompeta Stagg Ws Tr115 - Con Estuche Abs.Sintonizar: Bb. Válvulas de acero inoxidable. Tubo de plomo: latón. Diámetro de la campana de bronce: 123 mm o 4.84 in.2 llaves de agua",
-  "dimensiones": "20cm x 50cm",
-  "materiales": "Latón",
   "imagen": "trompeta.jpg"
  },
  {
+  "id": 4,
+  "titulo": "Bajo",
+  "marca": "Fender",
+  "modelo": "Precision",
+  "precio": "541.500",
+  "categoria": "1",
+  "descripcion": "Instrumento Profesional. Gran Sonido.",
+  "imagen": "bajo.jpg"
+ },
+ {
   "id": 5,
-  "titulo": "Armónica",
+  "titulo": "Guitarra",
   "marca": "Yamaha",
   "modelo": "Ejs234",
-  "precio": "2.500",
-  "categoria": "3",
-  "descripcion": "Excelente calidad, super profesional.",
-  "dimensiones": "20x15x30",
-  "materiales": "",
+  "precio": "4.500",
+  "categoria": "1",
+  "descripcion": "Excelente calidad, super profesional.\r\n                    ",
   "imagen": "armonica.jpg"
  },
  {
@@ -55,8 +57,6 @@
   "precio": "459.500",
   "categoria": "3",
   "descripcion": "Bandoneón Premier B125C. Gran calida de construcción. Ideal para grabaciones. Sonido de alta fidelidad.",
-  "dimensiones": "45x60x46",
-  "materiales": "Cedro Paraguayo, Ebano de Nigeria",
   "imagen": "bandoneon.jpg"
  },
  {
@@ -67,8 +67,6 @@
   "precio": "250.500",
   "categoria": "4",
   "descripcion": "Teclado Yamaha GCP-2000. 5 Octavas. Sensitivo. Sonidos Reales. Midi",
-  "dimensiones": "120x45x20",
-  "materiales": "",
   "imagen": "teclado.jpg"
  },
  {
@@ -79,8 +77,6 @@
   "precio": "245.000",
   "categoria": "1",
   "descripcion": "Guitarra Telecaster Gran Calidad",
-  "dimensiones": "120x50x20",
-  "materiales": "Rosewood, Spread",
   "imagen": "telecaster.jpg"
  },
  {
@@ -91,8 +87,6 @@
   "precio": "551.400",
   "categoria": "1",
   "descripcion": "Contrabajo Artesanal fabricado por Verdi Hermanos. Maderas de Primera Calidad. ",
-  "dimensiones": "180x60x40",
-  "materiales": "Algarrobo, Cedro, Ebano",
   "imagen": "Contrabajo.jpg"
  }
 ]

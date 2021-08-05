@@ -54,8 +54,6 @@ const controladorProducto = {
                 precio: req.body.precio,
                 categoria: req.body.categoria,
                 descripcion: req.body.descripcion,
-                dimensiones: req.body.dimensiones,
-                materiales:req.body.materiales,
                 imagen: nombreImagen
             };
 
@@ -87,6 +85,8 @@ const controladorProducto = {
             let idURL = req.params.id;
             let productoEncontrado;
 
+            let nombreImagen = req.file.filename;
+
             for (let p of productos){
                 if(idURL == p.id){
                     p.titulo = req.body.titulo;
@@ -95,15 +95,14 @@ const controladorProducto = {
                     p.precio = req.body.precio;
                     p.categoria = req.body.categoria;
                     p.descripcion = req.body.descripcion;
-                    p.dimensiones = req.body.dimensiones;
-                    p.materiales = req.body.materiales;
+                    p.imagen= nombreImagen;
                     break;
                 }
             }
 
             fs.writeFileSync(productsFilePath, JSON.stringify(productos,null," "))
 
-            res.redirect("/products"); //Provisorio. Luego debe almacenar en Json el producto editado (Actualizar BD) El anterior era "products/new-item"
+            res.redirect("/products"); 
 
         },
         
@@ -117,7 +116,7 @@ const controladorProducto = {
 
             fs.writeFileSync(productsFilePath, JSON.stringify(Nproductos,null," "));
 
-            res.redirect("/"); //Provisorio. Luego debe borrar de la BD (Json) el producto recibido por ID. El anterior era "products/all-items"
+            res.redirect("/"); 
         }
 }
 

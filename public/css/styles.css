@@ -332,10 +332,6 @@ input:hover{
 
 .contenedorDescripcionYFicha{
     width:100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
 }
 .nombreProducto h2, .precioProducto h3{
     font-size: 2em;
@@ -344,8 +340,11 @@ input:hover{
 }
 
 .descripcionItem{
-    width: 50%;
+    width: 100%;
     padding:10px 20px;
+}
+.descripcionItem p {
+    font-size: 1.2em;
 }
 .fichaItem{
     width: 50%;
@@ -834,13 +833,13 @@ input:hover{
     .lupa{
         font-size: 20px;
     }
-    .contenedorSuperior, .contenedorDescripcionYFicha{
+    .contenedorSuperior{
         display: inline-block;
     }
     .nombreProducto h2, .precioProducto h3{
         font-size: 2.2em !important;
     }
-    .contenedorImagenes, .contenedorDatos, .fichaItem, .descripcionItem{
+    .contenedorImagenes, .contenedorDatos, .fichaItem{
         width: 100%;
     }
     .descripcionItem{
