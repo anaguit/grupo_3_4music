@@ -6,42 +6,45 @@
                     <img src="/images/logo4musicTransparente2.png" alt="4Music">
                 </a>
             </div>
-            <div class="input-group">
-                <input type="text" id="busqueda" class="form-control" placeholder="Buscar Productos...">
-                <div class="input-group-append" >
-                  <button class="btn btn-secondary botonLupa"  type="button">
-                    <i class="fa fa-search lupa"></i>
-                  </button>
+            <form id="barraBusqueda" action="/products/search" method="GET">
+                <div class="input-group">
+                    <input type="text" id="busqueda" name="busqueda" class="form-control" placeholder="Buscar Productos...">
+                    <div class="input-group-append" >
+                        <button class="btn btn-secondary botonLupa" type="submit">
+                            <i class="fa fa-search lupa"></i>
+                        </button>        
+                   </div>
+                </div>
+            </form>
+        </div>
+        <div class="menuHamburguesa">
+            <i class="fas fa-bars"></i>
+        </div>             
+        <div class="headerDerecha">
+            <div class="contenedorOpcionesUsuario">
+                <div class="opcionUsuario">
+                    <a href="/users"> <i class="fas fa-user"></i> Ingresar</a>
+                </div>
+                <div class="opcionUsuario visible">
+                    <a href="/users/register">Registrarse</a>
+                </div>
+                <div class="logoCarrito">
+                    <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
                 </div>
             </div>
-            <div class="menuHamburguesa">
-                <i class="fas fa-bars"></i>
-            </div>             
-            <div class="headerDerecha">
-                <div class="contenedorOpcionesUsuario">
-                    <div class="opcionUsuario">
-                        <a href="/users"> <i class="fas fa-user"></i> Ingresar</a>
-                    </div>
-                    <div class="opcionUsuario visible">
-                        <a href="/users/register">Registrarse</a>
-                    </div>
-                    <div class="logoCarrito">
-                        <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
-                    </div>
+            <div class="contenedorLogosRedes">
+                <div class="logoRedes">
+                    <a href="http://facebook.com"><i class="fab fa-facebook" ></i></a>
                 </div>
-                <div class="contenedorLogosRedes">
-                    <div class="logoRedes">
-                        <a href="http://facebook.com"><i class="fab fa-facebook" ></i></a>
-                    </div>
-                    <div class="logoRedes">
-                        <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    <div class="logoRedes">
-                        <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
-                    </div>
+                <div class="logoRedes">
+                    <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="logoRedes">
+                    <a href="http://youtube.com"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
+        
     </nav> 
     <nav id="headerInferior" class="navbar fixed-top navbar-expand-lg" color-on-scroll="100">
         <div class="container menu" style="position:relative;">

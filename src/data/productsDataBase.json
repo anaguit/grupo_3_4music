@@ -41,13 +41,12 @@
  },
  {
   "id": 5,
-  "titulo": "Guitarra",
+  "titulo": "Armónica",
   "marca": "Yamaha",
   "modelo": "Ejs234",
   "precio": "4.500",
-  "categoria": "1",
-  "descripcion": "Excelente calidad, super profesional.\r\n                    ",
-  "imagen": "armonica.jpg"
+  "descripcion": "Excelente calidad, super profesional.\r\n                    \r\n                    ",
+  "imagen": "1628220098621armonica.jpg"
  },
  {
   "id": 6,

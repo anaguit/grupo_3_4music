@@ -59,8 +59,11 @@ main{
     max-height: 100px;
 }
 
+#barraBusqueda {
+    width:60%;
+}
 .input-group{
-    width: 60%;
+    width: 100%;
     padding-right: 5px;
 }
 
@@ -805,6 +808,9 @@ input:hover{
     .container{
         max-width:540px
     }
+    #barraBusqueda {
+        width:35% !important;
+    }
 }
 
 
@@ -824,6 +830,8 @@ input:hover{
     display: block;
     font-size: 25px;
     padding-top: 5px;
+    margin-left:auto;
+    margin-right: auto;
     }
 
     .botonLupa{
@@ -873,6 +881,9 @@ input:hover{
     } 
     .container{
         max-width:720px
+    }
+    #barraBusqueda {
+        width:50%;
     }
 }
 

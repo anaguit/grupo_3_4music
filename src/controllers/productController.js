@@ -117,6 +117,18 @@ const controladorProducto = {
             fs.writeFileSync(productsFilePath, JSON.stringify(Nproductos,null," "));
 
             res.redirect("/"); 
+        },
+
+        resultadoBusqueda: (req, res) => {
+            productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            
+            let aBuscar = req.query.busqueda;
+            let productosEncontrados = [];
+            
+            productosEncontrados = productos.filter(function(p) {
+                return (p.titulo.includes(aBuscar) || p.marca.includes(aBuscar) || p.modelo.includes(aBuscar) );
+            });
+            res.render("results-search", {productos: productosEncontrados}); //Busqueda Basica.
         }
 }
 

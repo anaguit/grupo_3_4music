@@ -48,6 +48,7 @@ productRouter.put("/:id/edit", uploadFile.single('imagenes') ,controladorProduct
 /* Borrar Producto */
 productRouter.delete("/:id", controladorProducto.eliminarProducto); // Eliminar un Producto 
 
-
+/* Buscar Productos */
+productRouter.get("/search", controladorProducto.resultadoBusqueda); // Busqueda Basica a mejorar
 
 module.exports = productRouter;
