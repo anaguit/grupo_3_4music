@@ -37,7 +37,7 @@
                             <option value="4">Teclados y Pianos</option>
                             <option value="5">Audio</option>
                             <option value="6">Otros</option>
-                          </select>
+                        </select>
                     </div>
                     <div class="lineaForm">
                         <label for="descripcion">Descripción</label>
@@ -48,15 +48,18 @@
                         <label for="imagenes">Imágenes</label>
                         <input type="file" name="imagenes" accept="image/png, image/gif, image/jpeg" required/>
                     </div>
-                    <!-- Falta terminar este Checkbox...
-                    <div class="lineaForm"> 
-                        <label for="generoMusical">Seleccione Géneros Musicales</label>
-                            <input type="checkbox" name="generoMusical" value="1">Tango
-                            <input type="checkbox" name="generoMusical" value="2">Folklore Argentino
-                            <input type="checkbox" name="generoMusical" value="3">Rock & Blues
-                            <input type="checkbox" name="generoMusical" value="4">Jazz
-                            <input type="checkbox" name="generoMusical" value="5">Otros
-                    </div>-->
+                    <br>
+                    <div class="lineaForm">
+                        <label for="generoMusical">Seleccione el Género Musical correspondiente</label>
+                        <select name="generoMusical">
+                            <option value="">Seleccionar</option>
+                            <option value="Tango">Tango</option>
+                            <option value="Folklore Argentino">Folklore Argentino</option>
+                            <option value="Rock y Blues">Rock & Blues</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Otros">Otros</option>
+                        </select> 
+                    </div>
                     <div class="lineaForm"> 
                         <a href="/users/profile">
                             <button type="button" class="boton-registro">Volver</button>

@@ -51,4 +51,9 @@ productRouter.delete("/:id", controladorProducto.eliminarProducto); // Eliminar 
 /* Buscar Productos */
 productRouter.get("/search", controladorProducto.resultadoBusqueda); // Busqueda Basica a mejorar
 
+
+/* Buscar Productos por Categoría */
+productRouter.get("/searchByCategory", controladorProducto.busquedaPorCategoria); // Busqueda Basica a mejorar
+
+
 module.exports = productRouter;

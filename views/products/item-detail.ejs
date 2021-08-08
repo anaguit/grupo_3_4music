@@ -10,8 +10,24 @@
         <div class="contenedorMain">
             <div class="tituloBloque">
                 <a href="/"><h5>Inicio  ></h5></a>
-                <a href="#"><h5><%= productoDetalle.categoria %>  ></h5></a> 
-                <a href="#"><h5>Guitarras Clásicas</h5></a>
+                <a href="/products/searchByCategory?categoria=<%=productoDetalle.categoria%>">
+                    <h5>
+                        <% switch(productoDetalle.categoria) {  
+                             case "1":%> Instrumentos de Cuerdas
+                                <% break;%>
+                            <% case "2":%> Instrumentos de Percusión 
+                                <% break;%>
+                            <% case "3":%> Instrumentos de Viento 
+                                <%break;%>
+                            <% case "4":%> Teclados y Pianos 
+                                <% break;%>
+                            <% case "5":%> Audio
+                                <% break;%>
+                            <% case "6":%> Otros
+                                <% break;%>
+                        <% } %>
+                    </h5>
+                </a> 
             </div>
             <div class="contenedorSuperior">
                 <div class="contenedorImagenes">

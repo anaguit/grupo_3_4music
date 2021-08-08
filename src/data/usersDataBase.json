@@ -378,5 +378,15 @@
   "telefono": "1130991676",
   "fotoPerfil": "1627773602930Perfil.jpg",
   "comprador": false
+ },
+ {
+  "id": 39,
+  "nombre": "Marta",
+  "apellido": "Minujin",
+  "email": "marta@hotmail.com",
+  "password": "12345678",
+  "telefono": "11 3076541234",
+  "fotoPerfil": "1628380359954cafe vinilo.jpg",
+  "comprador": true
  }
 ]

@@ -54,7 +54,8 @@ const controladorProducto = {
                 precio: req.body.precio,
                 categoria: req.body.categoria,
                 descripcion: req.body.descripcion,
-                imagen: nombreImagen
+                imagen: nombreImagen,
+                generoMusical : req.body.generoMusical
             };
 
             productos.push(productoNuevo);
@@ -126,10 +127,27 @@ const controladorProducto = {
             let productosEncontrados = [];
             
             productosEncontrados = productos.filter(function(p) {
-                return (p.titulo.includes(aBuscar) || p.marca.includes(aBuscar) || p.modelo.includes(aBuscar) );
+                return (p.titulo.includes(aBuscar) || 
+                p.marca.includes(aBuscar) || p.modelo.includes(aBuscar) || p.generoMusical==aBuscar || p.categoria == aBuscar );
             });
-            res.render("results-search", {productos: productosEncontrados}); //Busqueda Basica.
+            
+            
+            res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
+        },
+        busquedaPorCategoria: (req, res) => {
+            productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            
+            let catABuscar = req.query.categoria;
+            let productosEncontrados = [];
+            
+            productosEncontrados = productos.filter(function(p) {
+                return (p.categoria == catABuscar );
+            });
+            
+            
+            res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar}); //Busqueda Basica.
         }
+
 }
 
 module.exports = controladorProducto;

@@ -7,7 +7,8 @@
   "precio": "179.850",
   "categoria": "1",
   "descripcion": "Guitarra Clásica Yamaha acústica; Desde su lanzamiento a principios de la década de los 90's, nuestra querida GC41 ha ido coleccionando premios y reconocimientos, estableciéndose por derecho propio como la guitarra clásica mejor valorada entre profesores, alumnos y guitarristas principiantes, gracias a su increíble relación calidad-precio.\r\n                    \r\n                    ",
-  "imagen": "guitarra.jpg"
+  "imagen": "guitarra.jpg",
+  "generoMusical": "Tango"
  },
  {
   "id": 2,
@@ -17,7 +18,8 @@
   "precio": "138.500",
   "categoria": "2",
   "descripcion": "Bateria Sonor Smart Force WR 6 Cuerpos, Madera de Alamo, 9 Capas + Baquetas Zildjian (Con Funda p/baquetas). Fabricada con madera de álamo en 9 capas. Acabado en celuloide de alta calidad. Herrajes de doble perfil. Sistema ball y memorias para el soportes de los toms.",
-  "imagen": "bateria.jpg"
+  "imagen": "bateria.jpg",
+  "generoMusical": "Rock y Blues"
  },
  {
   "id": 3,
@@ -27,7 +29,8 @@
   "precio": "41.500",
   "categoria": "3",
   "descripcion": "Trompeta Stagg Ws Tr115 - Con Estuche Abs.Sintonizar: Bb. Válvulas de acero inoxidable. Tubo de plomo: latón. Diámetro de la campana de bronce: 123 mm o 4.84 in.2 llaves de agua",
-  "imagen": "trompeta.jpg"
+  "imagen": "trompeta.jpg",
+  "generoMusical": "Jazz"
  },
  {
   "id": 4,
@@ -37,7 +40,8 @@
   "precio": "541.500",
   "categoria": "1",
   "descripcion": "Instrumento Profesional. Gran Sonido.",
-  "imagen": "bajo.jpg"
+  "imagen": "bajo.jpg",
+  "generoMusical": "Jazz"
  },
  {
   "id": 5,
@@ -46,7 +50,8 @@
   "modelo": "Ejs234",
   "precio": "4.500",
   "descripcion": "Excelente calidad, super profesional.\r\n                    \r\n                    ",
-  "imagen": "1628220098621armonica.jpg"
+  "imagen": "1628220098621armonica.jpg",
+  "generoMusical": "Rock y Blues"
  },
  {
   "id": 6,
@@ -56,7 +61,8 @@
   "precio": "459.500",
   "categoria": "3",
   "descripcion": "Bandoneón Premier B125C. Gran calida de construcción. Ideal para grabaciones. Sonido de alta fidelidad.",
-  "imagen": "bandoneon.jpg"
+  "imagen": "bandoneon.jpg",
+  "generoMusical": "Tango"
  },
  {
   "id": 7,
@@ -66,7 +72,8 @@
   "precio": "250.500",
   "categoria": "4",
   "descripcion": "Teclado Yamaha GCP-2000. 5 Octavas. Sensitivo. Sonidos Reales. Midi",
-  "imagen": "teclado.jpg"
+  "imagen": "teclado.jpg",
+  "generoMusical": "Rock y Blues"
  },
  {
   "id": 8,
@@ -76,7 +83,8 @@
   "precio": "245.000",
   "categoria": "1",
   "descripcion": "Guitarra Telecaster Gran Calidad",
-  "imagen": "telecaster.jpg"
+  "imagen": "telecaster.jpg",
+  "generoMusical": "Rock y Blues"
  },
  {
   "id": 9,
@@ -86,6 +94,19 @@
   "precio": "551.400",
   "categoria": "1",
   "descripcion": "Contrabajo Artesanal fabricado por Verdi Hermanos. Maderas de Primera Calidad. ",
-  "imagen": "Contrabajo.jpg"
+  "imagen": "Contrabajo.jpg",
+  "generoMusical": "Jazz"
+ },
+ {
+  "id": 10,
+  "titulo": "Bajo",
+  "marca": "Ibanez",
+  "modelo": "B5e",
+  "precio": "123.000",
+  "categoria": "1",
+  "descripcion": "Bajo Ibanez, 5 cuerdas activo. ",
+  "imagen": "1628380465850Portada La Casita de mis viejos.jpg",
+  "generoMusical": "Rock y Blues"
  }
+
 ]
