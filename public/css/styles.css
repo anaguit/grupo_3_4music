@@ -808,9 +808,7 @@ input:hover{
     .container{
         max-width:540px
     }
-    #barraBusqueda {
-        width:35% !important;
-    }
+    
 }
 
 
@@ -883,7 +881,7 @@ input:hover{
         max-width:720px
     }
     #barraBusqueda {
-        width:50%;
+        width:15% !important;
     }
 }
 

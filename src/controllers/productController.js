@@ -128,7 +128,14 @@ const controladorProducto = {
             
             productosEncontrados = productos.filter(function(p) {
                 return (p.titulo.includes(aBuscar) || 
-                p.marca.includes(aBuscar) || p.modelo.includes(aBuscar) || p.generoMusical==aBuscar || p.categoria == aBuscar );
+                p.marca.includes(aBuscar) || 
+                p.modelo.includes(aBuscar) || 
+                p.generoMusical==aBuscar || 
+                p.categoria == aBuscar ||
+                ((p.titulo + ' ' + p.marca) == aBuscar) || 
+                ((p.titulo + ' ' + p.marca + ' ' + p.modelo) == aBuscar) ||
+                ((p.marca + ' ' + p.modelo) == aBuscar)
+                );
             });
             
             
