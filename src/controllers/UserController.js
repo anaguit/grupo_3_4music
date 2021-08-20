@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const {validationResult} = require("express-validator");
-
+const bcryptjs = require("bcryptjs")
 /* Lectura de Usuarios del Json */
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -22,10 +22,9 @@ const controladorUsers = {
         },
         crearNuevoUsuario: (req, res) => {
             let errors = validationResult(req)
-
             
             
-            //let users = req.body;
+            
             if(errors.isEmpty()){ 
             
             idNuevo=0;
@@ -39,7 +38,8 @@ const controladorUsers = {
             idNuevo++;
 
             let nombreImagen = req.file.filename;
-            let compradorSitio = false; // por defecto es vendedor
+            let compradorSitio = false; // por  defecto es vendedor
+            //let passEncriptada = bcryptjs.hashSync(req.body.password, 10);
 
             if(req.body.tipoUsuario == 1){
                 compradorSitio = true; // si el valor es 1, se lo registra como comprador
@@ -50,7 +50,7 @@ const controladorUsers = {
                 nombre: req.body.nombre ,    
                 apellido: req.body.apellido ,
                 email: req.body.email ,
-                password: req.body.contraseña,
+                password: req.body.password,
                 telefono: req.body.telefono,
                 fotoPerfil: nombreImagen,
                 comprador: compradorSitio
