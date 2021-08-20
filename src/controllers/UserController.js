@@ -1,7 +1,7 @@
 /* Requires */
 const fs = require('fs');
 const path = require('path');
-
+const {validationResult} = require("express-validator");
 
 /* Lectura de Usuarios del Json */
 const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
@@ -21,6 +21,13 @@ const controladorUsers = {
             res.render("register")
         },
         crearNuevoUsuario: (req, res) => {
+            let errors = validationResult(req)
+
+            
+            
+            //let users = req.body;
+            if(errors.isEmpty()){ 
+            
             idNuevo=0;
 
             for (let i of usuarios){
@@ -53,13 +60,21 @@ const controladorUsers = {
 
             fs.writeFileSync(usersFilePath, JSON.stringify(usuarios,null,' '));
 
-            res.redirect("/users/registracionOK");
-
+            res.redirect("/users/registracionOK"); 
+        } 
+            else {
+                if (errors.errors.length > 0){
+            res.render("register", 
+                {errors: errors.mapped(),
+                old: req.body
+        });
+        };
+    }
         },
         registracionExitosa: (req, res) => {
             res.render("registracionExitosa");
         }
-
+        
 }
 
 module.exports = controladorUsers;

@@ -3,6 +3,7 @@ const express = require ("express");
 const usersRouter = express.Router();
 const path = require('path');
 const multer = require('multer');
+const {body} = require("express-validator");
 
 // ************ Controller Require ************
 const controladorUsers = require ("../controllers/UserController");
@@ -22,6 +23,21 @@ const configuracionImagen = multer.diskStorage({
 
 const uploadFile = multer({ storage: configuracionImagen });
 
+/* VALIDACIONES */
+const validatedRegister = [
+    body("nombre").notEmpty().withMessage("Debes completar el campo de nombre"),
+    body("apellido").notEmpty().withMessage("Debes completar el campo de apellido"),
+    body("email").notEmpty().withMessage("Debes escribir un correo electrónico").bail().isEmail().withMessage("Debes escribir un email válido"),
+    body("telefono").notEmpty().withMessage("Ingresa un número de telefono").bail().isNumeric().withMessage("Ingresa un número de telefono válido"),
+    body("password").notEmpty().withMessage("Debes completar el campo de contraseña"),
+    body("avatar").custom((value, { req }) => {
+        let file = req.file;
+        if (!file) {
+            throw new Error("Tienes que subir una imagen")
+        }
+    })
+    
+]
 
 /* Rutas */
 
@@ -37,7 +53,7 @@ usersRouter.get("/profile", controladorUsers.perfil);
 
 /* Registración */
 usersRouter.get("/register", controladorUsers.registro);
-usersRouter.post("/register", uploadFile.single('avatar'), controladorUsers.crearNuevoUsuario);
+usersRouter.post("/register", uploadFile.single('avatar'), validatedRegister, controladorUsers.crearNuevoUsuario);
 
 /* Registración Exitosa */
 usersRouter.get("/registracionOK", controladorUsers.registracionExitosa);

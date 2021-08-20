@@ -9,38 +9,60 @@
     <main>
         <div class="contenedorMain">
             <div class="formulario">
-                <h2 class="bienvenida">Bienvenido a 4Music!</h2>
+                
+                <h2 class="bienvenida">Bienvenido a 4Music!</h2> 
+             
                 <form id="registrar" action="/users/register" method="POST" enctype="multipart/form-data">
                     <div class="lineaForm">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="18" >
+                        <% if(locals.errors && errors.nombre) { %>
+                            <p style="color: red;"><%= errors.nombre.msg %></p>
+                        <% } %>
+                        <input type="text" name="nombre" id="nombre" minlength="2" maxlength="18" value="<%= locals.old && old.nombre ? old.nombre : '' %>" >
+                        
                     </div>
                     <div class="lineaForm">
                         <label for="apellido">Apellido:</label>
-                        <input type="text" name="apellido" id="apellido" required minlength="2" maxlength="18">
+                        <% if(locals.errors && errors.apellido) { %>
+                            <p style="color: red;"><%= errors.apellido.msg %></p>
+                        <% } %>
+                        <input type="text" name="apellido" id="apellido" minlength="2" maxlength="18" value="<%= locals.old && old.apellido ? old.apellido : '' %>" >
                     </div>
                     <div class="lineaForm">
                         <label for="email">Email:</label>
-                        <input type="email" name="email" id="email" required  minlength="6" maxlength="25">
+                        <% if(locals.errors && errors.email) { %>
+                            <p style="color: red;"><%= errors.email.msg %></p>
+                        <% } %>
+                        <input type="email" name="email" id="email"  minlength="6" maxlength="25"value="<%= locals.old && old.email ? old.email : '' %>" >
                     </div>
                     <div class="lineaForm">
                         <label for="contraseña">Contraseña:</label>
-                        <input type="password" name="contraseña" id="contraseña" required minlength="6" maxlength="15">
+                        <% if(locals.errors && errors.password) { %>
+                            <p style="color: red;"><%= errors.password.msg %></p>
+                        <% } %>
+                        <input type="password" name="contraseña" id="contraseña" minlength="6" maxlength="15">
                     </div>
                     <div class="lineaForm">
                         <label for="telefono">Teléfono:</label>
-                        <input type="text" name="telefono" id="telefono" required  minlength="6" maxlength="25">
+                        <% if(locals.errors && errors.telefono) { %>
+                            <p style="color: red;"><%= errors.telefono.msg %></p>
+                        <% } %>
+                        <input type="text" name="telefono" id="telefono"  minlength="6" maxlength="25"value="<%= locals.old && old.telefono ? old.telefono : '' %>" >
                     </div>
                     <div class="lineaForm">
                         <label for="avatar">Seleccionar Foto de Perfil:</label>
-                        <input type="file" name="avatar" id="avatar" required  >
+                        <% if(locals.errors && errors.avatar) { %>
+                            <p style="color: red;"><%= errors.avatar.msg %></p>
+                        <% } %>
+                        <input type="file" name="avatar" id="avatar">
+                        
                     </div>
                     <div class="lineaForm">
                         <label for="tipoUsuario">Tipo de Usuario</label>
-                        <select name="tipoUsuario" id="tipoUsuario" required> 
+                        <select name="tipoUsuario" id="tipoUsuario"> 
                             <option value="">Seleccionar</option>
-                            <option value="1">Comprador</option>
-                            <option value="2">Vendedor</option>
+                            <option value="1" <%= locals.old && old.tipoUsuario === "1" ? "selected" : " "; %>>Comprador</option>
+                            <option value="2" <%= locals.old && old.tipoUsuario === "2" ? "selected" : " "; %>>Vendedor</option>
                         </select>
                     </div>
                     <div class="lineaForm">
