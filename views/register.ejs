@@ -37,8 +37,8 @@
                     </div>
                     <div class="lineaForm">
                         <label for="contraseña">Contraseña:</label>
-                        <% if(locals.errors && errors.password) { %>
-                            <p style="color: red;"><%= errors.password.msg %></p>
+                        <% if(locals.errors && errors.contraseña){ %>
+                            <p style="color: red;"><%= errors.contraseña.msg %></p>
                         <% } %>
                         <input type="password" name="contraseña" id="contraseña" minlength="6" maxlength="15">
                     </div>

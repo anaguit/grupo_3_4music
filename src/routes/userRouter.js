@@ -29,8 +29,8 @@ const validatedRegister = [
     body("apellido").notEmpty().withMessage("Debes completar el campo de apellido"),
     body("email").notEmpty().withMessage("Debes escribir un correo electrónico").bail().isEmail().withMessage("Debes escribir un email válido"),
     body("telefono").notEmpty().withMessage("Ingresa un número de telefono").bail().isNumeric().withMessage("Ingresa un número de telefono válido"),
-    body("password").notEmpty().withMessage("Debes completar el campo de contraseña"),
-    body("avatar").optional().bail().custom((value, { req }) => {
+    body("contraseña").notEmpty().withMessage("Debes completar el campo de contraseña"),
+    body("avatar").optional().custom((value, { req }) => {
         let file = req.file;
         if (!file) {
             throw new Error("Tienes que subir una imagen")
@@ -43,6 +43,7 @@ const validatedRegister = [
 
 /* Inicio de Sesion */
 usersRouter.get("/", controladorUsers.login);
+usersRouter.post("/", controladorUsers.ingresar);
 
 /* Vista Perfil de Usuario */
 usersRouter.get("/profile", controladorUsers.perfil);

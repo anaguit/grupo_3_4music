@@ -388,5 +388,74 @@
   "telefono": "11 3076541234",
   "fotoPerfil": "1628380359954cafe vinilo.jpg",
   "comprador": true
+ },
+ {
+  "id": 40,
+  "nombre": "Agustín Elias",
+  "apellido": "Faggiano",
+  "email": "agustinfaggiano@gmail.com",
+  "password": "sssssss",
+  "telefono": "1130991676",
+  "fotoPerfil": "162946668673468cedbba-2767-4334-b846-e7815c254eae.jpg",
+  "comprador": true
+ },
+ {
+  "id": 41,
+  "nombre": "Agustín Elias",
+  "apellido": "Faggiano",
+  "email": "agustinfaggiano@gmail.com",
+  "password": "12345678",
+  "telefono": "1130991676",
+  "fotoPerfil": "162946686451368cedbba-2767-4334-b846-e7815c254eae.jpg",
+  "comprador": true
+ },
+ {
+  "id": 42,
+  "nombre": "Agustín Elias",
+  "apellido": "Faggiano",
+  "email": "agustinfaggiano@gmail.com",
+  "password": "12345678",
+  "telefono": "1130991676",
+  "fotoPerfil": "162946711397268cedbba-2767-4334-b846-e7815c254eae.jpg",
+  "comprador": true
+ },
+ {
+  "id": 43,
+  "nombre": "Ana",
+  "apellido": "Santoandré",
+  "email": "anasantoandre84@gmail.com",
+  "telefono": "1555280961",
+  "fotoPerfil": "1629468073549Desp (4).jpg",
+  "comprador": false
+ },
+ {
+  "id": 44,
+  "nombre": "Ana",
+  "apellido": "Santoandré",
+  "email": "anasantoandre84@gmail.com",
+  "password": "$2a$10$30FXpie9J5SqQDnfAYBAJuUnEkoVMogUtcHB2ogb.qj623ml7Opb2",
+  "telefono": "15548546874654",
+  "fotoPerfil": "1629468273624Desp (3).jpg",
+  "comprador": false
+ },
+ {
+  "id": 45,
+  "nombre": "Ana",
+  "apellido": "Santoandré",
+  "email": "anasantoandre84@gmail.com",
+  "password": "$2a$10$3CEdHFgy.ZKBPwNsIndV5ul3Vxj92..DNOfrC/3W1sCv43ZDl3xTO",
+  "telefono": "1555280961",
+  "fotoPerfil": "1629469579195Desp (4).jpg",
+  "comprador": false
+ },
+ {
+  "id": 46,
+  "nombre": "Ana",
+  "apellido": "Santo",
+  "email": "anasanto@gmail.com",
+  "password": "$2a$10$9qFZ0POtTCX.gjY.ACSpv.Aq8q4GJgpkChFogqpAdvFbonTm..NZG",
+  "telefono": "1555280961",
+  "fotoPerfil": "1629471551797Desp (3).jpg",
+  "comprador": false
  }
 ]

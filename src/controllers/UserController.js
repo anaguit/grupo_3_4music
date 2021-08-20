@@ -12,6 +12,23 @@ const controladorUsers = {
         login: (req, res) => {
             res.render("login")
         },
+        ingresar: (req, res) => {
+            let emailBuscar = req.body.email;
+            let passwordIngresada = req.body.contraseña;
+            let usuarioEncontrado;
+            for (let i of usuarios){
+                if (emailBuscar == i.email && bcryptjs.compareSync(passwordIngresada, i.password)){
+                    usuarioEncontrado = i;
+                    break;
+                }
+            }
+            if (usuarioEncontrado){
+                res.redirect ("/");
+            }
+            else {
+                res.render("login");
+            }
+        },
 
         perfil: (req, res) => {
             res.render("perfil")
@@ -39,7 +56,7 @@ const controladorUsers = {
 
             let nombreImagen = req.file.filename;
             let compradorSitio = false; // por  defecto es vendedor
-            //let passEncriptada = bcryptjs.hashSync(req.body.password, 10);
+            let passEncriptada = bcryptjs.hashSync(req.body.contraseña, 10);
 
             if(req.body.tipoUsuario == 1){
                 compradorSitio = true; // si el valor es 1, se lo registra como comprador
@@ -50,7 +67,7 @@ const controladorUsers = {
                 nombre: req.body.nombre ,    
                 apellido: req.body.apellido ,
                 email: req.body.email ,
-                password: req.body.password,
+                password: passEncriptada,
                 telefono: req.body.telefono,
                 fotoPerfil: nombreImagen,
                 comprador: compradorSitio
