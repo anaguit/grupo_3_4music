@@ -388,5 +388,35 @@
   "telefono": "11 3076541234",
   "fotoPerfil": "1628380359954cafe vinilo.jpg",
   "comprador": true
+ },
+ {
+  "id": 40,
+  "nombre": "Agustín Elias",
+  "apellido": "Faggiano",
+  "email": "agustinfaggiano@gmail.com",
+  "password": "sssssss",
+  "telefono": "1130991676",
+  "fotoPerfil": "162946668673468cedbba-2767-4334-b846-e7815c254eae.jpg",
+  "comprador": true
+ },
+ {
+  "id": 41,
+  "nombre": "Agustín Elias",
+  "apellido": "Faggiano",
+  "email": "agustinfaggiano@gmail.com",
+  "password": "12345678",
+  "telefono": "1130991676",
+  "fotoPerfil": "162946686451368cedbba-2767-4334-b846-e7815c254eae.jpg",
+  "comprador": true
+ },
+ {
+  "id": 42,
+  "nombre": "Agustín Elias",
+  "apellido": "Faggiano",
+  "email": "agustinfaggiano@gmail.com",
+  "password": "12345678",
+  "telefono": "1130991676",
+  "fotoPerfil": "162946711397268cedbba-2767-4334-b846-e7815c254eae.jpg",
+  "comprador": true
  }
 ]
