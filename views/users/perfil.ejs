@@ -9,7 +9,7 @@
  
 
 <div class="contenedorPerfilUsuario">
-    <h2 class="bienvenida">Bienvenido Usuario XXXX!</h2>
+    <h2 class="bienvenida">Bienvenido <%= locals.usuarioLogueado.nombre %> <%= locals.usuarioLogueado.apellido %>!</h2>
 
     <a href="/products/create">
         <button type="button" class="boton-registro">
@@ -39,6 +39,11 @@
     <a href="/cart">
         <button type="button" class="boton-registro">
             Carrito de Compras
+        </button>
+    </a>
+    <a href="/users/logout">
+        <button type="button" class="boton-registro">
+            Cerrar Sesión
         </button>
     </a>
 </div>

@@ -22,12 +22,18 @@
         </div>             
         <div class="headerDerecha">
             <div class="contenedorOpcionesUsuario">
-                <div class="opcionUsuario">
-                    <a href="/users"> <i class="fas fa-user"></i> Ingresar</a>
-                </div>
-                <div class="opcionUsuario visible">
-                    <a href="/users/register">Registrarse</a>
-                </div>
+                <% if(!locals.isLogged) { %> 
+                    <div class="opcionUsuario">
+                        <a href="/users"> <i class="fas fa-user"></i> Ingresar</a>
+                    </div>
+                    <div class="opcionUsuario visible">
+                        <a href="/users/register">Registrarse</a>
+                    </div>
+                <% } else { %>
+                    <div class="opcionUsuario">
+                        <a href="/users/profile"> <i class="fas fa-user"></i> Hola <%=locals.usuarioLogueado.nombre %> </a>
+                    </div>
+                <% } %>
                 <div class="logoCarrito">
                     <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
                 </div>

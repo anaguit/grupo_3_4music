@@ -31,6 +31,8 @@ const controladorUsers = {
                     }
                 }
                 if (usuarioEncontrado){
+                   // delete usuarioEncontrado.password; // borro la Contraseña del Usuario a Loguearse por Seguridad
+                    req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario en Session
                     res.redirect ("/"); // Usuario Logueado Exitosamente
                 }
                 else {
@@ -61,7 +63,10 @@ const controladorUsers = {
                 };
             }
         },
-
+        cerrarSesion: (req, res) => {
+            req.session.destroy(); // Destruyo la Session
+            res.redirect("/");
+        },
         perfil: (req, res) => {
             res.render("perfil")
         },

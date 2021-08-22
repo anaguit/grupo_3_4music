@@ -8,6 +8,10 @@ const {body} = require("express-validator");
 // ************ Controller Require ************
 const controladorUsers = require ("../controllers/UserController");
 
+// ************ Middlewares de Ruta ************
+const guestMiddleware = require("../middlewares/guestMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
+
 
 //***  Multer configuration  ****/
 
@@ -47,18 +51,22 @@ const validatedLogin = [
 /* Rutas */
 
 /* Inicio de Sesion */
-usersRouter.get("/", controladorUsers.login);
+usersRouter.get("/", guestMiddleware, controladorUsers.login); //Si esta Logueado, el Middleware me redirije al Perfil
 usersRouter.post("/", validatedLogin, controladorUsers.ingresar);
 
+/* Cerrar Sesion */
+usersRouter.get("/logout", controladorUsers.cerrarSesion);
+
+
 /* Vista Perfil de Usuario */
-usersRouter.get("/profile", controladorUsers.perfil);
+usersRouter.get("/profile", authMiddleware, controladorUsers.perfil);
 
 /* Editar Perfil de Usuario */
 //crear todo...
 
 
 /* Registración */
-usersRouter.get("/register", controladorUsers.registro);
+usersRouter.get("/register", guestMiddleware, controladorUsers.registro);
 usersRouter.post("/register", uploadFile.single('avatar'), validatedRegister, controladorUsers.crearNuevoUsuario);
 
 /* Registración Exitosa */

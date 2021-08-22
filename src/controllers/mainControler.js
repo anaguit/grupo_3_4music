@@ -11,23 +11,6 @@ const controlador = {
         let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         res.render("index", {productos: products});
     }
-    /*,
-
-    login: (req, res) => {
-        res.render ("login")
-    },
-
-    registro: (req, res) =>{
-        res.render ("register")
-    },
-
-    detalleItems: (req, res) =>{
-        res.render ("item-detail")
-    },
-
-    carrito: (req, res) => {
-        res.render("cart")
-    }*/
 
 }
 
