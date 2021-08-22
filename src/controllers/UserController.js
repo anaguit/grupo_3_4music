@@ -43,13 +43,13 @@ const controladorUsers = {
                                     msj:'Contraseña Incorrecta'
                                 }
                             },
-                            old: req.body}); // Email Correcto pero Password Incorrecto
+                            old: req.body}); // Email Correcto pero Password Incorrecto       
                     }
                     else{
-                        res.render("login", {
+                        res.render("login",{
                             errors: {
                                 email: {
-                                    msj:'Credenciales No Válidas'
+                                    msj:'No pudimos encontrar tu Email'
                                 }
                             },
                             old: req.body}); // Datos Incorrectos
@@ -60,6 +60,7 @@ const controladorUsers = {
                 if (errors.errors.length > 0){
                     res.render("login", {errors: errors.mapped(),
                     old: req.body});
+                    
                 };
             }
         },
