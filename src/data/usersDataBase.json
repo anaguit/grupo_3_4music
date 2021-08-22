@@ -457,5 +457,15 @@
   "telefono": "1555280961",
   "fotoPerfil": "1629471551797Desp (3).jpg",
   "comprador": false
+ },
+ {
+  "id": 47,
+  "nombre": "Agustin",
+  "apellido": "Faggiano",
+  "email": "agustinfaggiano@gmail.com",
+  "password": "$2a$10$/36q28YTK3h.oeXh.kI4OuyCJDWpZLRtitp9fwZtLlK1xP7UdQNVK",
+  "telefono": "1130991676",
+  "fotoPerfil": "1629584737688Perfil2.jpg",
+  "comprador": false
  }
 ]

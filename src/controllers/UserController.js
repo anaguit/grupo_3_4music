@@ -13,20 +13,52 @@ const controladorUsers = {
             res.render("login")
         },
         ingresar: (req, res) => {
-            let emailBuscar = req.body.email;
-            let passwordIngresada = req.body.contraseña;
-            let usuarioEncontrado;
-            for (let i of usuarios){
-                if (emailBuscar == i.email && bcryptjs.compareSync(passwordIngresada, i.password)){
-                    usuarioEncontrado = i;
-                    break;
+            let errors = validationResult(req)
+
+            if(errors.isEmpty()){ 
+
+                let emailBuscar = req.body.email;
+                let passwordIngresada = req.body.contraseña;
+                let usuarioEncontrado;
+                let emailEncontrado
+                for (let i of usuarios){
+                    if (emailBuscar == i.email) {
+                        emailEncontrado = 1;
+                        if(bcryptjs.compareSync(passwordIngresada, i.password)){
+                            usuarioEncontrado = i; //usuario encontrado en el JSON
+                            break;
+                        }
+                    }
                 }
-            }
-            if (usuarioEncontrado){
-                res.redirect ("/");
-            }
+                if (usuarioEncontrado){
+                    res.redirect ("/"); // Usuario Logueado Exitosamente
+                }
+                else {
+                    if(emailEncontrado == 1){
+                        res.render("login", {
+                            errors: {
+                                contraseña: {
+                                    msj:'Contraseña Incorrecta'
+                                }
+                            },
+                            old: req.body}); // Email Correcto pero Password Incorrecto
+                    }
+                    else{
+                        res.render("login", {
+                            errors: {
+                                email: {
+                                    msj:'Credenciales No Válidas'
+                                }
+                            },
+                            old: req.body}); // Datos Incorrectos
+                    }
+                }
+            } 
             else {
-                res.render("login");
+                if (errors.errors.length > 0){
+                    res.render("login", {errors: errors.mapped(),
+                    old: req.body});
+                };
             }
         },
 

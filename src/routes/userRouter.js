@@ -39,11 +39,16 @@ const validatedRegister = [
     
 ]
 
+const validatedLogin = [
+    body("email").notEmpty().withMessage("Debes escribir un correo electrónico").bail().isEmail().withMessage("Debes escribir un email válido"),
+    body("contraseña").notEmpty().withMessage("Debes completar el campo de contraseña")  
+]
+
 /* Rutas */
 
 /* Inicio de Sesion */
 usersRouter.get("/", controladorUsers.login);
-usersRouter.post("/", controladorUsers.ingresar);
+usersRouter.post("/", validatedLogin, controladorUsers.ingresar);
 
 /* Vista Perfil de Usuario */
 usersRouter.get("/profile", controladorUsers.perfil);
