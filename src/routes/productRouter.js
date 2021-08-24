@@ -3,6 +3,7 @@ const express = require ("express");
 const productRouter = express.Router();
 const path = require('path');
 const multer = require('multer');
+const authMiddleware = require("../middlewares/authMiddleware");
 
 
 // ************ Controller Require ************
@@ -35,14 +36,14 @@ productRouter.get("/detail/:id", controladorProducto.detalleProducto); // Detall
 
 /* Publicar Nuevo Producto */
 
-productRouter.get("/create", controladorProducto.productoNuevo); // Formulario de Creacion de Producto
+productRouter.get("/create", authMiddleware, controladorProducto.productoNuevo); // Formulario de Creacion de Producto
 productRouter.post("/", uploadFile.single('imagenes') , controladorProducto.almacenarNuevoProducto); // Almacenamiento del nuevo producto
 
-productRouter.get("/all-ok", controladorProducto.publicacionExitosa); //Vista de Publicacion Exitosa
+productRouter.get("/all-ok", authMiddleware, controladorProducto.publicacionExitosa); //Vista de Publicacion Exitosa
 
 
 /* Editar Producto */
-productRouter.get("/:id/edit", controladorProducto.editarProducto); // Formulario Edición del Producto
+productRouter.get("/:id/edit", authMiddleware, controladorProducto.editarProducto); // Formulario Edición del Producto
 productRouter.put("/:id/edit", uploadFile.single('imagenes') ,controladorProducto.almacenarProductoEditado); // Guardar Producto Editado
 
 /* Borrar Producto */

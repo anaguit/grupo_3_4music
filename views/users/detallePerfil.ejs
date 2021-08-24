@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<%-include("../partials/head.ejs", {title: 'Mis Datos - 4Music'})%>
+
+
+<body class="fourMusic">
+
+    <%-include("../partials/header.ejs")%>
+ 
+
+<div class="contenedorPerfilUsuario">
+    <h2 class="bienvenida">Bienvenido <%= usuarioDetalle.nombre %> <%= usuarioDetalle.apellido %>!</h2>
+    <div class="cajaPrincipal">
+        <div class="caja1">
+            <h4>Nombre</h4>
+            <h4> <%= usuarioDetalle.nombre %></h4>
+        </div>
+        <div class="caja1">
+            <h4>Apellido</h4>
+            <h4><%= usuarioDetalle.apellido %></h4>
+        </div>
+        <div class="caja1">
+            <h4>Email</h4>
+            <h4><%= usuarioDetalle.email %></h4>
+        </div>
+        <div class="caja1">
+            <h4>Teléfono</h4>
+            <h4><%= usuarioDetalle.telefono %></h4>
+        </div>
+        <div class="caja1">
+            <h4>Foto de Perfil</h4>
+            <h4><img class="" src="/images/users/<%= usuarioDetalle.fotoPerfil %>"/></h4>
+        </div>
+        <div class="caja1">
+            <h4>Usuario Tipo</h4>
+            <% if(locals.usuarioDetalle.comprador) { %>
+                <h4>Comprador</h4>
+            <% } else { %>
+                <h4>Vendedor</h4>
+            <% } %>
+        </div>
+    </div>
+
+    <a href="/users/profile">
+        <button type="button" class="boton-registro">Volver</button>
+    </a>
+    <form action="/users/<%=locals.usuarioDetalle.id%>/edit" method="GET">
+        <button type="submit" class="boton-registro">Editar Perfil</button>
+    </form>
+</div>
+<%-include("../partials/footer")%>
+
+</body>

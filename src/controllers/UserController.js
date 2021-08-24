@@ -71,7 +71,19 @@ const controladorUsers = {
         perfil: (req, res) => {
             res.render("perfil")
         },
+        datosUsuario: (req, res) => {
+            let idURL = req.params.id;
+            let usuarioEncontrado;
 
+            for (let u of usuarios){
+                if (u.id==idURL){
+                    usuarioEncontrado=u;
+                    break;
+                }
+            }
+
+            res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
+        },
         registro: (req, res) => {
             res.render("register")
         },
@@ -128,6 +140,62 @@ const controladorUsers = {
         },
         registracionExitosa: (req, res) => {
             res.render("registracionExitosa");
+        },
+        modificarDatos: (req,res) => {
+            let idURL = req.params.id;
+            let usuarioEncontrado;
+
+            for(let u of usuarios){
+                if (idURL == u.id){
+                    usuarioEncontrado = u;
+                }
+            }
+            res.render("EditarUsuario", {usuarioaEditar: usuarioEncontrado});
+        },
+        almacenarUsuarioEditado: (req, res) => {
+            let idURL = req.params.id;
+            let nombreImagen = req.file.filename;
+            
+            let usuarioEncontrado;
+            let compradorSitio;
+
+            if(req.body.tipoUsuario == 1){
+                compradorSitio = true; // si el valor es 1, se lo guarda como comprador
+            }
+            else{
+                compradorSitio = false;
+            }
+
+            for (let u of usuarios){
+                if(idURL == u.id){
+                    u.nombre = req.body.nombre ;   
+                    u.apellido = req.body.apellido;
+                    u.email = req.body.email;
+                    u.password = u.password;
+                    u.telefono = req.body.telefono;
+                    u.fotoPerfil = nombreImagen;
+                    u.comprador = compradorSitio;
+                    usuarioEncontrado= u;
+                    break;
+                }
+            }
+
+            fs.writeFileSync(usersFilePath, JSON.stringify(usuarios,null," "))
+
+            req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario con los nuevos Datos en Session
+            res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
+        },
+        eliminarCuenta: (req, res) => {
+            let idURL = req.params.id;
+
+            let Nusuarios = usuarios.filter(function(e){
+                return idURL != e.id;
+            })
+
+            fs.writeFileSync(usersFilePath, JSON.stringify(Nusuarios,null," "));
+            
+            req.session.destroy();
+            res.redirect("/"); 
         }
         
 }

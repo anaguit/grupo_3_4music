@@ -61,8 +61,16 @@ usersRouter.get("/logout", controladorUsers.cerrarSesion);
 /* Vista Perfil de Usuario */
 usersRouter.get("/profile", authMiddleware, controladorUsers.perfil);
 
+
+/* Detalle Datos de Usuario */
+usersRouter.get("/userData/:id", authMiddleware, controladorUsers.datosUsuario);
+
 /* Editar Perfil de Usuario */
-//crear todo...
+usersRouter.get("/:id/edit", authMiddleware, controladorUsers.modificarDatos);
+usersRouter.put("/:id/edit", uploadFile.single('avatar') ,controladorUsers.almacenarUsuarioEditado); // Guardar Producto Editado
+
+/* Borrar Usuario */
+usersRouter.delete("/:id", controladorUsers.eliminarCuenta); // Eliminar un Producto 
 
 
 /* Registración */

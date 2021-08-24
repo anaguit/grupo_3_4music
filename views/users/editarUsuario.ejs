@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<%-include("../partials/head.ejs", {title: 'Modificar Perfil'})%>
+    
+<body class="fourMusic">
+    
+    <%-include("../partials/header.ejs")%>
+
+    <main>
+        <div class="contenedorMain">
+            <div class="formulario">         
+                <h2 class="bienvenida">Modificar mi Perfil</h2>
+                <form id="modificarUsuario" action="/users/<%=usuarioaEditar.id%>/edit?_method=PUT" method="POST"  enctype="multipart/form-data">
+                    <div class="lineaForm">
+                        <label for="nombre">Nombre</label>
+                        <input value="<%=usuarioaEditar.nombre%>" type="text" placeholder="" name="nombre" id="nombre" required  minlength="2" maxlength="25">     
+                    </div>
+                    <div class="lineaForm">
+                        <label for="apellido">Apellido</label>
+                        <input value="<%=usuarioaEditar.apellido %>" type="text" name="apellido" id="apellido" placeholder="" required  minlength="2" maxlength="25">     
+                    </div>
+                    <div class="lineaForm">
+                        <label for="email">Email</label>
+                        <input value="<%=usuarioaEditar.email %>" type="text" name="email" id="email" required  placeholder=""  minlength="2" maxlength="30">    
+                    </div>
+                    
+                    <div class="lineaForm">
+                        <label for="avatar">Foto de Perfil</label>
+                        <img class="" src="/images/users/<%= usuarioaEditar.fotoPerfil %>"/>
+                        <label for="avatar">Cargar nueva Imágen</label>
+                        <input type="file" name="avatar" accept="image/png, image/gif, image/jpeg" required/>
+                    </div>
+                    <div class="lineaForm">
+                        <label for="telefono">Teléfono</label>
+                        <input value="<%=usuarioaEditar.telefono %>" type="text" name="telefono" id="telefono" required>    
+                    </div>
+                    <div class="lineaForm">
+                        <label for="tipoUsuario">Tipo de Usuario</label>
+                        <select name="tipoUsuario" id="tipoUsuario"> 
+                            <option value="">Seleccionar</option>
+                            <option value="1" <%= locals.usuarioaEditar.comprador == true ? "selected" : " "; %>>Comprador</option>
+                            <option value="2" <%= locals.usuarioaEditar.comprador == false ? "selected" : " "; %>>Vendedor</option>
+                        </select>
+                    </div>
+                    <div class="lineaForm"> 
+                        <a href="/users/userData/<%=locals.usuarioaEditar.id%>"><button type="button" class="boton-registro">Volver</button></a>
+                    </div>
+                    <div class="lineaForm"> 
+                        <button type="submit" class="boton-registro">Guardar</button>
+                    </div>
+                    
+                    
+                
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <%-include("../partials/footer.ejs")%>
+
+ 
+</body>
+</html>

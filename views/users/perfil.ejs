@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<%-include("../partials/head.ejs", {title: 'Listado de productos'})%>
+<%-include("../partials/head.ejs", {title: 'Mi cuenta - 4Music'})%>
 
 
 <body class="fourMusic">
@@ -16,7 +16,7 @@
             Publicar nuevo producto
         </button>
     </a>
-    <a href="#">
+    <a href="/users/userData/<%=locals.usuarioLogueado.id%>">
         <button type="button" class="boton-registro">
             Mis datos
         </button>
@@ -41,6 +41,9 @@
             Carrito de Compras
         </button>
     </a>
+    <form action="/users/<%=locals.usuarioLogueado.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?');">
+        <button type="submit" class="boton-registro">Eliminar Cuenta</button>
+    </form>
     <a href="/users/logout">
         <button type="button" class="boton-registro">
             Cerrar Sesión
