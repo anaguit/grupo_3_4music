@@ -33,6 +33,9 @@ const controladorUsers = {
                 if (usuarioEncontrado){
                    // delete usuarioEncontrado.password; // borro la Contraseña del Usuario a Loguearse por Seguridad
                     req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario en Session
+                    if (req.body.recordarUsuario) {
+                        res.cookie("userEmail", req.body.email, {maxAge: (1000 * 60) * 2});
+                    }
                     res.redirect ("/"); // Usuario Logueado Exitosamente
                 }
                 else {
@@ -69,7 +72,8 @@ const controladorUsers = {
             res.redirect("/");
         },
         perfil: (req, res) => {
-            res.render("perfil")
+            res.render("perfil");
+            console.log(req.cookies.userEmail);
         },
         datosUsuario: (req, res) => {
             let idURL = req.params.id;

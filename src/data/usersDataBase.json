@@ -258,5 +258,15 @@
   "telefono": "1130991676",
   "fotoPerfil": "1629826790890Perfil2.jpg",
   "comprador": false
+ },
+ {
+  "id": 27,
+  "nombre": "Estefania",
+  "apellido": "Colodro",
+  "email": "estefi.colodro@gmail.com",
+  "password": "$2a$10$g27g0hnzym4sxjjU0FwUt.aN4m4ye376hWPkZs9yPMFeUPcACfr.m",
+  "telefono": "01141655713",
+  "fotoPerfil": "1629844195067IMG_0076.jpg",
+  "comprador": true
  }
 ]
