@@ -68,6 +68,7 @@ const controladorUsers = {
             }
         },
         cerrarSesion: (req, res) => {
+            res.clearCookie("userEmail"); // Elimino la Cookie
             req.session.destroy(); // Destruyo la Session
             res.redirect("/");
         },

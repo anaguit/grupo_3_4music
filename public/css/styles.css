@@ -631,6 +631,10 @@ input:hover{
     margin-top: 20px;
 }
 
+.imagenPerfil {
+    max-width: 25vw;
+}
+
 /* ---------------------------------- */
 
 .product-box {
