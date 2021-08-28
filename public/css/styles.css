@@ -712,6 +712,7 @@ input:hover{
 /*------Media Queries-------*/
 
 @media (max-width:394px) {
+
     #linkLogo img{
         max-width: 50vw !important; 
     }
@@ -818,7 +819,7 @@ input:hover{
 
 @media (max-width:768px) {
     body {
-        padding-top: 140px !important;
+        padding-top: 31vh !important;
     }
     #headerInferior, .headerDerecha, #busqueda{
         display: none !important;
