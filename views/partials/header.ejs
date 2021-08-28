@@ -17,9 +17,11 @@
                 </div>
             </form>
         </div>
+
+        <!--
         <div class="menuHamburguesa">
             <i class="fas fa-bars"></i>
-        </div>             
+        </div>   -->          
         <div class="headerDerecha">
             <div class="contenedorOpcionesUsuario">
                 <% if(!locals.isLogged) { %> 
@@ -50,7 +52,31 @@
                 </div>
             </div>
         </div>
-        
+        <nav class="navbar navbar-expand-md navbar-dark menuHamburguesa">
+            <!--<a class="navbar-brand" href="#">Menu</a>-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="background-color:black"> 
+              <span class="navbar-toggler-icon" ></span>
+            </button>
+            <div class="collapse navbar-collapse menuHamburguesa" id="collapsibleNavbar" >
+              <ul class="navbar-nav" >
+                <% if(!locals.isLogged) { %> 
+                <li class="nav-item">
+                  <a class="nav-link" href="/users"><i class="fas fa-user"></i> Ingresar</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/users/register"><i class="fas fa-user"></i> Registrarse</a>
+                </li>
+                <% } else { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/users/profile"><i class="fas fa-user"></i> Hola <%=locals.usuarioLogueado.nombre %></a>
+                </li>    
+                <% } %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i> Carrito de Compras</a>
+                </li> 
+              </ul>
+            </div>  
+        </nav>      
     </nav> 
     <nav id="headerInferior" class="navbar fixed-top navbar-expand-lg" color-on-scroll="100">
         <div class="container menu" style="position:relative;">
@@ -139,5 +165,7 @@
                     <button class="dropdown-item" type="button">SSS</button>
                 </div>
             </div>
-    </nav>      
+        
+    </nav>
+   
 </header>

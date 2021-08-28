@@ -709,6 +709,11 @@ input:hover{
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
+  .nav-link {
+      color: black !important;
+      font-size: 0.8em;
+  }
 /*------Media Queries-------*/
 
 @media (max-width:394px) {
@@ -819,7 +824,7 @@ input:hover{
 
 @media (max-width:768px) {
     body {
-        padding-top: 31vh !important;
+        padding-top: 34vh !important;
     }
     #headerInferior, .headerDerecha, #busqueda{
         display: none !important;
@@ -830,12 +835,13 @@ input:hover{
         margin-left:auto;
     }
     .menuHamburguesa{
-    display: block;
+    display: flex;
     font-size: 25px;
     padding-top: 5px;
     margin-left:auto;
     margin-right: auto;
-    }
+    justify-content: center;
+}
 
     .botonLupa{
         background-color:transparent;
