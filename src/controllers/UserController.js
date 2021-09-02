@@ -74,7 +74,7 @@ const controladorUsers = {
         },
         perfil: (req, res) => {
             res.render("perfil");
-            console.log(req.cookies.userEmail);
+           // console.log(req.cookies.userEmail);
         },
         datosUsuario: (req, res) => {
             let idURL = req.params.id;

@@ -251,12 +251,12 @@
  },
  {
   "id": 26,
-  "nombre": "Agustín Elias",
+  "nombre": "Agustín",
   "apellido": "Faggiano",
   "email": "agustinfaggiano@gmail.com",
   "password": "$2a$10$lKbZI4lkdZ9MPRbu7rtMFO7z/JoHcUAkjxs.GQaepAShz8sDW8C6W",
   "telefono": "1130991676",
-  "fotoPerfil": "1629847821266Perfil.jpg",
+  "fotoPerfil": "1630117626285Perfil2.jpg",
   "comprador": false
  },
  {
@@ -268,5 +268,15 @@
   "telefono": "01141655713",
   "fotoPerfil": "1629844195067IMG_0076.jpg",
   "comprador": true
+ },
+ {
+  "id": 28,
+  "nombre": "Estefania",
+  "apellido": "Colodro",
+  "email": "estefi.colodro@gmail.com",
+  "password": "$2a$10$2HrI6FfqutxLmTZ4qa/J.e52ZVs5OMzrzKiWpqHv9nCGw7xl4kf1.",
+  "telefono": "01141655713",
+  "fotoPerfil": "1630539370455IMG_0076.jpg",
+  "comprador": false
  }
 ]
