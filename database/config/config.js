@@ -1,10 +1,9 @@
-module.exports = 
-
+module.exports =
 {
   "development": {
     "username": "root",
     "password": null,
-    "database": "4music",
+    "database": "4music3",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
