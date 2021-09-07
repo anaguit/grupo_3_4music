@@ -34,6 +34,10 @@ module.exports = (sequelize, dataTypes) => {
         foto_perfil: {
             type: dataTypes.STRING(100),
             notNull: true
+        },
+        rol: {
+            type: dataTypes.ENUM('comprador','vendedor'),
+            notNull: true
         }
     }
     let config = {
