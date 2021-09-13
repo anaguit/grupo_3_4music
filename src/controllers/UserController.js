@@ -172,7 +172,7 @@ const controladorUsers = {
         },
         almacenarUsuarioEditado: (req, res) => {
             let idURL = req.params.id;
-            let nombreImagen = req.file.filename;
+            //let nombreImagen = req.file.filename;
             
             let usuarioEncontrado;
             let compradorSitio;
@@ -191,14 +191,26 @@ const controladorUsers = {
                     u.email = req.body.email;
                     u.password = u.password;
                     u.telefono = req.body.telefono;
-                    u.fotoPerfil = nombreImagen;
-                    u.comprador = compradorSitio;
+                    //u.fotoPerfil = nombreImagen;
+                    u.rol = compradorSitio;
                     usuarioEncontrado= u;
                     break;
                 }
             }
+            db.Usuario.update({
+                nombre: req.body.nombre ,    
+                apellido: req.body.apellido ,
+                email: req.body.email ,
+                telefono: req.body.telefono,
+                foto_perfil: "foto.jpg",
+                rol: req.body.tipoUsuario
+            }, {
+                where: {
+                    id: idURL
+                }
+            })
 
-            fs.writeFileSync(usersFilePath, JSON.stringify(usuarios,null," "))
+            //fs.writeFileSync(usersFilePath, JSON.stringify(usuarios,null," "))
 
             req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario con los nuevos Datos en Session
             res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
@@ -206,11 +218,18 @@ const controladorUsers = {
         eliminarCuenta: (req, res) => {
             let idURL = req.params.id;
 
-            let Nusuarios = usuarios.filter(function(e){
+            /*let Nusuarios = usuarios.filter(function(e){
                 return idURL != e.id;
+
+            })*/
+
+            db.Usuario.destroy({
+                where: {
+                    id: idURL
+                }
             })
 
-            fs.writeFileSync(usersFilePath, JSON.stringify(Nusuarios,null," "));
+            //fs.writeFileSync(usersFilePath, JSON.stringify(Nusuarios,null," "));
             
             req.session.destroy();
             res.redirect("/"); 

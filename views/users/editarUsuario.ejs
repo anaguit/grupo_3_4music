@@ -35,11 +35,11 @@
                         <input value="<%=usuarioaEditar.telefono %>" type="text" name="telefono" id="telefono" required>    
                     </div>
                     <div class="lineaForm">
-                        <label for="tipoUsuario">Tipo de Usuario</label>
+                        <label for="rol">Tipo de Usuario</label>
                         <select name="tipoUsuario" id="tipoUsuario"> 
                             <option value="">Seleccionar</option>
-                            <option value="1" <%= locals.usuarioaEditar.comprador == true ? "selected" : " "; %>>Comprador</option>
-                            <option value="2" <%= locals.usuarioaEditar.comprador == false ? "selected" : " "; %>>Vendedor</option>
+                            <option value="1" <%= locals.usuarioaEditar.rol == true ? "selected" : " "; %>>Comprador</option>
+                            <option value="2" <%= locals.usuarioaEditar.rol == false ? "selected" : " "; %>>Vendedor</option>
                         </select>
                     </div>
                     <div class="lineaForm"> 
