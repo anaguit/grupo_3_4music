@@ -8,12 +8,12 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
 
-        id_producto_FK: {
+        id_producto: {
             type: dataTypes.INTEGER,
             notNull: true
         },
 
-        id_operacion_FK: {
+        id_operacion: {
             type: dataTypes.INTEGER,
             notNull: true
         },
@@ -36,6 +36,16 @@ module.exports = (sequelize, dataTypes) => {
 
     const DetalleOperacion = sequelize.define(alias, cols, config);
 
+    DetalleOperacion.associate = function(models){
+        DetalleOperacion.belongsTo(models.Operacion, {
+            as: "operacion",
+            foreignKey: "id_operacion"
+        }),
+        DetalleOperacion.belongsTo(models.Producto, {
+            as: "producto",
+            foreignKey: "id_producto"
+        })
+    }
 
     return DetalleOperacion;
 }

@@ -7,10 +7,6 @@ module.exports = (sequelize, dataTypes) => {
             notNull: true,
             autoIncrement: true
         },
-        id_rol: {
-            type: dataTypes.INTEGER,
-            isNull: true
-        },
         nombre: {
             type: dataTypes.STRING(100),
             notNull: true
@@ -47,6 +43,16 @@ module.exports = (sequelize, dataTypes) => {
 
     const Usuario = sequelize.define(alias, cols, config);
 
+    Usuario.associate = function(models) {
+        Usuario.hasMany(models.Operacion, {
+            as: "operacion_compra",
+            foreignKey: "id_comprador"
+        })
+        Usuario.hasMany(models.Operacion, {
+            as: "operacion_venta",
+            foreignKey: "id_vendedor"
+        })
+    }
 
     return Usuario;
 }

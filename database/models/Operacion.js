@@ -8,7 +8,12 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true
         },
 
-        id_usuario: {
+        id_comprador: {
+            type: dataTypes.INTEGER,
+            notNull: true
+        },
+
+        id_vendedor: {
             type: dataTypes.INTEGER,
             notNull: true
         },
@@ -31,6 +36,20 @@ module.exports = (sequelize, dataTypes) => {
 
     const Operacion = sequelize.define(alias, cols, config);
 
+    Operacion.associate = function(models){
+        Operacion.belongsTo(models.Usuario, {
+            as: "comprador",
+            foreignKey: "id_comprador"
+        }),
+        Operacion.belongsTo(models.Usuario, {
+            as: "vendedor",
+            foreignKey: "id_vendedor"
+        }),
+        Operacion.hasMany(models.DetalleOperacion, {
+            as: "detalle_operacion",
+            foreignKey: "id_operacion"
+        })
+    }
 
     return Operacion;
 }
