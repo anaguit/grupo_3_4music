@@ -1,15 +1,12 @@
 /* Requires */
-const fs = require('fs');
+
 const path = require('path');
 const {validationResult} = require("express-validator");
 const bcryptjs = require("bcryptjs")
-/* Lectura de Usuarios del Json */
-const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
-//const usuarios = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
 
 const db = require ("../../database/models");
 const { sequelize, Sequelize } = require('../../database/models');
-
 //const { where } = require('sequelize/types');
 const op = Sequelize.Op;
 
@@ -20,53 +17,57 @@ const controladorUsers = {
         },
         ingresar: (req, res) => {
             let errors = validationResult(req)
-            let usuarios;
-            db.Usuario.findAll()
-                .then((resultados) => {
-                    usuarios = resultados;
-                    if(errors.isEmpty()){ 
+                if(errors.isEmpty()){ 
+                        
+                    let usuarios;
+                    db.Usuario.findAll()
+                        .then((resultados) => {
+                            usuarios = resultados;
 
-                        let emailBuscar = req.body.email;
-                        let passwordIngresada = req.body.contraseña;
-                        let usuarioEncontrado;
-                        let emailEncontrado;
-                        for (let i of usuarios){
-                            if (emailBuscar == i.email) {
-                                emailEncontrado = 1;
-                                if(bcryptjs.compareSync(passwordIngresada, i.clave)){
-                                    usuarioEncontrado = i; //usuario encontrado en el JSON
-                                    break;
+                            let emailBuscar = req.body.email;
+                            let passwordIngresada = req.body.contraseña;
+                            let usuarioEncontrado;
+                            let emailEncontrado;
+                            for (let i of usuarios){
+                                if (emailBuscar == i.email) {
+                                    emailEncontrado = 1;
+                                    if(bcryptjs.compareSync(passwordIngresada, i.clave)){
+                                        usuarioEncontrado = i; //usuario encontrado en el JSON
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        if (usuarioEncontrado){
-                           // delete usuarioEncontrado.password; // borro la Contraseña del Usuario a Loguearse por Seguridad
-                            req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario en Session
-                            if (req.body.recordarUsuario) {
-                                res.cookie("userEmail", req.body.email, {maxAge: (1000 * 60) * 2});
+                            if(usuarioEncontrado){
+                                // delete usuarioEncontrado.password; // borro la Contraseña del Usuario a Loguearse por Seguridad
+                                req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario en Session
+                                if (req.body.recordarUsuario) {
+                                    res.cookie("userEmail", req.body.email, {maxAge: (1000 * 60) * 2});
+                                }
+                                res.redirect ("/"); // Usuario Logueado Exitosamente
                             }
-                            res.redirect ("/"); // Usuario Logueado Exitosamente
-                        }
-                        else {
-                            if(emailEncontrado == 1){
-                                res.render("login", {
-                                    errors: {
-                                        contraseña: {
-                                            msj:'Contraseña Incorrecta'
-                                        }
-                                    },
+                            else {
+                                if(emailEncontrado == 1){
+                                    res.render("login", {
+                                        errors: {
+                                            contraseña: {
+                                                msj:'Contraseña Incorrecta'
+                                            }   
+                                        },
                                     old: req.body}); // Email Correcto pero Password Incorrecto       
-                            }
-                            else{
-                                res.render("login",{
-                                    errors: {
-                                        email: {
-                                            msj:'No pudimos encontrar tu Email'
-                                        }
-                                    },
-                                    old: req.body}); // Datos Incorrectos
-                            }
-                        }
+                                }
+                                else{
+                                    res.render("login",{
+                                        errors: {
+                                            email: {
+                                                msj:'No pudimos encontrar tu Email'
+                                            }
+                                        },
+                                        old: req.body}); // Datos Incorrectos
+                                }
+                            } 
+
+                         
+                        });
                     } 
                     else {
                         if (errors.errors.length > 0){
@@ -76,7 +77,7 @@ const controladorUsers = {
                         };
                     }
                     
-                });
+               
             
         },
         cerrarSesion: (req, res) => {
