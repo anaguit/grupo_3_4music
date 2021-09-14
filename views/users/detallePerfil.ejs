@@ -34,9 +34,9 @@
         <div class="caja1">
             <h4>Usuario Tipo</h4>
             <% if(locals.usuarioDetalle.rol) { %>
-                <h4>Comprador</h4>
+                <h4><%=usuarioDetalle.rol%></h4>
             <% } else { %>
-                <h4>Vendedor</h4>
+                <h4><%=usuarioDetalle.rol%></h4>
             <% } %>
         </div>
     </div>

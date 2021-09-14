@@ -38,8 +38,8 @@
                         <label for="rol">Tipo de Usuario</label>
                         <select name="tipoUsuario" id="tipoUsuario"> 
                             <option value="">Seleccionar</option>
-                            <option value="comprador" <%= locals.usuarioaEditar.rol == true ? "selected" : " "; %>>Comprador</option>
-                            <option value="vendedor" <%= locals.usuarioaEditar.rol == false ? "selected" : " "; %>>Vendedor</option>
+                            <option value="comprador" <%= locals.usuarioaEditar.rol == "comprador" ? "selected" : " "; %>>Comprador</option>
+                            <option value="vendedor" <%= locals.usuarioaEditar.rol == "vendedor" ? "selected" : " "; %>>Vendedor</option>
                         </select>
                     </div>
                     <div class="lineaForm"> 
