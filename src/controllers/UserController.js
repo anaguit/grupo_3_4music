@@ -13,12 +13,6 @@ const { sequelize, Sequelize } = require('../../database/models');
 //const { where } = require('sequelize/types');
 const op = Sequelize.Op;
 
-let usuarios;
-db.Usuario.findAll()
-.then((resultados) => {
-     usuarios = resultados;
-    
-});
 
 const controladorUsers = {
         login: (req, res) => {
@@ -26,58 +20,64 @@ const controladorUsers = {
         },
         ingresar: (req, res) => {
             let errors = validationResult(req)
+            let usuarios;
+            db.Usuario.findAll()
+                .then((resultados) => {
+                    usuarios = resultados;
+                    if(errors.isEmpty()){ 
 
-            if(errors.isEmpty()){ 
-
-                let emailBuscar = req.body.email;
-                let passwordIngresada = req.body.contraseña;
-                let usuarioEncontrado;
-                let emailEncontrado;
-                for (let i of usuarios){
-                    if (emailBuscar == i.email) {
-                        emailEncontrado = 1;
-                        if(bcryptjs.compareSync(passwordIngresada, i.clave)){
-                            usuarioEncontrado = i; //usuario encontrado en el JSON
-                            break;
+                        let emailBuscar = req.body.email;
+                        let passwordIngresada = req.body.contraseña;
+                        let usuarioEncontrado;
+                        let emailEncontrado;
+                        for (let i of usuarios){
+                            if (emailBuscar == i.email) {
+                                emailEncontrado = 1;
+                                if(bcryptjs.compareSync(passwordIngresada, i.clave)){
+                                    usuarioEncontrado = i; //usuario encontrado en el JSON
+                                    break;
+                                }
+                            }
                         }
+                        if (usuarioEncontrado){
+                           // delete usuarioEncontrado.password; // borro la Contraseña del Usuario a Loguearse por Seguridad
+                            req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario en Session
+                            if (req.body.recordarUsuario) {
+                                res.cookie("userEmail", req.body.email, {maxAge: (1000 * 60) * 2});
+                            }
+                            res.redirect ("/"); // Usuario Logueado Exitosamente
+                        }
+                        else {
+                            if(emailEncontrado == 1){
+                                res.render("login", {
+                                    errors: {
+                                        contraseña: {
+                                            msj:'Contraseña Incorrecta'
+                                        }
+                                    },
+                                    old: req.body}); // Email Correcto pero Password Incorrecto       
+                            }
+                            else{
+                                res.render("login",{
+                                    errors: {
+                                        email: {
+                                            msj:'No pudimos encontrar tu Email'
+                                        }
+                                    },
+                                    old: req.body}); // Datos Incorrectos
+                            }
+                        }
+                    } 
+                    else {
+                        if (errors.errors.length > 0){
+                            res.render("login", {errors: errors.mapped(),
+                            old: req.body});
+                            
+                        };
                     }
-                }
-                if (usuarioEncontrado){
-                   // delete usuarioEncontrado.password; // borro la Contraseña del Usuario a Loguearse por Seguridad
-                    req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario en Session
-                    if (req.body.recordarUsuario) {
-                        res.cookie("userEmail", req.body.email, {maxAge: (1000 * 60) * 2});
-                    }
-                    res.redirect ("/"); // Usuario Logueado Exitosamente
-                }
-                else {
-                    if(emailEncontrado == 1){
-                        res.render("login", {
-                            errors: {
-                                contraseña: {
-                                    msj:'Contraseña Incorrecta'
-                                }
-                            },
-                            old: req.body}); // Email Correcto pero Password Incorrecto       
-                    }
-                    else{
-                        res.render("login",{
-                            errors: {
-                                email: {
-                                    msj:'No pudimos encontrar tu Email'
-                                }
-                            },
-                            old: req.body}); // Datos Incorrectos
-                    }
-                }
-            } 
-            else {
-                if (errors.errors.length > 0){
-                    res.render("login", {errors: errors.mapped(),
-                    old: req.body});
                     
-                };
-            }
+                });
+            
         },
         cerrarSesion: (req, res) => {
             res.clearCookie("userEmail"); // Elimino la Cookie
@@ -86,40 +86,34 @@ const controladorUsers = {
         },
         perfil: (req, res) => {
             res.render("perfil");
-           // console.log(req.cookies.userEmail);
         },
         datosUsuario: (req, res) => {
             let idURL = req.params.id;
             let usuarioEncontrado;
 
-            for (let u of usuarios){
-                if (u.id==idURL){
-                    usuarioEncontrado=u;
-                    break;
+            let usuarios;
+            db.Usuario.findAll()
+            .then((resultados) => {
+                usuarios = resultados;
+                for (let u of usuarios){
+                    if (u.id==idURL){
+                        usuarioEncontrado=u;
+                        break;
+                    }
                 }
-            }
+    
+                res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
+            
+                });
 
-            res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
-        },
+            },
         registro: (req, res) => {
             res.render("register")
         },
         crearNuevoUsuario: (req, res) => {
-            let errors = validationResult(req)
-            
-            
-            
+            let errors = validationResult(req);
+          
             if(errors.isEmpty()){ 
-            
-            /*idNuevo=0;
-
-            for (let i of usuarios){
-                if (idNuevo<i.id){
-                    idNuevo=i.id;
-                }
-            }
-
-            idNuevo++;*/
 
             //let nombreImagen = req.file.filename;
             let compradorSitio = "vendedor"; // por  defecto es vendedor
@@ -130,7 +124,6 @@ const controladorUsers = {
             }
 
             let usuarioNuevo =  {
-                //id:   idNuevo,
                 nombre: req.body.nombre ,    
                 apellido: req.body.apellido ,
                 email: req.body.email ,
@@ -139,13 +132,10 @@ const controladorUsers = {
                 foto_perfil: "foto.jpg",
                 rol: compradorSitio
             };
-
-            usuarios.push(usuarioNuevo);
-
-            //fs.writeFileSync(usersFilePath, JSON.stringify(usuarios,null,' '));
+            
             db.Usuario.create(usuarioNuevo);
 
-            res.redirect("/users/registracionOK"); 
+            res.redirect("/users/registracionOK");      
         } 
             else {
                 if (errors.errors.length > 0){
@@ -163,65 +153,54 @@ const controladorUsers = {
             let idURL = req.params.id;
             let usuarioEncontrado;
 
-            for(let u of usuarios){
-                if (idURL == u.id){
-                    usuarioEncontrado = u;
-                }
-            }
-            res.render("EditarUsuario", {usuarioaEditar: usuarioEncontrado});
+            db.Usuario.findByPk(idURL)
+                .then(function(usuario){
+                    usuarioEncontrado=usuario;
+                    res.render("EditarUsuario", {usuarioaEditar: usuarioEncontrado});
+                });
         },
         almacenarUsuarioEditado: (req, res) => {
             let idURL = req.params.id;
             //let nombreImagen = req.file.filename;
             
             let usuarioEncontrado;
-            let compradorSitio;
-
-            if(req.body.tipoUsuario == 1){
-                compradorSitio = true; // si el valor es 1, se lo guarda como comprador
-            }
-            else{
-                compradorSitio = false;
-            }
-
-            for (let u of usuarios){
-                if(idURL == u.id){
-                    u.nombre = req.body.nombre ;   
-                    u.apellido = req.body.apellido;
-                    u.email = req.body.email;
-                    u.password = u.password;
-                    u.telefono = req.body.telefono;
-                    //u.fotoPerfil = nombreImagen;
-                    u.rol = compradorSitio;
-                    usuarioEncontrado= u;
-                    break;
-                }
-            }
-            db.Usuario.update({
+            
+            db.Usuario.findByPk(idURL)
+                .then(function(usuario){
+                    usuarioEncontrado=usuario; //guardo en UsuarioEncontrado el que tiene el ID recibido como parametro
+        
+            
+                db.Usuario.update({
                 nombre: req.body.nombre ,    
                 apellido: req.body.apellido ,
                 email: req.body.email ,
                 telefono: req.body.telefono,
                 foto_perfil: "foto.jpg",
                 rol: req.body.tipoUsuario
-            }, {
-                where: {
-                    id: idURL
-                }
-            })
+                }, {
+                    where: {
+                        id: idURL
+                    }
+                })
 
-            //fs.writeFileSync(usersFilePath, JSON.stringify(usuarios,null," "))
-
-            req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario con los nuevos Datos en Session
-            res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
+                let usuarioActualizado = {
+                    id: idURL,
+                    nombre: req.body.nombre, 
+                    apellido:  req.body.apellido,
+                    email: req.body.email,
+                    clave: usuarioEncontrado.clave,
+                    telefono: req.body.telefono,
+                    //u.fotoPerfil = nombreImagen;
+                    rol: req.body.tipoUsuario
+                };
+                usuarioEncontrado = usuarioActualizado; // actualizo la Variable para mandar a la vista
+       
+                req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario con los nuevos Datos en Session
+                res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
+            });
         },
         eliminarCuenta: (req, res) => {
             let idURL = req.params.id;
-
-            /*let Nusuarios = usuarios.filter(function(e){
-                return idURL != e.id;
-
-            })*/
 
             db.Usuario.destroy({
                 where: {
@@ -229,8 +208,6 @@ const controladorUsers = {
                 }
             })
 
-            //fs.writeFileSync(usersFilePath, JSON.stringify(Nusuarios,null," "));
-            
             req.session.destroy();
             res.redirect("/"); 
         }
