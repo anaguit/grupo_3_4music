@@ -116,7 +116,7 @@ const controladorUsers = {
           
             if(errors.isEmpty()){ 
 
-            //let nombreImagen = req.file.filename;
+            let nombreImagen = req.file.filename;
             let compradorSitio = "vendedor"; // por  defecto es vendedor
             let passEncriptada = bcryptjs.hashSync(req.body.contraseña, 10);
 
@@ -130,7 +130,7 @@ const controladorUsers = {
                 email: req.body.email ,
                 clave: passEncriptada,
                 telefono: req.body.telefono,
-                foto_perfil: "foto.jpg",
+                foto_perfil: nombreImagen,
                 rol: compradorSitio
             };
             
@@ -162,21 +162,26 @@ const controladorUsers = {
         },
         almacenarUsuarioEditado: (req, res) => {
             let idURL = req.params.id;
-            //let nombreImagen = req.file.filename;
+            let nombreImagen;
             
             let usuarioEncontrado;
             
             db.Usuario.findByPk(idURL)
                 .then(function(usuario){
                     usuarioEncontrado=usuario; //guardo en UsuarioEncontrado el que tiene el ID recibido como parametro
-        
-            
+                    if(req.file){
+                        nombreImagen = req.file.filename;
+                    }
+                    else{
+                        nombreImagen = usuarioEncontrado.foto_perfil;
+                    }
+                   
                 db.Usuario.update({
                 nombre: req.body.nombre ,    
                 apellido: req.body.apellido ,
                 email: req.body.email ,
                 telefono: req.body.telefono,
-                foto_perfil: "foto.jpg",
+                foto_perfil: nombreImagen,
                 rol: req.body.tipoUsuario
                 }, {
                     where: {
@@ -191,11 +196,11 @@ const controladorUsers = {
                     email: req.body.email,
                     clave: usuarioEncontrado.clave,
                     telefono: req.body.telefono,
-                    //u.fotoPerfil = nombreImagen;
+                    foto_perfil: nombreImagen,
                     rol: req.body.tipoUsuario
                 };
                 usuarioEncontrado = usuarioActualizado; // actualizo la Variable para mandar a la vista
-       
+                
                 req.session.usuarioLogueado = usuarioEncontrado; // Guardo el Usuario con los nuevos Datos en Session
                 res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
             });
