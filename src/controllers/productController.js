@@ -84,13 +84,12 @@ const controladorProducto = {
             let idURL = req.params.id;
             let productoEncontrado;
 
-            for(let p of productos){
-                if (idURL == p.id){
-                    productoEncontrado = p;
-                }
-            }
-
-            res.render("edit-item", {productoaEditar: productoEncontrado});
+            db.Producto.findByPk(idURL, {
+                include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
+                .then(function(resultado){
+                    productoEncontrado = resultado;
+                    res.render("edit-item", {productoaEditar: productoEncontrado});
+                })    
         },
 
         almacenarProductoEditado: (req, res) => {
@@ -133,11 +132,23 @@ const controladorProducto = {
         },
 
         resultadoBusqueda: (req, res) => {
-            productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            //productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
             
             let aBuscar = req.query.busqueda;
             let productosEncontrados = [];
+
+            db.Producto.findAll({include: 
+                [{association:'categoria'},
+                {association: 'fotos'},
+                {association: 'generos'}
+            ],
+        }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
+                .then(function(resultados){
+                    productosEncontrados = resultados;
+                    res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
+                })
             
+                /*
             productosEncontrados = productos.filter(function(p) {
                 return (p.titulo.includes(aBuscar) || 
                 p.marca.includes(aBuscar) || 
@@ -148,23 +159,33 @@ const controladorProducto = {
                 ((p.titulo + ' ' + p.marca + ' ' + p.modelo) == aBuscar) ||
                 ((p.marca + ' ' + p.modelo) == aBuscar)
                 );
-            });
+            });*/
             
             
-            res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
+            
         },
         busquedaPorCategoria: (req, res) => {
-            productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            //productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
             
             let catABuscar = req.query.categoria;
             let productosEncontrados = [];
             
+            db.Producto.findAll({include: 
+                [{association:'categoria'},
+                {association: 'fotos'},
+                {association: 'generos'}
+            ],
+        }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
+            .then(function(resultados){
+                productosEncontrados = resultados;
+                res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar}); //Busqueda Basica.
+        
+            })    
+            /*
             productosEncontrados = productos.filter(function(p) {
                 return (p.categoria == catABuscar );
             });
-            
-            
-            res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar}); //Busqueda Basica.
+            */    
         }
 
 }
