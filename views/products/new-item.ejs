@@ -29,15 +29,13 @@
                     </div>
                     <div class="lineaForm"> 
                         <label for="categoria">Categoría</label>
+
                         <select name="categoria">
-                            <option value="">Seleccionar</option>
-                            <option value="1">Instrumentos de Cuerdas</option>
-                            <option value="2">Instrumentos de Percusión</option>
-                            <option value="3">Instrumentos de Viento</option>
-                            <option value="4">Teclados y Pianos</option>
-                            <option value="5">Audio</option>
-                            <option value="6">Otros</option>
+                        <% for (let i = 0; i < categoria.length; i++) {%>
+                            <option value="<%=categoria[i].id%>"><%=categoria[i].nombre%></option>
+                            <% } %>
                         </select>
+                        
                     </div>
                     <div class="lineaForm">
                         <label for="descripcion">Descripción</label>
@@ -51,14 +49,14 @@
                     <br>
                     <div class="lineaForm">
                         <label for="generoMusical">Seleccione el Género Musical correspondiente</label>
+
                         <select name="generoMusical">
-                            <option value="">Seleccionar</option>
-                            <option value="1">Tango</option>
-                            <option value="2">Latin</option>
-                            <option value="3">Folklore Argentino</option>
-                            <option value="4">Rock & Blues</option>
-                            <option value="5">Jazz</option>
-                            <option value="6">Otros</option>
+                        <% for (let g = 0; g < genero.length; g++) {%>
+                        
+                            <option value="<%=genero[g].id%>"><%=genero[g].nombre%></option>
+                            
+
+                            <% } %>
                         </select> 
                     </div>
                     <div class="lineaForm">

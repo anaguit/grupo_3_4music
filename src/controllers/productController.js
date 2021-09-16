@@ -39,7 +39,14 @@ const controladorProducto = {
         },
 
         productoNuevo: (req, res) => {
-            res.render("new-item");
+            let pedidoCategoria = db.Categoria.findAll();
+            let pedidoGenero = db.Genero_Musical.findAll();
+            
+
+            Promise.all([pedidoCategoria, pedidoGenero])
+                .then(function([categoria, genero]){
+                    res.render("new-item", {categoria: categoria, genero: genero})
+                })
         },
 
         almacenarNuevoProducto: async (req, res) => {
