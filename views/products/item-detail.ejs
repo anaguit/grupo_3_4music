@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<%-include("../partials/head.ejs", {title: productoDetalle.marca + " " + productoDetalle.modelo})%>
+<%-include("../partials/head.ejs", {title: productoDetalle.titulo + " " + productoDetalle.modelo})%>
     
 <body class="fourMusic">
     
@@ -91,9 +91,9 @@
                         <br>
                         
                     </div>
-                    <form action="/products/<%=productoDetalle.id%>/edit" method="GET">
-                        <button type="submit" class="boton-registro">Editar</button>
-                    </form>
+                    
+                        <a href="/products/<%=productoDetalle.id%>/edit%>"><button type="submit" class="boton-registro">Editar</button></a>
+                    
                     <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres borrar este articulo?');">
                         <button type="submit" class="boton-registro">Borrar</button>
                     </form>

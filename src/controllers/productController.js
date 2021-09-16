@@ -87,16 +87,14 @@ const controladorProducto = {
             res.render("sucess");
         },
         editarProducto: (req, res) => {
+            
+        let pedidoProducto = db.Producto.findByPk(req.params.id);
+        let pedidoCategoria = db.Categoria.findAll();
 
-            let idURL = req.params.id;
-            let productoEncontrado;
-
-            db.Producto.findByPk(idURL, {
-                include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
-                .then(function(resultado){
-                    productoEncontrado = resultado;
-                    res.render("edit-item", {productoaEditar: productoEncontrado});
-                })    
+        Promise.all([pedidoProducto, pedidoCategoria])
+            .then(function([producto, categoria]){
+                res.render("edit-item", {producto: producto, categoria: categoria})
+            })
         },
 
         almacenarProductoEditado: (req, res) => {
