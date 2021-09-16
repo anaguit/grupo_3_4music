@@ -97,14 +97,27 @@ const controladorProducto = {
             })
         },
 
-        almacenarProductoEditado: (req, res) => {
-
-            let idURL = req.params.id;
-            let productoEncontrado;
-
+        almacenarProductoEditado: async (req, res) => {
+            //let idURL = req.params.id;
+            //let productoEncontrado;
+            
             let nombreImagen = req.file.filename;
+            let idProducto = await db.Producto.update({
+                titulo:req.body.titulo,
+                marca:req.body.marca,
+                modelo:req.body.modelo,
+                precio:req.body.precio,
+                id_categoria:req.body.categoria,
+                descripcion:req.body.descripcion
+            });
 
-            for (let p of productos){
+            let fotoEditada = {
+                id_producto: idProducto.id,
+                url: nombreImagen      
+            };
+            db.Foto.update(fotoEditada)
+            
+            /*for (let p of productos){
                 if(idURL == p.id){
                     p.titulo = req.body.titulo;
                     p.marca = req.body.marca;
@@ -115,10 +128,7 @@ const controladorProducto = {
                     p.imagen= nombreImagen;
                     break;
                 }
-            }
-
-            fs.writeFileSync(productsFilePath, JSON.stringify(productos,null," "))
-
+            }*/
             res.redirect("/products"); 
 
         },
