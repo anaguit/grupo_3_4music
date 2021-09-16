@@ -4,65 +4,77 @@ const path = require('path');
 
 
 /* Lectura de Productos del Json */
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+//let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+/* Conexion con el Modelo - BD */
+const db = require ("../../database/models");
+const { sequelize, Sequelize } = require('../../database/models');
+//const { where } = require('sequelize/types');
+const op = Sequelize.Op;
+
+let productos;
 
 const controladorProducto = {
         listadoProductos: (req, res) =>{
-            productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-            res.render("all-items", {productos: productos});
+            //productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+            
+            db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
+                .then(function(resultados){
+                    productos = resultados;
+                    res.render("all-items", {productos: productos});
+                })
         },
 
-        detalleProducto: (req, res) => {
-            
+        detalleProducto: (req, res) => {   
             let idURL = req.params.id;
             let productoEncontrado;
 
-            for (let p of productos){
-                if (p.id==idURL){
-                    productoEncontrado=p;
-                    break;
-                }
-            }
-            res.render("item-detail", {productoDetalle: productoEncontrado});
+            db.Producto.findByPk(idURL, {
+                include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
+                .then(function(resultado){
+                    productoEncontrado = resultado;
+                    res.render("item-detail", {productoDetalle: productoEncontrado});
+                })      
         },
 
         productoNuevo: (req, res) => {
             res.render("new-item");
         },
 
-        almacenarNuevoProducto: (req, res) => {
-            idNuevo=0;
-
-            for (let i of productos){
-                if (idNuevo<i.id){
-                    idNuevo=i.id;
-                }
-            }
-
-            idNuevo++;
-
+        almacenarNuevoProducto: async (req, res) => {
+            
             let nombreImagen = req.file.filename;
             
 
-            let productoNuevo =  {
-                id:   idNuevo,
+            let productoNuevo = {
                 titulo: req.body.titulo ,    
                 marca: req.body.marca ,
                 modelo: req.body.modelo ,
                 precio: req.body.precio,
-                categoria: req.body.categoria,
+                id_categoria: req.body.categoria,
                 descripcion: req.body.descripcion,
-                imagen: nombreImagen,
-                generoMusical : req.body.generoMusical
+                cantidad_disponible : req.body.stock
             };
 
-            productos.push(productoNuevo);
+            let productoInsertado = await db.Producto.create(productoNuevo);
+               
+            let fotoNueva = {
+                id_producto: productoInsertado.id,
+                url: nombreImagen      
+            };
+            db.Foto.create(fotoNueva);
 
-            fs.writeFileSync(productsFilePath, JSON.stringify(productos,null,' '));
+            /*
+            let productoGenero = {
+                id_producto: productoInsertado.id,
+                id_genero_musical: req.body.generoMusical      
+            };
+
+            db.producto_genero.create(productoGenero);
+            */
             res.redirect("/products/all-ok");    
-        
+              
         },
         publicacionExitosa: (req, res) => {
             res.render("sucess");
