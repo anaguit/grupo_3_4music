@@ -90,7 +90,7 @@ const controladorProducto = {
             
         let pedidoProducto = db.Producto.findByPk(req.params.id);
         let pedidoCategoria = db.Categoria.findAll();
-
+        
         Promise.all([pedidoProducto, pedidoCategoria])
             .then(function([producto, categoria]){
                 res.render("edit-item", {producto: producto, categoria: categoria})
