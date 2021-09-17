@@ -2,11 +2,6 @@
 const fs = require('fs');
 const path = require('path');
 
-
-/* Lectura de Productos del Json */
-//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-//let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 /* Conexion con el Modelo - BD */
 const db = require ("../../database/models");
 const { sequelize, Sequelize } = require('../../database/models');
@@ -17,9 +12,9 @@ let productos;
 
 const controladorProducto = {
         listadoProductos: (req, res) =>{
-            //productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+           
             
-            db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
+            db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
                 .then(function(resultados){
                     productos = resultados;
                     res.render("all-items", {productos: productos});
@@ -27,11 +22,11 @@ const controladorProducto = {
         },
 
         detalleProducto: (req, res) => {   
-            let idURL = req.params.id;
+            let idURL = req.params.idProducto;
             let productoEncontrado;
 
             db.Producto.findByPk(idURL, {
-                include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
+                include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
                 .then(function(resultado){
                     productoEncontrado = resultado;
                     res.render("item-detail", {productoDetalle: productoEncontrado});
@@ -72,14 +67,14 @@ const controladorProducto = {
             };
             db.Foto.create(fotoNueva);
 
-            /*
+            
             let productoGenero = {
                 id_producto: productoInsertado.id,
                 id_genero_musical: req.body.generoMusical      
             };
 
-            db.producto_genero.create(productoGenero);
-            */
+            db.Producto_Genero.create(productoGenero);
+            
             res.redirect("/products/all-ok");    
               
         },
@@ -88,7 +83,7 @@ const controladorProducto = {
         },
         editarProducto: (req, res) => {
             
-        let pedidoProducto = db.Producto.findByPk(req.params.id);
+        let pedidoProducto = db.Producto.findByPk(req.params.idProducto);
         let pedidoCategoria = db.Categoria.findAll();
         
         Promise.all([pedidoProducto, pedidoCategoria])
@@ -98,8 +93,7 @@ const controladorProducto = {
         },
 
         almacenarProductoEditado: async (req, res) => {
-            //let idURL = req.params.id;
-            //let productoEncontrado;
+            let idURL = req.params.idProducto;
             
             let nombreImagen = req.file.filename;
             let idProducto = await db.Producto.update({
@@ -109,7 +103,12 @@ const controladorProducto = {
                 precio:req.body.precio,
                 id_categoria:req.body.categoria,
                 descripcion:req.body.descripcion
+            },{
+                where: {
+                    id: idURL
+                }
             });
+            
 
             let fotoEditada = {
                 id_producto: idProducto.id,
@@ -117,18 +116,6 @@ const controladorProducto = {
             };
             db.Foto.update(fotoEditada)
             
-            /*for (let p of productos){
-                if(idURL == p.id){
-                    p.titulo = req.body.titulo;
-                    p.marca = req.body.marca;
-                    p.modelo = req.body.modelo;
-                    p.precio = req.body.precio;
-                    p.categoria = req.body.categoria;
-                    p.descripcion = req.body.descripcion;
-                    p.imagen= nombreImagen;
-                    break;
-                }
-            }*/
             res.redirect("/products"); 
 
         },
@@ -155,7 +142,7 @@ const controladorProducto = {
             db.Producto.findAll({include: 
                 [{association:'categoria'},
                 {association: 'fotos'},
-                {association: 'generos'}
+                {association: 'producto_genero'}
             ],
         }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
                 .then(function(resultados){
@@ -188,7 +175,7 @@ const controladorProducto = {
             db.Producto.findAll({include: 
                 [{association:'categoria'},
                 {association: 'fotos'},
-                {association: 'generos'}
+                {association: 'producto_genero'}
             ],
         }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
             .then(function(resultados){

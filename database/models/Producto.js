@@ -44,12 +44,9 @@ module.exports = (sequelize, dataTypes) => {
     const Producto = sequelize.define(alias, cols, config);
 
     Producto.associate = function(models){
-        Producto.belongsToMany(models.Genero_Musical, {
-            as: "generos",
-            through: "producto_genero",
-            foreignKey: "id_genero_musical",
-            otherKey: "id_producto",
-            timestamps: false
+        Producto.hasMany(models.Producto_Genero, {
+            as: "producto_genero",
+            foreignKey: "id_producto"
         })
         Producto.hasMany(models.Foto, {
             as: "fotos",

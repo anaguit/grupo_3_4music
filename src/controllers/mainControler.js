@@ -17,7 +17,7 @@ const controlador = {
     index: (req, res) =>{ 
         //let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
         
-        db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'}]})
+        db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
         .then(function(resultados){
             productos = resultados;
             res.render("index", {productos: productos});
