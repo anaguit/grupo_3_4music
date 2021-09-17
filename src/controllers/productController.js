@@ -42,6 +42,9 @@ const controladorProducto = {
                 .then(function([categoria, genero]){
                     res.render("new-item", {categoria: categoria, genero: genero})
                 })
+                .catch(function(error){
+                    console.log(error)
+                })
         },
 
         almacenarNuevoProducto: async (req, res) => {
@@ -96,12 +99,13 @@ const controladorProducto = {
             let idURL = req.params.idProducto;
             
             let nombreImagen = req.file.filename;
+
             let idProducto = await db.Producto.update({
                 titulo:req.body.titulo,
                 marca:req.body.marca,
                 modelo:req.body.modelo,
                 precio:req.body.precio,
-                id_categoria:req.body.categoria,
+                id_categoria:req.body.selectegoria,
                 descripcion:req.body.descripcion
             },{
                 where: {
