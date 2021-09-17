@@ -19,12 +19,15 @@ module.exports = (sequelize, dataTypes) => {
 
     const Genero_Musical = sequelize.define(alias, cols, config);
     
-    Genero_Musical.associate = function(models) {
-        Genero_Musical.belongsTo(models.Producto_Genero, {
-            as: "producto_genero",
-            foreignKey: "id_genero_musical"
+    /*Genero_Musical.associate = function(models) {
+        Genero_Musical.belongsToMany(models.Producto, {
+            as: "productos",
+            through: "Producto_Genero",
+            foreignKey: "id_genero_musical",
+            otherKey: "id_producto",
+            timestamps: false
         })
-    }
+    }*/
 
     return Genero_Musical;
 }

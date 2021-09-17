@@ -7,14 +7,15 @@ module.exports = (sequelize, dataTypes) => {
             notNull: true,
             autoIncrement: true
         },
-        id_producto: {
-            type: dataTypes.INTEGER,
-            notNull: true,
-        },
         id_genero_musical: {
             type: dataTypes.INTEGER,
             notNull: true,
+        },
+        id_producto: {
+            type: dataTypes.INTEGER,
+            notNull: true,
         }
+        
     }
     let config = {
         tableName: "producto_genero",
