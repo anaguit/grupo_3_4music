@@ -14,7 +14,7 @@ const controladorProducto = {
         listadoProductos: (req, res) =>{
            
             
-            db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
+            db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
                 .then(function(resultados){
                     productos = resultados;
                     res.render("all-items", {productos: productos});
@@ -26,7 +26,7 @@ const controladorProducto = {
             let productoEncontrado;
 
             db.Producto.findByPk(idURL, {
-                include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
+                include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
                 .then(function(resultado){
                     productoEncontrado = resultado;
                     res.render("item-detail", {productoDetalle: productoEncontrado});
@@ -67,14 +67,14 @@ const controladorProducto = {
             };
             db.Foto.create(fotoNueva);
 
-            /*
+            
             let productoGenero = {
                 id_producto: productoInsertado.id,
                 id_genero_musical: req.body.generoMusical      
             };
 
-            db.producto_genero.create(productoGenero);
-            */
+            db.Producto_Genero.create(productoGenero);
+            
             res.redirect("/products/all-ok");    
               
         },
@@ -142,7 +142,7 @@ const controladorProducto = {
             db.Producto.findAll({include: 
                 [{association:'categoria'},
                 {association: 'fotos'},
-                {association: 'generos'}
+                {association: 'producto_genero'}
             ],
         }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
                 .then(function(resultados){
@@ -175,7 +175,7 @@ const controladorProducto = {
             db.Producto.findAll({include: 
                 [{association:'categoria'},
                 {association: 'fotos'},
-                {association: 'generos'}
+                {association: 'producto_genero'}
             ],
         }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
             .then(function(resultados){
