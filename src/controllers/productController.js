@@ -2,11 +2,6 @@
 const fs = require('fs');
 const path = require('path');
 
-
-/* Lectura de Productos del Json */
-//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-//let productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 /* Conexion con el Modelo - BD */
 const db = require ("../../database/models");
 const { sequelize, Sequelize } = require('../../database/models');
@@ -17,7 +12,7 @@ let productos;
 
 const controladorProducto = {
         listadoProductos: (req, res) =>{
-            //productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+           
             
             db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'generos'}]})
                 .then(function(resultados){
@@ -27,7 +22,7 @@ const controladorProducto = {
         },
 
         detalleProducto: (req, res) => {   
-            let idURL = req.params.id;
+            let idURL = req.params.idProducto;
             let productoEncontrado;
 
             db.Producto.findByPk(idURL, {
@@ -88,7 +83,7 @@ const controladorProducto = {
         },
         editarProducto: (req, res) => {
             
-        let pedidoProducto = db.Producto.findByPk(req.params.id);
+        let pedidoProducto = db.Producto.findByPk(req.params.idProducto);
         let pedidoCategoria = db.Categoria.findAll();
 
         Promise.all([pedidoProducto, pedidoCategoria])
@@ -98,8 +93,7 @@ const controladorProducto = {
         },
 
         almacenarProductoEditado: async (req, res) => {
-            //let idURL = req.params.id;
-            //let productoEncontrado;
+            let idURL = req.params.idProducto;
             
             let nombreImagen = req.file.filename;
             let idProducto = await db.Producto.update({
@@ -109,7 +103,12 @@ const controladorProducto = {
                 precio:req.body.precio,
                 id_categoria:req.body.categoria,
                 descripcion:req.body.descripcion
+            },{
+                where: {
+                    id: idURL
+                }
             });
+            
 
             let fotoEditada = {
                 id_producto: idProducto.id,
@@ -117,18 +116,6 @@ const controladorProducto = {
             };
             db.Foto.update(fotoEditada)
             
-            /*for (let p of productos){
-                if(idURL == p.id){
-                    p.titulo = req.body.titulo;
-                    p.marca = req.body.marca;
-                    p.modelo = req.body.modelo;
-                    p.precio = req.body.precio;
-                    p.categoria = req.body.categoria;
-                    p.descripcion = req.body.descripcion;
-                    p.imagen= nombreImagen;
-                    break;
-                }
-            }*/
             res.redirect("/products"); 
 
         },
