@@ -124,15 +124,22 @@ const controladorProducto = {
 
         },
         
-        eliminarProducto: (req, res) => {
+        eliminarProducto: async (req, res) => {
 
             let idURL = req.params.id;
 
-            let Nproductos = productos.filter(function(e){
-                return idURL != e.id;
-            })
+            await db.Foto.destroy({
+                where: { id_producto: idURL} 
+            }); 
 
-            fs.writeFileSync(productsFilePath, JSON.stringify(Nproductos,null," "));
+            await db.Producto_Genero.destroy({
+                where: { id_producto: idURL} 
+            }); 
+
+            await db.Producto.destroy({
+                where: { id: idURL} 
+            }); 
+            
 
             res.redirect("/"); 
         },
