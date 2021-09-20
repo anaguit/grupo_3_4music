@@ -90,20 +90,13 @@ const controladorUsers = {
         },
         datosUsuario: (req, res) => {
             let idURL = req.params.id;
-            let usuarioEncontrado;
+            
 
-            let usuarios;
-            db.Usuario.findAll()
+            db.Usuario.findByPk(idURL)
             .then((resultados) => {
-                usuarios = resultados;
-                for (let u of usuarios){
-                    if (u.id==idURL){
-                        usuarioEncontrado=u;
-                        break;
-                    }
-                }
+                
     
-                res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
+                res.render("detallePerfil", {usuarioDetalle: resultados});
             
                 });
 

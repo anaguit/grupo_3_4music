@@ -128,17 +128,18 @@ const controladorProducto = {
 
             let idURL = req.params.id;
 
-            let idProductoEliminado = await db.Producto.destroy({
-                where:{
-                    id:idURL
-                }
-            });
+            await db.Foto.destroy({
+                where: { id_producto: idURL} 
+            }); 
 
-             await db.Foto.destroy({
-                where:{
-                    id_producto:idProductoEliminado.id
-                }
-            });
+            await db.Producto_Genero.destroy({
+                where: { id_producto: idURL} 
+            }); 
+
+            await db.Producto.destroy({
+                where: { id: idURL} 
+            }); 
+            
 
              await db.Producto_Genero.destroy({
                 where:{

@@ -27,7 +27,7 @@
                         <label for="selectegoria">Categoría</label>
                         <select name="selectegoria">
                             <% for (let i = 0; i < categoria.length; i++) { %>
-                                <% if (categoria[i].id == producto.id_usuario) { %>
+                                <% if (categoria[i].id == producto.id_categoria) { %>
                                     <option value="<%=categoria[i].id%>" selected>
                                         <%=categoria[i].nombre%>
                                     </option>
