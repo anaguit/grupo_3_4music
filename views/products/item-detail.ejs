@@ -34,15 +34,19 @@
                     <div id="content-wrapper">
                         <div class="column">
                             <div class="contenedorFeatured">
-                                <img id="featured" src="/images/products/<%=productoDetalle.imagen%>" alt="imagen1">
+                                <% for (let i = 0; i < productoDetalle.fotos.length; i++) { %>
+                                <img id="featured" src="/images/products/<%=productoDetalle.fotos[i].url%>" alt="imagen1">
                             </div>
                             <div id="slide-wrapper" class="">
                                 <img id="slideLeft" class="arrow" src="/images/arrow-left.png">
                                 <div id="slider" class="">  
-                                    <img src="/images/products/<%=productoDetalle.imagen%>" alt="imagen1" class="thumbnail active">
-                                    <img src="/images/products/<%=productoDetalle.imagen%>" alt="imagen2" class="thumbnail">
-                                    <img src="/images/products/<%=productoDetalle.imagen%>" alt="imagen3" class="thumbnail">
-                                    <img src="/images/products/<%=productoDetalle.imagen%>" alt="imagen4" class="thumbnail">
+
+                                    
+                                    <img src="/images/products/<%=productoDetalle.fotos[i].url%>" alt="imagen1" class="thumbnail active">
+                                    <img src="/images/products/<%=productoDetalle.fotos[i].url%>" alt="imagen2" class="thumbnail">
+                                    <img src="/images/products/<%=productoDetalle.fotos[i].url%>" alt="imagen3" class="thumbnail">
+                                    <img src="/images/products/<%=productoDetalle.fotos[i].url%>" alt="imagen4" class="thumbnail">
+                                    <% } %>
                                 </div>
                                 <img id="slideRight" class="arrow" src="/images/arrow-right.png">
                             </div>
