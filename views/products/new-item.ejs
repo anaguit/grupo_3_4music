@@ -13,6 +13,9 @@
                 <form id="publicarProducto" action="/products" method="POST" enctype="multipart/form-data" >
                     <div class="lineaForm">
                         <label for="titulo">Título del Aviso</label>
+                        <% if(locals.errors && errors.titulo) { %>
+                            <p style="color: red;"><%= errors.titulo.msg %></p>
+                        <% } %>
                         <input type="text" placeholder="Ej: Fender" name="titulo" id="titulo" required  minlength="2" maxlength="25">     
                     </div>
                     <div class="lineaForm">
