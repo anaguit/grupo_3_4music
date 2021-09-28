@@ -87,10 +87,18 @@ const controladorProducto = {
         }
         else {
                 if (errors.errors.length > 0){
-            res.render("new-item", 
-                {errors: errors.mapped(),
-                old: req.body
-                });     
+                    let pedidoCategoria = db.Categoria.findAll()
+                    let pedidoGenero = db.Genero_Musical.findAll()
+
+                    Promise.all([pedidoCategoria, pedidoGenero])
+                        .then(function([categoria, genero]){
+                            res.render("new-item",
+                        {errors: errors.mapped(),
+                        old: req.body,
+                        categoria: categoria,
+                        genero: genero
+                        }); })
+                
             };
         };
     },
@@ -156,7 +164,7 @@ const controladorProducto = {
 
              await db.Producto_Genero.destroy({
                 where:{
-                    id_producto:idProductoEliminado.id
+                    id_producto:idURL
                 }
             });
 
