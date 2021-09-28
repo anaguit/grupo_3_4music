@@ -1,6 +1,7 @@
 /* Requires */
 const fs = require('fs');
 const path = require('path');
+const {validationResult} = require("express-validator");
 
 /* Conexion con el Modelo - BD */
 const db = require ("../../database/models");
@@ -49,6 +50,10 @@ const controladorProducto = {
 
         almacenarNuevoProducto: async (req, res) => {
             
+            let errors = validationResult(req);
+          
+            if(errors.isEmpty()){
+
             let nombreImagen = req.file.filename;
             
 
@@ -78,9 +83,17 @@ const controladorProducto = {
 
             db.Producto_Genero.create(productoGenero);
             
-            res.redirect("/products/all-ok");    
-              
-        },
+            res.redirect("/products/all-ok");
+        }
+        else {
+                if (errors.errors.length > 0){
+            res.render("new-item", 
+                {errors: errors.mapped(),
+                old: req.body
+                });     
+            };
+        };
+    },
         publicacionExitosa: (req, res) => {
             res.render("sucess");
         },
