@@ -45,6 +45,7 @@
                             <p style="color: red;"><%= errors.categoria.msg %></p>
                         <% } %>
                         <select name="categoria">
+                            <option value="">Seleccionar</option>
                         <% for (let i = 0; i < categoria.length; i++) {%>
                             <option value="<%=categoria[i].id%>"><%=categoria[i].nombre%></option>
                             <% } %>
@@ -73,6 +74,7 @@
                             <p style="color: red;"><%= errors.generoMusical.msg %></p>
                         <% } %>
                         <select name="generoMusical">
+                            <option value="">Seleccionar</option>
                         <% for (let g = 0; g < genero.length; g++) {%>
                         
                             <option value="<%=genero[g].id%>"><%=genero[g].nombre%></option>
