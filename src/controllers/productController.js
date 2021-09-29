@@ -107,8 +107,10 @@ const controladorProducto = {
         },
         editarProducto: (req, res) => {
             
-        let pedidoProducto = db.Producto.findByPk(req.params.idProducto);
+        let pedidoProducto = db.Producto.findByPk(req.params.idProducto,
+            {include: [{association: 'fotos'}]  } );
         let pedidoCategoria = db.Categoria.findAll();
+        
         
         Promise.all([pedidoProducto, pedidoCategoria])
             .then(function([producto, categoria]){
@@ -117,32 +119,65 @@ const controladorProducto = {
         },
 
         almacenarProductoEditado: async (req, res) => {
-            let idURL = req.params.idProducto;
-            
-            let nombreImagen = req.file.filename;
 
-            let idProducto = await db.Producto.update({
-                titulo:req.body.titulo,
-                marca:req.body.marca,
-                modelo:req.body.modelo,
-                precio:req.body.precio,
-                id_categoria:req.body.selectegoria,
-                descripcion:req.body.descripcion
-            },{
-                where: {
-                    id: idURL
+            let errors = validationResult(req);
+          
+            if(errors.isEmpty()){
+
+
+                let idURL = req.params.idProducto;
+                
+                let nombreImagen;
+
+                let idProducto = await db.Producto.update({
+                    titulo:req.body.titulo,
+                    marca:req.body.marca,
+                    modelo:req.body.modelo,
+                    precio:req.body.precio,
+                    id_categoria:req.body.selectegoria,
+                    descripcion:req.body.descripcion
+                },{
+                    where: {
+                        id: idURL
+                    }
+                });
+                
+                if(req.file){
+                    nombreImagen = req.file.filename; // Si se cargó una nueva foto, guardo el nombre en esta variable
+                    console.log(nombreImagen);
+
+                    let fotoEditada = {
+                        id_producto: idProducto.id,
+                        url: nombreImagen      
+                    };
+                    
+                    db.Foto.update(fotoEditada, {
+                    where: {
+                        id_producto: idURL
+                    }
+                    });
                 }
-            });
-            
+                
+                res.redirect("/products"); 
+            }
+            else {
+                    if (errors.errors.length > 0){
 
-            let fotoEditada = {
-                id_producto: idProducto.id,
-                url: nombreImagen      
-            };
-            db.Foto.update(fotoEditada)
-            
-            res.redirect("/products"); 
-
+                        let pedidoProducto = db.Producto.findByPk(req.params.idProducto);
+                        let pedidoCategoria = db.Categoria.findAll();
+    
+                        Promise.all([pedidoProducto, pedidoCategoria])
+                            .then(function([producto, categoria]){
+                                res.render("edit-item", {
+                                    errors: errors.mapped(),
+                                    old: req.body,
+                                    producto: producto, 
+                                    categoria: categoria
+                            })
+                        })
+                    
+                }
+            }
         },
         
         eliminarProducto: async (req, res) => {
