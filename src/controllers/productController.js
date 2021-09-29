@@ -54,7 +54,8 @@ const controladorProducto = {
           
             if(errors.isEmpty()){
 
-            let nombreImagen = req.file.filename;
+            //let nombreImagen = req.file.filename;
+           
             
 
             let productoNuevo = {
@@ -68,13 +69,28 @@ const controladorProducto = {
             };
 
             let productoInsertado = await db.Producto.create(productoNuevo);
-               
+              
+            /*
             let fotoNueva = {
                 id_producto: productoInsertado.id,
                 url: nombreImagen      
             };
             db.Foto.create(fotoNueva);
+            */
 
+            let imagenes = req.files; // Obtengo las fotos
+            let arrayFotos = [];
+            let objetoFoto;
+
+            for(let i=0; i < imagenes.length; i++){
+                objetoFoto = {
+                    id_producto: productoInsertado.id,
+                    url: imagenes[i].filename
+                };
+                arrayFotos.push(objetoFoto); //agrego el Objeto que contiene el ID PRODUCTO y la URL de la foto al Array de Objetos Foto
+           }
+
+           db.Foto.bulkCreate(arrayFotos); // mando el Array de Objetos Foto a la BD
             
             let productoGenero = {
                 id_producto: productoInsertado.id,

@@ -89,10 +89,7 @@
                             <section class="product-box">
                                 <a href="/products/detail/<%=producto.id %>" >
                                     <figure class="product-box_image">
-
-                                        <% for (let i = 0; i < producto.fotos.length; i++) {%>
-                                        <img class="d-block w-100" src="/images/products/<%=producto.fotos[i].url%>" alt="A">
-                                        <% } %>
+                                        <img class="d-block w-100" src="/images/products/<%=producto.fotos[0].url%>" alt="A">
                                     </figure>
                                     <article class="product-box_data">
                                         <h2>$<%=producto.precio %></h2>
