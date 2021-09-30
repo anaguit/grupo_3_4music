@@ -109,6 +109,16 @@ const controladorUsers = {
           
             if(errors.isEmpty()){ 
 
+
+                db.Usuario.findOne({
+                    where: {
+                        email: {[op.like]: req.body.email}
+                    }
+                })
+                .then(function(resultado){
+                    
+                    if (!resultado){
+
             let nombreImagen = req.file.filename;
             let compradorSitio = "vendedor"; // por  defecto es vendedor
             let passEncriptada = bcryptjs.hashSync(req.body.contraseña, 10);
@@ -129,7 +139,23 @@ const controladorUsers = {
             
             db.Usuario.create(usuarioNuevo);
 
-            res.redirect("/users/registracionOK");      
+            res.redirect("/users/registracionOK"); 
+            }
+
+            else {
+                res.render("register",{
+                    errors: {
+                        email: {
+                            msg:'El email ingresado ya existe'
+                        }
+                    },
+                    old: req.body})
+            }  
+                })
+                
+                
+            
+              
         } 
             else {
                 if (errors.errors.length > 0){

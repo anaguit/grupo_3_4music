@@ -14,7 +14,7 @@ function userLoggedMiddleware (req, res, next) {
         where:{
             email: {
                 [op.like]: emailInCookie
-            }       
+            }
         }
     })
         .then(function(usuario){
