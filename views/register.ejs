@@ -14,50 +14,57 @@
              
                 <form id="registrar" action="/users/register" method="POST" enctype="multipart/form-data">
                     <div class="lineaForm">
+                        <p id="errorNombreP"></p>
                         <label for="nombre">Nombre:</label>
                         <% if(locals.errors && errors.nombre) { %>
                             <p style="color: red;"><%= errors.nombre.msg %></p>
                         <% } %>
-                        <input type="text" name="nombre" id="nombre" minlength="2" maxlength="18" value="<%= locals.old && old.nombre ? old.nombre : '' %>" >
+                        <input type="text" name="nombre" id="nombre"  value="<%= locals.old && old.nombre ? old.nombre : '' %>" >
                         
                     </div>
                     <div class="lineaForm">
+                        <p id="errorApellidoP"></p>
                         <label for="apellido">Apellido:</label>
                         <% if(locals.errors && errors.apellido) { %>
                             <p style="color: red;"><%= errors.apellido.msg %></p>
                         <% } %>
-                        <input type="text" name="apellido" id="apellido" minlength="2" maxlength="18" value="<%= locals.old && old.apellido ? old.apellido : '' %>" >
+                        <input type="text" name="apellido" id="apellido"  value="<%= locals.old && old.apellido ? old.apellido : '' %>" >
                     </div>
                     <div class="lineaForm">
+                        <p id="errorEmailP"></p>
                         <label for="email">Email:</label>
                         <% if(locals.errors && errors.email) { %>
                             <p style="color: red;"><%= errors.email.msg %></p>
                         <% } %>
-                        <input type="email" name="email" id="email"  minlength="6" maxlength="45"value="<%= locals.old && old.email ? old.email : '' %>" >
+                        <input type="text" name="email" id="email"  value="<%= locals.old && old.email ? old.email : '' %>" >
                     </div>
                     <div class="lineaForm">
+                        <p id="errorContraseñaP"></p>
                         <label for="contraseña">Contraseña:</label>
                         <% if(locals.errors && errors.contraseña){ %>
                             <p style="color: red;"><%= errors.contraseña.msg %></p>
                         <% } %>
-                        <input type="password" name="contraseña" id="contraseña" minlength="6" maxlength="15">
+                        <input type="password" name="contraseña" id="contraseña" >
                     </div>
                     <div class="lineaForm">
+                        <p id="errorTelefonoP"></p>
                         <label for="telefono">Teléfono:</label>
                         <% if(locals.errors && errors.telefono) { %>
                             <p style="color: red;"><%= errors.telefono.msg %></p>
                         <% } %>
-                        <input type="text" name="telefono" id="telefono"  minlength="6" maxlength="25"value="<%= locals.old && old.telefono ? old.telefono : '' %>" >
+                        <input type="text" name="telefono" id="telefono"  value="<%= locals.old && old.telefono ? old.telefono : '' %>" >
                     </div>
                     <div class="lineaForm">
+                        <p id="errorFotoP"></p>
                         <label for="avatar">Seleccionar Foto de Perfil:</label>
                         <% if(locals.errors && errors.avatar) { %>
                             <p style="color: red;"><%= errors.avatar.msg %></p>
                         <% } %>
-                        <input type="file" name="avatar" id="avatar" required>
+                        <input type="file" name="avatar" id="avatar">
                         
                     </div>
                     <div class="lineaForm">
+                        <p id="errorTipoUsuarioP"></p>
                         <label for="tipoUsuario">Tipo de Usuario</label>
                         <select name="tipoUsuario" id="tipoUsuario"> 
                             <option value="">Seleccionar</option>
@@ -83,6 +90,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<script src="../js/register.js"></script>
 </body>
 </html>
