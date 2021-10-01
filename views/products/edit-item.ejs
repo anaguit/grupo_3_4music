@@ -17,7 +17,7 @@
                         <% if(locals.errors && errors.titulo) { %>
                             <p style="color: red;"><%= errors.titulo.msg %></p>
                         <% } %>
-                        <input value="<%=producto.titulo %>" type="text" placeholder="Ej: Fender" name="titulo" id="titulo"  minlength="2" maxlength="25">     
+                        <input value="<%=producto.titulo %>" type="text" placeholder="Ej: Fender" name="titulo" id="titulo"  >     
                     </div>
                     <div class="lineaForm">
                         <p id="marcaErrorP" style="color: blue;"></p>
@@ -25,7 +25,7 @@
                         <% if(locals.errors && errors.marca) { %>
                             <p style="color: red;"><%= errors.marca.msg %></p>
                         <% } %>
-                        <input value="<%=producto.marca %>" type="text" name="marca" id="marca" placeholder="Ej: Fender"  minlength="2" maxlength="25">     
+                        <input value="<%=producto.marca %>" type="text" name="marca" id="marca" placeholder="Ej: Fender"  >     
                     </div>
                     <div class="lineaForm">
                         <p id="errorModeloP" style="color: blue;"></p>
@@ -33,7 +33,7 @@
                         <% if(locals.errors && errors.modelo) { %>
                             <p style="color: red;"><%= errors.modelo.msg %></p>
                         <% } %>
-                        <input value="<%=producto.modelo %>" type="text" name="modelo" id="modelo"  placeholder="Ej: Stratocaster"  minlength="2" maxlength="30">    
+                        <input value="<%=producto.modelo %>" type="text" name="modelo" id="modelo"  placeholder="Ej: Stratocaster"  >    
                     </div>
                     <div class="lineaForm">
                         <p id="errorPrecioP" style="color: blue;"></p>
