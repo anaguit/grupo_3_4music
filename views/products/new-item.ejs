@@ -13,26 +13,30 @@
                 <form id="publicarProducto" action="/products" method="POST" enctype="multipart/form-data" >
                     <div class="lineaForm">
                         <label for="titulo">Título del Aviso</label>
+                        <p id="errorTitulo" style="color:green"></p>
                         <% if(locals.errors && errors.titulo) { %>
                             <p style="color: red;"><%= errors.titulo.msg %></p>
                         <% } %>
-                        <input type="text" placeholder="Ej: Fender" name="titulo" id="titulo" minlength="2" maxlength="25" value="<%= locals.old && old.titulo ? old.titulo : '' %>" > 
+                        <input type="text" placeholder="Ej: Fender" name="titulo" id="titulo"  value="<%= locals.old && old.titulo ? old.titulo : '' %>" > 
                     </div>
                     <div class="lineaForm">
+                        <p id="errorMarca" style="color:green"></p>
                         <label for="marca">Marca</label>
                         <% if(locals.errors && errors.marca) { %>
                             <p style="color: red;"><%= errors.marca.msg %></p>
                         <% } %>
-                        <input type="text" placeholder="Ej: Fender" name="marca" id="marca" minlength="2" maxlength="25" value="<%= locals.old && old.marca ? old.marca : '' %>" >     
+                        <input type="text" placeholder="Ej: Fender" name="marca" id="marca"  value="<%= locals.old && old.marca ? old.marca : '' %>" >     
                     </div>
                     <div class="lineaForm">
+                        <p id="errorModelo" style="color:green"></p>
                         <label for="modelo">Modelo</label>
                         <% if(locals.errors && errors.modelo) { %>
                             <p style="color: red;"><%= errors.modelo.msg %></p>
                         <% } %>
-                        <input type="text" name="modelo" id="modelo" placeholder="Ej: Stratocaster" minlength="2" maxlength="30" value="<%= locals.old && old.modelo ? old.modelo : '' %>" >
+                        <input type="text" name="modelo" id="modelo" placeholder="Ej: Stratocaster"  value="<%= locals.old && old.modelo ? old.modelo : '' %>" >
                     </div>
                     <div class="lineaForm">
+                        <p id="errorPrecio" style="color:green"></p>
                         <label for="precio">Precio: $</label>
                         <% if(locals.errors && errors.precio) { %>
                             <p style="color: red;"><%= errors.precio.msg %></p>
@@ -40,11 +44,12 @@
                         <input type="text" name="precio" id="precio" value="<%= locals.old && old.precio ? old.precio : '' %>" >  
                     </div>
                     <div class="lineaForm"> 
+                        <p id="errorCategoria" style="color:green"></p>
                         <label for="categoria">Categoría</label>
                         <% if(locals.errors && errors.categoria) { %>
                             <p style="color: red;"><%= errors.categoria.msg %></p>
                         <% } %>
-                        <select name="categoria">
+                        <select name="categoria" id="categoria">
                             <option value="">Seleccionar</option>
                         <% for (let i = 0; i < categoria.length; i++) {%>
                             <option value="<%=categoria[i].id%>"><%=categoria[i].nombre%></option>
@@ -53,27 +58,30 @@
                         
                     </div>
                     <div class="lineaForm">
+                        <p id="errorDescripcion" style="color:green"></p>
                         <label for="descripcion">Descripción</label>
                         <% if(locals.errors && errors.descripcion) { %>
                             <p style="color: red;"><%= errors.descripcion.msg %></p>
                         <% } %>
-                       <textarea class="areaTexto"  name="descripcion"  minlength="5" maxlength="400"><%= locals.old && old.descripcion ? old.descripcion : '' %>
+                       <textarea class="areaTexto"  name="descripcion"  id="descripcion" ><%= locals.old && old.descripcion ? old.descripcion : '' %>
                        </textarea>   
                     </div>
                     <div class="lineaForm">
+                        <p id="errorImagenes" style="color:green"></p>
                         <label for="imagenes">Imágenes</label>
                         <% if(locals.errors && errors.imagenes) { %>
                             <p style="color: red;"><%= errors.imagenes.msg %></p>
                         <% } %>
-                        <input type="file" name="imagenes" multiple accept="image/png, image/gif, image/jpeg" / required>
+                        <input type="file" name="imagenes" id="imagenes" multiple accept="image/png, image/gif, image/jpeg" / >
                     </div>
                     <br>
                     <div class="lineaForm">
+                        <p id="errorGeneroMusical" style="color:green"></p>
                         <label for="generoMusical">Seleccione el Género Musical correspondiente</label>
                         <% if(locals.errors && errors.generoMusical) { %>
                             <p style="color: red;"><%= errors.generoMusical.msg %></p>
                         <% } %>
-                        <select name="generoMusical">
+                        <select name="generoMusical" id="generoMusical">
                             <option value="">Seleccionar</option>
                         <% for (let g = 0; g < genero.length; g++) {%>
                         
@@ -84,6 +92,7 @@
                         </select> 
                     </div>
                     <div class="lineaForm">
+                        <p id="errorStock" style="color:green"></p>
                         <label for="stock">Cantidad Disponible</label>
                         <% if(locals.errors && errors.stock) { %>
                             <p style="color: red;"><%= errors.stock.msg %></p>
@@ -104,6 +113,8 @@
     </main>
     
     <%-include("../partials/footer.ejs")%>
+
+    <script src="../../js/creacionProduct.js"></script>
 
  
 </body>
