@@ -12,6 +12,7 @@
                 <h2 class="bienvenida">Editar Producto</h2>
                 <form id="publicarProducto" action="/products/<%=producto.id%>/edit?_method=PUT" method="POST"  enctype="multipart/form-data">
                     <div class="lineaForm">
+                        <p id="tituloErrorP" style="color: blue;"></p>
                         <label for="titulo">Título del Aviso</label>
                         <% if(locals.errors && errors.titulo) { %>
                             <p style="color: red;"><%= errors.titulo.msg %></p>
@@ -19,6 +20,7 @@
                         <input value="<%=producto.titulo %>" type="text" placeholder="Ej: Fender" name="titulo" id="titulo"  minlength="2" maxlength="25">     
                     </div>
                     <div class="lineaForm">
+                        <p id="marcaErrorP" style="color: blue;"></p>
                         <label for="marca">Marca</label>
                         <% if(locals.errors && errors.marca) { %>
                             <p style="color: red;"><%= errors.marca.msg %></p>
@@ -26,6 +28,7 @@
                         <input value="<%=producto.marca %>" type="text" name="marca" id="marca" placeholder="Ej: Fender"  minlength="2" maxlength="25">     
                     </div>
                     <div class="lineaForm">
+                        <p id="errorModeloP" style="color: blue;"></p>
                         <label for="modelo">Modelo</label>
                         <% if(locals.errors && errors.modelo) { %>
                             <p style="color: red;"><%= errors.modelo.msg %></p>
@@ -33,6 +36,7 @@
                         <input value="<%=producto.modelo %>" type="text" name="modelo" id="modelo"  placeholder="Ej: Stratocaster"  minlength="2" maxlength="30">    
                     </div>
                     <div class="lineaForm">
+                        <p id="errorPrecioP" style="color: blue;"></p>
                         <label for="precio">Precio: $</label>
                         <% if(locals.errors && errors.precio) { %>
                             <p style="color: red;"><%= errors.precio.msg %></p>
@@ -40,9 +44,11 @@
                         <input value="<%=producto.precio %>" type="text" name="precio" id="precio" >    
                     </div>
                     <div class="lineaForm"> 
+                        <p id="errorCategoriaP" style="color: blue;"></p>
                         <label for="selectegoria">Categoría</label>
                         
-                        <select name="selectegoria">
+                        <select name="selectegoria" id="categoria">
+                            <option value="">Seleccionar</option>
                             <% for (let i = 0; i < categoria.length; i++) { %>
                                 <% if (categoria[i].id == producto.id_categoria) { %>
                                     <option value="<%=categoria[i].id%>" selected>
@@ -59,20 +65,22 @@
                           </select>
                     </div>
                     <div class="lineaForm">
+                        <p id="errorDescripcionP" style="color: blue;"></p>
                         <label for="descripcion">Descripción</label>
                         <% if(locals.errors && errors.descripcion) { %>
                             <p style="color: red;"><%= errors.descripcion.msg %></p>
                         <% } %>
-                       <textarea class="areaTexto" name="descripcion" placeholder="Ingresá la Descripción del producto" minlength="5" maxlength="400"><%=producto.descripcion %>
+                       <textarea class="areaTexto" name="descripcion" placeholder="Ingresá la Descripción del producto" minlength="5" maxlength="400" id="descripcion"><%=producto.descripcion %>
                     </textarea>   
                     </div>
                     <div class="lineaForm">
+                        <p id="errorFotoP" style="color: blue;"></p>
                         <label for="imagenes">Imágenes</label>
                         <img class="imagenPerfil" src="/images/products/<%=producto.fotos[0].url%>">
                         <% if(locals.errors && errors.imagenes) { %>
                             <p style="color: red;"><%= errors.imagenes.msg %></p>
                         <% } %>
-                        <input type="file" name="imagenes" accept="image/png, image/gif, image/jpeg" required/>
+                        <input type="file" id="imagenes" name="imagenes" accept="image/png, image/gif, image/jpeg"/>
                     </div>
                    
                     <div class="lineaForm"> 
@@ -92,6 +100,6 @@
     
     <%-include("../partials/footer.ejs")%>
 
- 
+ <script src="../../js/editItem.js"></script>
 </body>
 </html>
