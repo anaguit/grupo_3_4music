@@ -230,13 +230,31 @@ const controladorProducto = {
             db.Producto.findAll({include: 
                 [{association:'categoria'},
                 {association: 'fotos'},
-                {association: 'producto_genero'}
-            ],
-        }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
-                .then(function(resultados){
-                    productosEncontrados = resultados;
-                    res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
-                })
+                {association: 'producto_genero'}],
+                
+                    where:
+                        Sequelize.where(Sequelize.fn("concat", Sequelize.col("titulo"), Sequelize.col("marca")), {
+                            like: '%' + aBuscar + '%'
+                        })
+                        /*
+                        [op.or]:
+                        [
+                            {titulo: {
+                                [op.like]:  '%' + aBuscar + '%' }},
+                            {marca: {
+                                [op.like]:  '%' + aBuscar + '%' }},
+                            {modelo: {
+                                [op.like]:  '%' + aBuscar + '%' }},
+                            {modelo: {
+                                [op.like]:  '%' + aBuscar + '%' }}     
+                        ]*/
+                    
+                    })
+                        .then(function(resultados){
+                            productosEncontrados = resultados;
+                            res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
+                        })
+            
             
                 /*
             productosEncontrados = productos.filter(function(p) {
@@ -264,8 +282,12 @@ const controladorProducto = {
                 [{association:'categoria'},
                 {association: 'fotos'},
                 {association: 'producto_genero'}
-            ],
-        }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
+            ],  where:{
+                categoria: {
+                    [op.like]: CatABuscar
+                }
+            }
+        }) //SIN TERMINAR
             .then(function(resultados){
                 productosEncontrados = resultados;
                 res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar}); //Busqueda Basica.
