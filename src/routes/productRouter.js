@@ -46,7 +46,7 @@ productRouter.get("/all-ok", authMiddleware, controladorProducto.publicacionExit
 
 /* Editar Producto */
 productRouter.get("/:idProducto/edit", authMiddleware, controladorProducto.editarProducto); // Formulario Edición del Producto
-productRouter.put("/:idProducto/edit", uploadFile.single('imagenes'), validationEditItem ,controladorProducto.almacenarProductoEditado); // Guardar Producto Editado
+productRouter.put("/:idProducto/edit", uploadFile.array('imagenes',4), validationEditItem ,controladorProducto.almacenarProductoEditado); // Guardar Producto Editado
 
 /* Borrar Producto */
 productRouter.delete("/:id", controladorProducto.eliminarProducto); // Eliminar un Producto 

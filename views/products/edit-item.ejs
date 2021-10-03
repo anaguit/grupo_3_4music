@@ -76,11 +76,13 @@
                     <div class="lineaForm">
                         <p id="errorFotoP" style="color: blue;"></p>
                         <label for="imagenes">Imágenes</label>
-                        <img class="imagenPerfil" src="/images/products/<%=producto.fotos[0].url%>">
+                        <% for(let i=0; i < producto.fotos.length; i++) {%>
+                        <img class="imagenPerfil" src="/images/products/<%=producto.fotos[i].url%>">
+                        <% } %>
                         <% if(locals.errors && errors.imagenes) { %>
                             <p style="color: red;"><%= errors.imagenes.msg %></p>
                         <% } %>
-                        <input type="file" id="imagenes" name="imagenes" accept="image/png, image/gif, image/jpeg"/>
+                        <input type="file" id="imagenes" multiple name="imagenes" accept="image/png, image/gif, image/jpeg"/>
                     </div>
                    
                     <div class="lineaForm"> 
