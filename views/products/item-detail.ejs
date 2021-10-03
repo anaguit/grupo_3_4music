@@ -99,12 +99,15 @@
                         <br>
                         
                     </div>
+                    <% if(locals.usuarioLogueado) {
+                        if(productoDetalle.id_usuario_FK == locals.usuarioLogueado.id) { %>
+                            <a href="/products/<%=productoDetalle.id%>/edit%>"><button type="submit" class="boton-registro">Editar</button></a>
                     
-                        <a href="/products/<%=productoDetalle.id%>/edit%>"><button type="submit" class="boton-registro">Editar</button></a>
-                    
-                    <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres borrar este articulo?');">
-                        <button type="submit" class="boton-registro">Borrar</button>
-                    </form>
+                        <form action="/products/<%=productoDetalle.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres borrar este articulo?');">
+                            <button type="submit" class="boton-registro">Borrar</button>
+                        </form>
+                        <% } 
+                    } %>
                 </div>
             </div>
             <div class="contenedorDescripcionYFicha">

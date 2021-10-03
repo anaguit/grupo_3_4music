@@ -7,6 +7,7 @@ function authMiddleware (req, res, next) {
             return res.redirect("/users/profile"); 
             // si no coincide el ID recibido en la URL con el ID del Usuario Logueado, lo redirecciono al Perfil del User Logueado
         }
+        
     }
     next();
 }
