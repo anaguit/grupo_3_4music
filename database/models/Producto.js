@@ -34,7 +34,11 @@ module.exports = (sequelize, dataTypes) => {
         cantidad_disponible: {
             type: dataTypes.INTEGER,
             notNull: true
-        }
+        },
+        id_usuario_FK: {
+            type: dataTypes.INTEGER,
+            notNull: true
+        },
     }
     let config = {
         tableName: "producto",
@@ -55,6 +59,10 @@ module.exports = (sequelize, dataTypes) => {
         Producto.belongsTo(models.Categoria, {
             as: "categoria",
             foreignKey: "id_categoria"
+        })
+        Producto.belongsTo(models.Usuario, {
+            as: "vendedor",
+            foreignKey: "id_usuario_FK"
         })
         /*
         Producto.belongsToMany(models.Operacion, {

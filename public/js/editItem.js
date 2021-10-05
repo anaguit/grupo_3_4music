@@ -72,10 +72,11 @@ window.addEventListener("load", function(){
             key = true;
         }
 
+        /*
         if (foto.value === "" || foto.value === null || foto.value === undefined){
             errorImagen.push("Ingrese una imagen");
             key = true;
-        }
+        }*/
 
 
         if(key){

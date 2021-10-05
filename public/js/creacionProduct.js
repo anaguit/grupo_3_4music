@@ -41,7 +41,7 @@ window.addEventListener("load", function() {
             errorTitulo.push("Ingrese un titulo")
             key = true;
         }
-        else if (titulo.value.length > 3 && titulo.value.length <= 25) {
+        else if (titulo.value.length < 2 && titulo.value.length > 25) {
             errorTitulo.push("Ingrese un titulo de hasta 25 carácteres")
             key = true;
         }
@@ -51,7 +51,7 @@ window.addEventListener("load", function() {
             errorMarca.push("Ingrese una marca")
             key = true;
         }
-        else if (marca.value.length > 3 && marca.value.length <= 25) {
+        else if (marca.value.length < 3 && marca.value.length > 25) {
             errorMarca.push("Ingrese una marca de hasta 25 carácteres")
             key = true;
         }
@@ -61,7 +61,7 @@ window.addEventListener("load", function() {
             errorModelo.push("Ingrese un modelo")
             key = true;
         }
-        else if (modelo.value.length > 3 && modelo.value.length <= 25) {
+        else if (modelo.value.length <= 1 && modelo.value.length > 25) {
             errorModelo.push("Ingrese un modelo de hasta 25 carácteres")
             key = true;
         }
@@ -79,7 +79,7 @@ window.addEventListener("load", function() {
             errorDescripcion.push("Ingrese una descripción")
             key = true;
         }
-        else if (descripcion.value.length > 3 && descripcion.value.length <= 150) {
+        else if (descripcion.value.length < 3 && descripcion.value.length >= 150) {
             errorDescripcion.push("Ingrese una descripcion de hasta 150 carácteres")
             key = true;
         }
@@ -125,9 +125,11 @@ window.addEventListener("load", function() {
             errorGeneroMusicalP.innerHTML = errorGeneroMusical.join(" ");
             errorStockP.innerHTML = errorStock.join(" ");
 
+            console.log("ERRORRRRR");
         }
 
         else {
+            console.log("ENVIARRR");
             formulario.submit()
         }
 

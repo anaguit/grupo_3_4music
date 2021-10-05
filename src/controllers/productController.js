@@ -6,6 +6,7 @@ const {validationResult} = require("express-validator");
 /* Conexion con el Modelo - BD */
 const db = require ("../../database/models");
 const { sequelize, Sequelize } = require('../../database/models');
+const { Session } = require('inspector');
 //const { where } = require('sequelize/types');
 const op = Sequelize.Op;
 
@@ -53,30 +54,23 @@ const controladorProducto = {
             let errors = validationResult(req);
           
             if(errors.isEmpty()){
-
-            //let nombreImagen = req.file.filename;
            
-            
+            let id_vendedor = req.session.usuarioLogueado.id;
+
 
             let productoNuevo = {
                 titulo: req.body.titulo ,    
                 marca: req.body.marca ,
                 modelo: req.body.modelo ,
+                id_usuario_FK : id_vendedor,
                 precio: req.body.precio,
                 id_categoria: req.body.categoria,
                 descripcion: req.body.descripcion,
                 cantidad_disponible : req.body.stock
+               
             };
 
             let productoInsertado = await db.Producto.create(productoNuevo);
-              
-            /*
-            let fotoNueva = {
-                id_producto: productoInsertado.id,
-                url: nombreImagen      
-            };
-            db.Foto.create(fotoNueva);
-            */
 
             let imagenes = req.files; // Obtengo las fotos
             let arrayFotos = [];
@@ -128,9 +122,17 @@ const controladorProducto = {
         let pedidoCategoria = db.Categoria.findAll();
         
         
+        
         Promise.all([pedidoProducto, pedidoCategoria])
             .then(function([producto, categoria]){
-                res.render("edit-item", {producto: producto, categoria: categoria})
+                if(producto.id_usuario_FK == req.session.usuarioLogueado.id) // Debe coincidir el usuario logueado con el que creó el aviso del producto para poder editarlo
+                {
+                    res.render("edit-item", {producto: producto, categoria: categoria})
+                }
+                else
+                {
+                    res.redirect("/users/profile"); 
+                }
             })
         },
 
@@ -143,8 +145,6 @@ const controladorProducto = {
 
                 let idURL = req.params.idProducto;
                 
-                let nombreImagen;
-
                 let idProducto = await db.Producto.update({
                     titulo:req.body.titulo,
                     marca:req.body.marca,
@@ -158,20 +158,27 @@ const controladorProducto = {
                     }
                 });
                 
-                if(req.file){
-                    nombreImagen = req.file.filename; // Si se cargó una nueva foto, guardo el nombre en esta variable
-                    console.log(nombreImagen);
-
-                    let fotoEditada = {
-                        id_producto: idProducto.id,
-                        url: nombreImagen      
-                    };
+                if(req.files){
                     
-                    db.Foto.update(fotoEditada, {
-                    where: {
-                        id_producto: idURL
+                    let imagenes = req.files; // Obtengo las fotos
+                    let arrayFotos = [];
+                    let objetoFoto;
+
+                    for(let i=0; i < imagenes.length; i++){
+                        objetoFoto = {
+                            id_producto: idURL,
+                            url: imagenes[i].filename
+                        };
+                        arrayFotos.push(objetoFoto); //agrego el Objeto que contiene el ID PRODUCTO y la URL de la foto al Array de Objetos Foto
                     }
-                    });
+                    if(arrayFotos.length >= 1){
+                        await db.Foto.destroy({
+                            where: { id_producto: idURL} //elimino todas las fotos que tenia guardadas
+                        }); 
+                        
+                        db.Foto.bulkCreate(arrayFotos); // mando el Array con las nuevas fotos
+                    }
+                   
                 }
                 
                 res.redirect("/products"); 
@@ -199,27 +206,32 @@ const controladorProducto = {
         eliminarProducto: async (req, res) => {
 
             let idURL = req.params.id;
-
-            await db.Foto.destroy({
-                where: { id_producto: idURL} 
-            }); 
-
-            await db.Producto_Genero.destroy({
-                where: { id_producto: idURL} 
-            }); 
-
-            await db.Producto.destroy({
-                where: { id: idURL} 
-            }); 
+            let productoEncontrado= await db.Producto.findByPk(idURL);
+               
+                   if(productoEncontrado.id_usuario_FK == req.session.usuarioLogueado)
+                   {
+                        await db.Foto.destroy({
+                            where: { id_producto: idURL} 
+                        }); 
             
-
-             await db.Producto_Genero.destroy({
-                where:{
-                    id_producto:idURL
-                }
-            });
-
-            res.redirect("/")
+                        await db.Producto_Genero.destroy({
+                            where: { id_producto: idURL} 
+                        }); 
+            
+                        await db.Producto.destroy({
+                            where: { id: idURL} 
+                        }); 
+                        
+            
+                        await db.Producto_Genero.destroy({
+                            where:{
+                                id_producto:idURL
+                            }
+                        });
+            
+                   }
+                   res.redirect("/")
+                   
         },
 
         resultadoBusqueda: (req, res) => {
@@ -230,13 +242,31 @@ const controladorProducto = {
             db.Producto.findAll({include: 
                 [{association:'categoria'},
                 {association: 'fotos'},
-                {association: 'producto_genero'}
-            ],
-        }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
-                .then(function(resultados){
-                    productosEncontrados = resultados;
-                    res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
-                })
+                {association: 'producto_genero'}],
+                
+                    where:
+                        Sequelize.where(Sequelize.fn("concat", Sequelize.col("titulo"), Sequelize.col("marca")), {
+                            like: '%' + aBuscar + '%'
+                        })
+                        /*
+                        [op.or]:
+                        [
+                            {titulo: {
+                                [op.like]:  '%' + aBuscar + '%' }},
+                            {marca: {
+                                [op.like]:  '%' + aBuscar + '%' }},
+                            {modelo: {
+                                [op.like]:  '%' + aBuscar + '%' }},
+                            {modelo: {
+                                [op.like]:  '%' + aBuscar + '%' }}     
+                        ]*/
+                    
+                    })
+                        .then(function(resultados){
+                            productosEncontrados = resultados;
+                            res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
+                        })
+            
             
                 /*
             productosEncontrados = productos.filter(function(p) {
@@ -264,8 +294,12 @@ const controladorProducto = {
                 [{association:'categoria'},
                 {association: 'fotos'},
                 {association: 'producto_genero'}
-            ],
-        }) //VER COMO METER EL WHERE PARA HACER LA BUSQUEDA
+            ],  where:{
+                categoria: {
+                    [op.like]: CatABuscar
+                }
+            }
+        }) //SIN TERMINAR
             .then(function(resultados){
                 productosEncontrados = resultados;
                 res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar}); //Busqueda Basica.
