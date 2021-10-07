@@ -35,6 +35,7 @@
                         <div class="column">
                            
                             <div class="contenedorFeatured">
+                                <img id="fotoPrincipal" style="display:none" src="/images/products/<%=productoDetalle.fotos[0].url%>"> 
                                 <img id="featured" src="/images/products/<%=productoDetalle.fotos[0].url%>" alt="imagen1">        
                             </div>
                             
@@ -71,7 +72,7 @@
                     </div>
                     <div class="sectorComprar">
                         <div class="tituloCantidad"><p>Cantidad</p></div>
-                        <div><input class="cantidadAComprar" type="number" value="1"></div>
+                        <div><input class="cantidadAComprar" id="cantidadAComprar" type="number" value="1"></div>
                         <div class="contenedorBotonCompra">
                             <button type="button" id="agregarCarrito" class="btn btn-dark botonComprar"><i class="fas fa-cart-plus carrito"></i>COMPRAR</button>
                         </div>

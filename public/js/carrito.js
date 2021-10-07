@@ -1,7 +1,9 @@
 let precioProducto = document.getElementById("precioInstrumento");
 let tituloProducto = document.getElementById("tituloProducto");
-let fotoProducto = document.getElementById("featured");
+let fotoProducto = document.getElementById("fotoPrincipal");
 let idProducto = document.getElementById("identificadorProducto");
+let cantidadAComprar = document.getElementById("cantidadAComprar");
+
 
 let botonCarrito = document.getElementById("agregarCarrito");
 
@@ -25,7 +27,8 @@ if (x!=undefined){
         id: idProducto.innerHTML,
         titulo: tituloProducto.innerHTML,
         precio: precioProducto.innerHTML,
-        foto: fotoProducto.src
+        foto: fotoProducto.src,
+        cantidad: cantidadAComprar.value
     };
 
    arrayProducts.push(productoAgregar);
