@@ -19,18 +19,34 @@ if(carritoProductos.length > 0){
 
         cantidad = carritoProductos[i].cantidad;
 
-        elementosHTML += "<div class='contenedor-producto'><div id='imagen' class='columnaGrande oculto394'> <img src=" + carritoProductos[i].foto + " alt='A' class='fotoProductoCarrito'> </div><div class='columnaGrande'><a href='/products/detail/" + carritoProductos[i].id + "'><p id='tituloProductoCarrito' class='texto'>" + carritoProductos[i].titulo + "</p></a></div><div class='columna'><p id='precioProductoCarrito'>$" + carritoProductos[i].precio + "</p></div><div class='columna'><i><select id='cantidad' class='selectorCantidad'><option value='" + carritoProductos[i].cantidad + "' 'selected'>" + carritoProductos[i].cantidad + "</option></select></i></div><div class='columna'><p class='total'>$" + carritoProductos[i].precio * cantidad + "</p></div><div class='colummna'><a href='"+ i + "'><i class='fas fa-trash' id='tachito' ></i></a></div></div>"        
+        elementosHTML += "<div class='contenedor-producto'><div id='imagen' class='columnaGrande oculto394'> <img src=" + carritoProductos[i].foto + " alt='A' class='fotoProductoCarrito'> </div><div class='columnaGrande'><a href='/products/detail/" + carritoProductos[i].id + "'><p id='tituloProductoCarrito' class='texto'>" + carritoProductos[i].titulo + "</p></a></div><div class='columna'><p id='precioProductoCarrito'>$" + carritoProductos[i].precio + "</p></div><div class='columna'><i><select id='cantidad' class='selectorCantidad'><option value='" + carritoProductos[i].cantidad + "' 'selected'>" + carritoProductos[i].cantidad + "</option></select></i></div><div class='columna'><p class='total'>$" + carritoProductos[i].precio * cantidad + "</p></div><div class='colummna'><i><button type = 'click'  id='tachito' class='fas fa-trash'></button></i></a></div></div>"        
         
        
         sumatoria += parseInt((carritoProductos[i].precio) * cantidad);
         
-    }
-        let botonTachito = document.getElementById("tachito");
+    
+   
 
 
         filaCarrito.innerHTML=elementosHTML;
 
         subTotal.innerHTML = "$" + sumatoria;
+    }
+
+
+        let botonTachito = document.querySelectorAll("#tachito");
+        botonTachito.forEach(botones => {
+            botones.addEventListener("click", function(event) {
+                
+               const botonClickeado = event.target;
+               botonClickeado.closest(".contenedor-producto").remove();
+               sessionStorage.removeItem("carritoProductos")
+            })
+        })
+        
+
+
+
 
         /*
         botonTachito.addEventListener("click", function(e){
