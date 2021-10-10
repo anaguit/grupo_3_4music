@@ -605,6 +605,16 @@ input:hover{
 
 }
 
+#tachito{
+    border: none;
+    font-size: 20px;
+}
+
+#tachito:hover{
+    color: crimson;
+    transition: .3s;
+}
+
 .entrega, .sumatoria{
     width: 50%;
 }
@@ -624,7 +634,7 @@ input:hover{
 }
 
 .fotoProductoCarrito{
-    width:90%;
+    width:40%;
 }
 
 .contenedorPerfilUsuario {
@@ -804,7 +814,7 @@ input:hover{
         border-bottom: solid .75px grey;
     }
     .fotoProductoCarrito{
-        width:100%;
+        width:90%;
     }
     .selectorCantidad{
         padding:0;
