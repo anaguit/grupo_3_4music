@@ -23,6 +23,25 @@ const controladorProducto = {
                 })
         },
 
+        listadoProductosUsuario: (req, res) =>{
+           
+            let idUsuario = req.params.idUser;
+            
+            db.Producto.findAll({include: 
+                [{association:'categoria'},
+                {association: 'fotos'},
+                {association: 'producto_genero'}],
+
+                where: {
+                    id_usuario_FK : idUsuario
+                }
+                     .then(function(resultados){
+                    productos = resultados;
+                    res.render("all-items", {productos: productos});
+                })
+        }
+        )},
+
         detalleProducto: (req, res) => {   
             let idURL = req.params.idProducto;
             let productoEncontrado;
@@ -236,57 +255,89 @@ const controladorProducto = {
 
         resultadoBusqueda: (req, res) => {
             
-            let aBuscar = req.query.busqueda;
+            let { busqueda } = req.query;
+            let palabrasABuscar = busqueda.split(" "); //Obtengo un array con cada palabra a buscar
+           
             let productosEncontrados = [];
+           
+            if(palabrasABuscar.length > 1){
 
-            db.Producto.findAll({include: 
-                [{association:'categoria'},
-                {association: 'fotos'},
-                {association: 'producto_genero'}],
-                
-                    where:
-                        Sequelize.where(Sequelize.fn("concat", Sequelize.col("titulo"), Sequelize.col("marca")), {
-                            like: '%' + aBuscar + '%'
-                        })
-                        /*
-                        [op.or]:
-                        [
-                            {titulo: {
-                                [op.like]:  '%' + aBuscar + '%' }},
-                            {marca: {
-                                [op.like]:  '%' + aBuscar + '%' }},
-                            {modelo: {
-                                [op.like]:  '%' + aBuscar + '%' }},
-                            {modelo: {
-                                [op.like]:  '%' + aBuscar + '%' }}     
-                        ]*/
-                    
-                    })
-                        .then(function(resultados){
-                            productosEncontrados = resultados;
-                            res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
-                        })
-            
-            
-                /*
-            productosEncontrados = productos.filter(function(p) {
-                return (p.titulo.includes(aBuscar) || 
-                p.marca.includes(aBuscar) || 
-                p.modelo.includes(aBuscar) || 
-                p.generoMusical==aBuscar || 
-                p.categoria == aBuscar ||
-                ((p.titulo + ' ' + p.marca) == aBuscar) || 
-                ((p.titulo + ' ' + p.marca + ' ' + p.modelo) == aBuscar) ||
-                ((p.marca + ' ' + p.modelo) == aBuscar)
-                );
-            });*/
-            
-            
-            
+                db.Producto.findAll({include: 
+                    [{association:'categoria'},
+                    {association: 'fotos'},
+                    {association: 'producto_genero'}],
+    
+                    where: {
+                        [op.or]: {
+                            titulo: {
+                                [op.like]: `%${palabrasABuscar[0]}%`
+                            },
+                            [op.or]: [
+                                {
+                                    marca: {
+                                        [op.like]: `%${palabrasABuscar[0]}%`
+                                    }
+                                },
+                                {
+                                    marca: {
+                                        [op.like]: `%${palabrasABuscar[1]}%`
+                                    }
+                                },
+                                
+                            ],
+                            [op.or]: [
+                                {
+                                    modelo: {
+                                        [op.like]: `%${palabrasABuscar[0]}%`
+                                    }
+                                },
+                                {
+                                    modelo: {
+                                        [op.like]: `%${palabrasABuscar[1]}%`
+                                    }
+                                },
+                                {
+                                    modelo: {
+                                        [op.like]: `%${palabrasABuscar[2]}%`
+                                    }
+                                },
+                                
+                            ]  
+                        }
+                    }
+                })
+                .then(function(resultados){
+                    productosEncontrados = resultados;
+                    res.render("results-search", {productos: productosEncontrados, busqueda: busqueda}); //Busqueda Basica.
+                })    
+            }else{
+                db.Producto.findAll({include: 
+                    [{association:'categoria'},
+                    {association: 'fotos'},
+                    {association: 'producto_genero'}],
+    
+                    where: {
+                        [op.or]: {
+                            titulo: {
+                                [op.like]: `%${busqueda}%`
+                            },
+                            marca: {
+                                [op.like]: `%${busqueda}%`
+                            },
+                            modelo: {
+                                [op.like]: `%${busqueda}%`
+                            }
+                        }
+                    }
+                })
+                .then(function(resultados){
+                    productosEncontrados = resultados;
+                    res.render("results-search", {productos: productosEncontrados, busqueda: busqueda}); //Busqueda Basica.
+                })    
+            }
         },
         busquedaPorCategoria: (req, res) => {
-            //productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-            
+
             let catABuscar = req.query.categoria;
             let productosEncontrados = [];
             
@@ -296,20 +347,17 @@ const controladorProducto = {
                 {association: 'producto_genero'}
             ],  where:{
                 categoria: {
-                    [op.like]: CatABuscar
+                    [op.like]: catABuscar
                 }
             }
-        }) //SIN TERMINAR
+        }) 
+  
             .then(function(resultados){
                 productosEncontrados = resultados;
-                res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar}); //Busqueda Basica.
+                res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar});
         
             })    
-            /*
-            productosEncontrados = productos.filter(function(p) {
-                return (p.categoria == catABuscar );
-            });
-            */    
+               
         }
 
 }
