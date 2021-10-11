@@ -81,7 +81,7 @@
                         <% if(locals.errors && errors.generoMusical) { %>
                             <p style="color: red;"><%= errors.generoMusical.msg %></p>
                         <% } %>
-                        <select name="generoMusical" id="generoMusical">
+                        <select multiple name="generoMusical" id="generoMusical">
                             <option value="">Seleccionar</option>
                         <% for (let g = 0; g < genero.length; g++) {%>
                         

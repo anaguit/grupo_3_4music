@@ -74,48 +74,65 @@ const controladorProducto = {
             let errors = validationResult(req);
           
             if(errors.isEmpty()){
-           
-            let id_vendedor = req.session.usuarioLogueado.id;
+            
+                let id_vendedor = req.session.usuarioLogueado.id;
 
-
-            let productoNuevo = {
-                titulo: req.body.titulo ,    
-                marca: req.body.marca ,
-                modelo: req.body.modelo ,
-                id_usuario_FK : id_vendedor,
-                precio: req.body.precio,
-                id_categoria: req.body.categoria,
-                descripcion: req.body.descripcion,
-                cantidad_disponible : req.body.stock
-               
-            };
-
-            let productoInsertado = await db.Producto.create(productoNuevo);
-
-            let imagenes = req.files; // Obtengo las fotos
-            let arrayFotos = [];
-            let objetoFoto;
-
-            for(let i=0; i < imagenes.length; i++){
-                objetoFoto = {
-                    id_producto: productoInsertado.id,
-                    url: imagenes[i].filename
+                let productoNuevo = {
+                    titulo: req.body.titulo ,    
+                    marca: req.body.marca ,
+                    modelo: req.body.modelo ,
+                    id_usuario_FK : id_vendedor,
+                    precio: req.body.precio,
+                    id_categoria: req.body.categoria,
+                    descripcion: req.body.descripcion,
+                    cantidad_disponible : req.body.stock
                 };
-                arrayFotos.push(objetoFoto); //agrego el Objeto que contiene el ID PRODUCTO y la URL de la foto al Array de Objetos Foto
-           }
 
-           db.Foto.bulkCreate(arrayFotos); // mando el Array de Objetos Foto a la BD
-            
-            let productoGenero = {
-                id_producto: productoInsertado.id,
-                id_genero_musical: req.body.generoMusical      
-            };
+                let productoInsertado = await db.Producto.create(productoNuevo);
 
-            db.Producto_Genero.create(productoGenero);
+                //---------v Imágenes v---------
+
+                let imagenes = req.files; // Obtengo las fotos
+                let arrayFotos = [];
+                let objetoFoto;
+
+                for(let i=0; i < imagenes.length; i++){
+                    objetoFoto = {
+                        id_producto: productoInsertado.id,
+                        url: imagenes[i].filename
+                    };
+                    arrayFotos.push(objetoFoto); //agrego el Objeto que contiene el ID PRODUCTO y la URL de la foto al Array de Objetos Foto
+                }
+
+            db.Foto.bulkCreate(arrayFotos); // mando el Array de Objetos Foto a la BD
+
+            //----------v Géneros Musicales v-----------
+                
+            let generos = req.body.generoMusical;
+            let arrayGeneros = [];
+            let objetoProductoGenero
+                
             
-            res.redirect("/products/all-ok");
-        }
-        else {
+            for(let i=0; i < generos.length; i++){
+                objetoProductoGenero = {
+                    id_producto: productoInsertado.id,
+                    id_genero_musical: generos[i]
+                };
+                arrayGeneros.push(objetoProductoGenero); //agrego el Objeto que contiene el ID PRODUCTO y la URL de la foto al Array de Objetos Foto
+            }
+            db.Producto_Genero.bulkCreate(arrayGeneros); // mando el Array de Objetos Foto a la BD
+
+            /*
+            productoGenero = {
+                    id_producto: productoInsertado.id,
+                    id_genero_musical: req.body.generoMusical      
+                };
+
+               db.Producto_Genero.create(productoGenero);
+            */
+                res.redirect("/products/all-ok");
+            }
+            else {
                 if (errors.errors.length > 0){
                     let pedidoCategoria = db.Categoria.findAll()
                     let pedidoGenero = db.Genero_Musical.findAll()
@@ -309,7 +326,7 @@ const controladorProducto = {
                 })
                 .then(function(resultados){
                     productosEncontrados = resultados;
-                    res.render("results-search", {productos: productosEncontrados, busqueda: busqueda}); //Busqueda Basica.
+                    res.render("results-search", {productos: productosEncontrados, busqueda: busqueda, genero: null}); //Busqueda Basica.
                 })    
             }else{
                 db.Producto.findAll({include: 
@@ -333,13 +350,13 @@ const controladorProducto = {
                 })
                 .then(function(resultados){
                     productosEncontrados = resultados;
-                    res.render("results-search", {productos: productosEncontrados, busqueda: busqueda}); //Busqueda Basica.
+                    res.render("results-search", {productos: productosEncontrados, busqueda: busqueda, genero:null}); //Busqueda Basica.
                 })    
             }
         },
-        busquedaPorCategoria: (req, res) => {
+        busquedaPorGenero: (req, res) => { //Busqueda por Estilo Musical
 
-            let catABuscar = req.query.categoria;
+            let generoABuscar = req.query.genero;
             let productosEncontrados = [];
             
             db.Producto.findAll({include: 
@@ -347,15 +364,16 @@ const controladorProducto = {
                 {association: 'fotos'},
                 {association: 'producto_genero'}
             ],  where:{
-                categoria: {
-                    [op.like]: catABuscar
+                '$producto_genero.id_genero_musical$': {
+                    [op.like]: generoABuscar
                 }
             }
         }) 
   
             .then(function(resultados){
                 productosEncontrados = resultados;
-                res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar});
+                
+                res.render("results-search", {productos: productosEncontrados, busqueda: null, genero: generoABuscar});
         
             })    
                

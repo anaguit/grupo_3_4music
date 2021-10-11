@@ -33,7 +33,7 @@ const uploadFile = multer({ storage: configuracionImagen });
 productRouter.get("/", controladorProducto.listadoProductos); // Listado de Productos
 
 /* Listar los Productos Correspondientes a un Usuario */
-productRouter.get("/:idUser", controladorProducto.listadoProductosUsuario); // Listado de Productos de un Usuario
+productRouter.get("/showAll/:idUser", controladorProducto.listadoProductosUsuario); // Listado de Productos de un Usuario
 
 /* Detalle de 1 Producto */
 productRouter.get("/detail/:idProducto", controladorProducto.detalleProducto); // Detalle de un producto particular
@@ -59,7 +59,7 @@ productRouter.get("/search", controladorProducto.resultadoBusqueda); // Busqueda
 
 
 /* Buscar Productos por Categoría */
-productRouter.get("/searchByCategory", controladorProducto.busquedaPorCategoria); // Busqueda Basica a mejorar
+productRouter.get("/searchByStyle", controladorProducto.busquedaPorGenero); // Busqueda Basica a mejorar
 
 
 module.exports = productRouter;
