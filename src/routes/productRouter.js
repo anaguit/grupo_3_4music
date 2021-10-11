@@ -58,8 +58,12 @@ productRouter.delete("/:id", controladorProducto.eliminarProducto); // Eliminar 
 productRouter.get("/search", controladorProducto.resultadoBusqueda); // Busqueda Basica a mejorar
 
 
-/* Buscar Productos por Categoría */
+/* Buscar Productos por Estilo Musical */
 productRouter.get("/searchByStyle", controladorProducto.busquedaPorGenero); // Busqueda Basica a mejorar
+
+/* Buscar Productos por Categoría */
+productRouter.get("/searchByCategory", controladorProducto.busquedaPorCategoria); // Busqueda Basica a mejorar
+
 
 
 module.exports = productRouter;

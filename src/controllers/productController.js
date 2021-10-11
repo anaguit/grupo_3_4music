@@ -377,6 +377,30 @@ const controladorProducto = {
         
             })    
                
+        },
+        busquedaPorCategoria: (req, res) => { //Busqueda por Estilo Musical
+
+            let catABuscar = req.query.categoria;
+            let productosEncontrados = [];
+            
+            db.Producto.findAll({include: 
+                [{association:'categoria'},
+                {association: 'fotos'},
+                {association: 'producto_genero'}
+            ],  where:{
+                id_categoria: {
+                    [op.like]: catABuscar
+                }
+            }
+        }) 
+  
+            .then(function(resultados){
+                productosEncontrados = resultados;
+                
+                res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar, genero: null});
+        
+            })    
+               
         }
 
 }
