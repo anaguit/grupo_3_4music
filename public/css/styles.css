@@ -605,6 +605,16 @@ input:hover{
 
 }
 
+#tachito{
+    border: none;
+    font-size: 20px;
+}
+
+#tachito:hover{
+    color: crimson;
+    transition: .3s;
+}
+
 .entrega, .sumatoria{
     width: 50%;
 }
