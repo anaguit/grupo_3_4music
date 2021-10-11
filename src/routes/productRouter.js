@@ -32,8 +32,8 @@ const uploadFile = multer({ storage: configuracionImagen });
 /* Listar Todos los Productos */
 productRouter.get("/", controladorProducto.listadoProductos); // Listado de Productos
 
-/* Listar Todos los Productos */
-productRouter.get("/idUser", controladorProducto.listadoProductosUsuario); // Listado de Productos de un Usuario
+/* Listar los Productos Correspondientes a un Usuario */
+productRouter.get("/:idUser", controladorProducto.listadoProductosUsuario); // Listado de Productos de un Usuario
 
 /* Detalle de 1 Producto */
 productRouter.get("/detail/:idProducto", controladorProducto.detalleProducto); // Detalle de un producto particular

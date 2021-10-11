@@ -34,13 +34,14 @@ const controladorProducto = {
 
                 where: {
                     id_usuario_FK : idUsuario
-                }
-                     .then(function(resultados){
+                }                     
+                })
+                .then(function(resultados){
                     productos = resultados;
                     res.render("all-items", {productos: productos});
-                })
-        }
-        )},
+                })  
+            
+        },
 
         detalleProducto: (req, res) => {   
             let idURL = req.params.idProducto;
