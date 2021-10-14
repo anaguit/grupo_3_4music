@@ -245,8 +245,11 @@ const controladorProducto = {
             let idURL = req.params.id;
             let productoEncontrado= await db.Producto.findByPk(idURL);
                
-                   if(productoEncontrado.id_usuario_FK == req.session.usuarioLogueado)
+                  
+            
+            if(productoEncontrado.id_usuario_FK == req.session.usuarioLogueado.id)
                    {
+                        
                         await db.Foto.destroy({
                             where: { id_producto: idURL} 
                         }); 
