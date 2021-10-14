@@ -24,7 +24,7 @@
                         <p id="errorContraseña" style="color: red"></p>
                         <label for="contraseña">Contraseña:</label>
                         <% if(locals.errors && errors.contraseña && errors.contraseña.msj){ %>
-                            <p style="color: rgb(247, 247, 247);"><%= errors.contraseña.msj %></p>
+                            <p style="color: red;"><%= errors.contraseña.msj %></p>
                         <% } %>
                         <input type="password" name="contraseña" id="contraseña">    
                     </div>

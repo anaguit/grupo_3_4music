@@ -37,7 +37,7 @@ main{
     padding-right: 10px;
 }
 .headerDerecha {
-    width:22%;
+    width:24%;
     padding-left: 15px;
 }
 .contenedorOpcionesUsuario, .contenedorLogosRedes {
@@ -927,7 +927,7 @@ input:hover{
         margin-left: 39%;
         display: flex;
         flex-wrap: wrap;
-        padding-left: 0;
+        
     }
     .contenedorOpcionesUsuario{
         width: 50%;
@@ -995,5 +995,8 @@ input:hover{
     } 
     .product-box_data p {
         font-size: 0.9em !important;
-      }
+    }
+    .headerDerecha{
+        padding-left:1px !important
+    }
 }
