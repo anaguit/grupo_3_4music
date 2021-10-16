@@ -73,6 +73,7 @@ main{
 .menuHamburguesa{
     display: none;
 }
+
 .btn-secondary{
     background-color: brown;
     border:none;
@@ -847,9 +848,14 @@ input:hover{
     body {
         padding-top: 34vh !important;
     }
-    #headerInferior, .headerDerecha, #busqueda{
+    #headerInferior, .headerDerecha{
         display: none !important;
     }
+    #busqueda{
+        display: none;
+    }
+   
+
     .input-group{
         width:50px;
         padding-top: 10px;
@@ -913,7 +919,7 @@ input:hover{
         max-width:720px
     }
     #barraBusqueda {
-        width:15% !important;
+        width:15%;
     }
 }
 
