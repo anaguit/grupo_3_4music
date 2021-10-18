@@ -63,8 +63,7 @@
                         <% if(locals.errors && errors.descripcion) { %>
                             <p style="color: red;"><%= errors.descripcion.msg %></p>
                         <% } %>
-                       <textarea class="areaTexto"  name="descripcion"  id="descripcion" ><%= locals.old && old.descripcion ? old.descripcion : '' %>
-                       </textarea>   
+                       <textarea class="areaTexto" tabindex="0" name="descripcion"  id="descripcion" ><%= locals.old && old.descripcion ? old.descripcion : '' %></textarea>   
                     </div>
                     <div class="lineaForm">
                         <p id="errorImagenes" style="color:green"></p>

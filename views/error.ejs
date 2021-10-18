@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<%-include("partials/head.ejs", {title: 'Error - Página no encontrada'})%>
+
+
+<body class="fourMusic">
+   
+    <%-include("partials/header.ejs")%>
+
+    <main>
+        <div class="contenedorMain">
+            <h1>Página no encontrada...</h1>
+            <br>
+            <h2>Error al intentar acceder a <%= path %></h2>
+            <br>
+            <a href="/"><button type="button" class="boton-registro">Inicio</button></a>
+            <br>
+            <!--
+            <h1><%= message %></h1>
+            <h2><%= error.status %></h2>
+            <p>Error trying to access to: <b><%= path %></b></p>
+            <pre><i><%= error.stack %></i></pre>
+            -->
+        </div>
+</main>
+
+
+<%-include("partials/footer")%>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/loginUsuario.js"></script>
+</body>
+</html>
+</body>
+</html>

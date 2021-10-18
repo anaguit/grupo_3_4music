@@ -37,7 +37,7 @@ main{
     padding-right: 10px;
 }
 .headerDerecha {
-    width:22%;
+    width:24%;
     padding-left: 15px;
 }
 .contenedorOpcionesUsuario, .contenedorLogosRedes {
@@ -73,6 +73,7 @@ main{
 .menuHamburguesa{
     display: none;
 }
+
 .btn-secondary{
     background-color: brown;
     border:none;
@@ -649,6 +650,12 @@ input:hover{
 
 /* ---------------------------------- */
 
+.portadaProducto {
+    object-fit: contain;
+    width: 100%;
+    height: 280px;
+}
+
 .product-box {
     background-color: #ffffff;
     border-radius: 5px;
@@ -830,6 +837,9 @@ input:hover{
     .container{
         max-width:540px
     }
+    .portadaProducto {
+        height: 180px;
+    }
     
 }
 
@@ -838,9 +848,14 @@ input:hover{
     body {
         padding-top: 34vh !important;
     }
-    #headerInferior, .headerDerecha, #busqueda{
+    #headerInferior, .headerDerecha{
         display: none !important;
     }
+    #busqueda{
+        display: none;
+    }
+   
+
     .input-group{
         width:50px;
         padding-top: 10px;
@@ -904,7 +919,7 @@ input:hover{
         max-width:720px
     }
     #barraBusqueda {
-        width:15% !important;
+        width:15%;
     }
 }
 
@@ -918,7 +933,7 @@ input:hover{
         margin-left: 39%;
         display: flex;
         flex-wrap: wrap;
-        padding-left: 0;
+        
     }
     .contenedorOpcionesUsuario{
         width: 50%;
@@ -986,5 +1001,8 @@ input:hover{
     } 
     .product-box_data p {
         font-size: 0.9em !important;
-      }
+    }
+    .headerDerecha{
+        padding-left:1px !important
+    }
 }

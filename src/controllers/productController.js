@@ -14,13 +14,15 @@ let productos;
 
 const controladorProducto = {
         listadoProductos: (req, res) =>{
-           
-            
+        
             db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
                 .then(function(resultados){
                     productos = resultados;
                     res.render("all-items", {productos: productos});
                 })
+                .cath( (e) => {
+                    console.log(e);
+                    });
         },
 
         listadoProductosUsuario: (req, res) =>{
@@ -245,8 +247,11 @@ const controladorProducto = {
             let idURL = req.params.id;
             let productoEncontrado= await db.Producto.findByPk(idURL);
                
-                   if(productoEncontrado.id_usuario_FK == req.session.usuarioLogueado)
+                  
+            
+            if(productoEncontrado.id_usuario_FK == req.session.usuarioLogueado.id)
                    {
+                        
                         await db.Foto.destroy({
                             where: { id_producto: idURL} 
                         }); 
