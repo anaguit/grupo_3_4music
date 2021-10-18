@@ -260,12 +260,6 @@ const controladorProducto = {
                         }); 
                         
             
-                        await db.Producto_Genero.destroy({
-                            where:{
-                                id_producto:idURL
-                            }
-                        });
-            
                    }
                    res.redirect("/")
                    
