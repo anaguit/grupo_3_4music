@@ -8,17 +8,18 @@
     <%-include("partials/header.ejs")%>
 
     <main>
-        <div class="contenedorMain">
+        <div class="contenedorMain fondoLogin">
             <div class="formulario">         
                 <h2 class="bienvenida">Bienvenido a 4Music!</h2>
                 <form id="login" action="/users" method="POST" >
                     <div class="lineaForm">
                         <p id="errorEmail" style="color: red"></p>
-                        <label for="email">Correo Electrónico:</label>
+                     
                         <% if(locals.errors && errors.email) { %>
                             <p style="color: red;"> <%= errors.email.msj %></p>
                         <% } %>
-                        <input type="email" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>">     
+                        <i class="fas fa-envelope icon"></i>
+                        <input type="email" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>" placeholder="Introduce tu email"><span id="iconoX"></span>     
                     </div>
                     <div class="lineaForm">
                         <p id="errorContraseña" style="color: red"></p>
