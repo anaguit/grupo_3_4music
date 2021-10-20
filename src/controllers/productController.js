@@ -310,6 +310,33 @@ const controladorProducto = {
                 return (p.categoria == catABuscar );
             });
             */    
+        },
+        listarProductoApi: (req, res) => {
+            db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
+                .then(productos => {
+
+                    return res.json( {
+                        total: productos.length,
+                        datos: productos })
+                })
+        },
+        countByCategory: (req, res) => {
+            db.Categoria.findAll()
+                .then(categorias => {
+
+                    return res.json( {
+                        total: categorias.length
+                        })
+                })
+        },
+        listarProductoIdApi: (req,res) =>{
+            db.Producto.findByPk(req.params.id, {include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
+                .then(productos => {
+
+                    return res.json( {
+                        total: productos.length,
+                        datos: productos })
+                })
         }
 
 }

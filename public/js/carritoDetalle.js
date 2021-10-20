@@ -10,7 +10,7 @@ let cantidad;
 let carritoProductos =  JSON.parse(sessionStorage.getItem("carritoProductos"));
 let elementosHTML ="";
 let sumatoria = 0;
-
+let carritoFinal;
 
 
 if(carritoProductos.length > 0){
@@ -23,8 +23,15 @@ if(carritoProductos.length > 0){
         
        
         sumatoria += parseInt((carritoProductos[i].precio) * cantidad);
+
+        if(carritoProductos[i].id==null){
+            carritoProductos.filter(function(elemento){
+                return elemento==null
+            })
+ 
+        }
         
-    
+        
    
 
 
