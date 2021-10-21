@@ -235,27 +235,8 @@ const controladorUsers = {
 
             req.session.destroy();
             res.redirect("/"); 
-        },
-        listarUsuario: (req, res) =>{
-        
-            db.Usuario.findAll(/*/{include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]}/*/)
-                .then(usuarios => {
-
-                    return res.json( {
-                        total: usuarios.length,
-                        datos: usuarios })
-                })
+        }
                 
-        },   
-        mostrarUsuario: (req, res) =>{
-        
-            db.Usuario.findByPk(req.params.id)
-                .then(usuario => {
-                    return res.json (usuario)   
-                    })
-                }
-                
-        
 }
 
 module.exports = controladorUsers;

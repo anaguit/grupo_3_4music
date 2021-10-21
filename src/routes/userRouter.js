@@ -38,9 +38,6 @@ const uploadFile = multer({ storage: configuracionImagen });
 usersRouter.get("/", guestMiddleware, controladorUsers.login); //Si esta Logueado, el Middleware me redirije al Perfil
 usersRouter.post("/", validationLogin, controladorUsers.ingresar);
 
-/* rutas apis */
-usersRouter.get("/listar", controladorUsers.listarUsuario); //Ruta para listar usuarios en API
-usersRouter.get("/listar/:id", controladorUsers.mostrarUsuario)
 
 /* Cerrar Sesion */
 usersRouter.get("/logout", controladorUsers.cerrarSesion);
