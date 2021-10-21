@@ -1,50 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <%-include("partials/head.ejs", {title: 'Login'})%>
+<link rel="stylesheet" href="/css/registro.css">
 
 
-<body class="fourMusic">
+<body class="fourMusic-FormRegistro">
    
     <%-include("partials/header.ejs")%>
 
     <main>
-        <div class="contenedorMain fondoLogin">
-            <div class="formulario">
-                <h2 class="bienvenida">Bienvenido a 4Music!</h2>
-                <form id="login" action="/users" method="POST" >
-                    
+        <div class="contenedorForm">
+                   
+                
+                <form  action="/users" method="POST" class="formularioRegistro">
+                    <h2 class="bienvenidaRegistro">Bienvenido a 4Music!</h2>
+
+
+                    <div class="contenedorFormRegistro">
                         <p id="errorEmail" style="color: red"></p>
-                    
                         <% if(locals.errors && errors.email) { %>
-                            <p style="color: red;"> <%= errors.email.msj %></p>
+                            <p style="color: red; text-align: center;"> <%= errors.email.msj %></p>
                         <% } %>
-                        <div class="lineaForm">
+                    <div class="contenedorInput">
+                        
                         <i class="fas fa-envelope icon"></i>
-                        <input type="email" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>" placeholder="Introduce tu email"><span id="iconoX"></span>     
+                        <input type="email" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>" placeholder="Ingresa tu email"> 
                     </div>
-                    
-                        <p id="errorContraseña" style="color: red"></p>
-                    
-                        <% if(locals.errors && errors.contraseña && errors.contraseña.msj){ %>
-                            <p style="color: red;"><%= errors.contraseña.msj %></p>
-                        <% } %>
-                        <div class="lineaForm">
+
+
+
+
+                    <p id="errorContraseña" style="color: red"></p>
+                    <% if(locals.errors && errors.contraseña && errors.contraseña.msj){ %>
+                        <p style="color: red; text-align: center;"><%= errors.contraseña.msj %></p>
+                    <% } %>
+                    <div class="contenedorInput">
+                        
                         <i class="fas fa-key icon"></i>
                         <input type="password" name="contraseña" id="contraseña" placeholder="Ingresa tu contraseña">    
                     </div>
-                    <div class="lineaForm" style="border: none;"> 
+
+
+
+
+
+                    <div class="contenedorInput" style="border: none;"> 
                         <a href="">Olvidaste tu contaseña?</a>
                     </div>
-                    <div class="lineaForm" style="border: none"> 
-                        <button type="submit" class="boton-registro">Ingresar</button>
+
+
+
+
+                    <div class="contenedorInput" style="border: none;"> 
+                        <button type="submit" class="boton-formRegistro">Ingresar</button>
                     </div>
-                    <p>¿No tienes una cuenta? <a href="/users/register" class ="link">Registrate</a></p>
-                    <div class="lineaForm" style="border: none;"> 
+
+
+
+
+                    <div class="contenedorInput" style="border: none; text-align: center;"> 
                         <input type="checkbox" class="check" name="recordarUsuario">Permanecer conectado
                     </div>
-                    
+
+
+
+
+                    <div class="contenedorInput" style="border: none;"> 
+                        <p class="p-Registro">¿No tenes una cuenta? <a href="/users/register">Registrate</a></p>
+                    </div>
+
+
+
+                    </div>
                 </form>
-            </div>
+            
         </div>
     </main>
     
