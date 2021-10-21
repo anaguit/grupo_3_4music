@@ -13,22 +13,42 @@
                     <% if(productos.length > 0) { %>
                         <div class="col-12">
                             <h2 class="products-title">Resultados de Búsqueda - 
-                                <% switch(busqueda) {  
-                                    case "1":%> Instrumentos de Cuerdas
-                                       <% break;%>
-                                    <% case "2":%> Instrumentos de Percusión 
-                                       <% break;%>
-                                    <% case "3":%> Instrumentos de Viento 
-                                       <%break;%>
-                                     <% case "4":%> Teclados y Pianos 
-                                       <% break;%>
-                                    <% case "5":%> Audio
-                                       <% break;%>
-                                    <% case "6":%> Otros
-                                       <% break;%>
-                                    <%  default:%><%=busqueda%>
+
+                                <%if(busqueda){ 
+                                    switch(busqueda) {  
+                                        case "1":%> Instrumentos de Viento
+                                            <% break;%>
+                                        <% case "2":%> Accesorios 
+                                            <% break;%>
+                                        <% case "3":%> Audio
+                                            <%break;%>
+                                        <% case "4":%> Teclados y Pianos 
+                                            <% break;%>
+                                        <% case "5":%> Instrumentos de Percusión
+                                            <% break;%>
+                                        <% case "6":%> Instrumento de Cuerdas
+                                            <% break;%>
+                                        <% case "7":%> Baterias
+                                            <% break;%>
+                                        <%  default:%><%=busqueda%>
+                                            <% break;%>
+                                    <% } 
+                                }else if(genero){
+                                
+                                    switch(genero) {  
+                                        case "1":%> Tango
                                         <% break;%>
-                                <% } %>
+                                        <% case "2":%> Folklore
+                                        <% break;%>
+                                        <% case "3":%> Jazz 
+                                        <%break;%>
+                                        <% case "4":%> Rock & Blues 
+                                        <% break;%>
+                                        <% case "5":%> Otros
+                                        <% break;%>
+                                        <% } 
+                                }
+                                %>
                             </h2>
                         </div>
                         <% for(let producto of productos) { %>
@@ -36,7 +56,7 @@
                                 <section class="product-box">
                                     <a href="/products/detail/<%=producto.id %>" >
                                         <figure class="product-box_image">
-                                            <img class="d-block w-100" src="/images/products/<%=producto.fotos[0].url%>" alt="A">
+                                            <img class="d-block portadaProducto" src="/images/products/<%=producto.fotos[0].url%>" alt="A">
                                         </figure>
                                         <article class="product-box_data">
                                             <h2>$<%=producto.precio %></h2>

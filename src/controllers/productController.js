@@ -14,13 +14,35 @@ let productos;
 
 const controladorProducto = {
         listadoProductos: (req, res) =>{
-           
-            
+        
             db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
                 .then(function(resultados){
                     productos = resultados;
                     res.render("all-items", {productos: productos});
                 })
+                .cath( (e) => {
+                    console.log(e);
+                    });
+        },
+
+        listadoProductosUsuario: (req, res) =>{
+           
+            let idUsuario = req.params.idUser;
+            
+            db.Producto.findAll({include: 
+                [{association:'categoria'},
+                {association: 'fotos'},
+                {association: 'producto_genero'}],
+
+                where: {
+                    id_usuario_FK : idUsuario
+                }                     
+                })
+                .then(function(resultados){
+                    productos = resultados;
+                    res.render("all-items", {productos: productos});
+                })  
+            
         },
 
         detalleProducto: (req, res) => {   
@@ -54,48 +76,65 @@ const controladorProducto = {
             let errors = validationResult(req);
           
             if(errors.isEmpty()){
-           
-            let id_vendedor = req.session.usuarioLogueado.id;
+            
+                let id_vendedor = req.session.usuarioLogueado.id;
 
-
-            let productoNuevo = {
-                titulo: req.body.titulo ,    
-                marca: req.body.marca ,
-                modelo: req.body.modelo ,
-                id_usuario_FK : id_vendedor,
-                precio: req.body.precio,
-                id_categoria: req.body.categoria,
-                descripcion: req.body.descripcion,
-                cantidad_disponible : req.body.stock
-               
-            };
-
-            let productoInsertado = await db.Producto.create(productoNuevo);
-
-            let imagenes = req.files; // Obtengo las fotos
-            let arrayFotos = [];
-            let objetoFoto;
-
-            for(let i=0; i < imagenes.length; i++){
-                objetoFoto = {
-                    id_producto: productoInsertado.id,
-                    url: imagenes[i].filename
+                let productoNuevo = {
+                    titulo: req.body.titulo ,    
+                    marca: req.body.marca ,
+                    modelo: req.body.modelo ,
+                    id_usuario_FK : id_vendedor,
+                    precio: req.body.precio,
+                    id_categoria: req.body.categoria,
+                    descripcion: req.body.descripcion,
+                    cantidad_disponible : req.body.stock
                 };
-                arrayFotos.push(objetoFoto); //agrego el Objeto que contiene el ID PRODUCTO y la URL de la foto al Array de Objetos Foto
-           }
 
-           db.Foto.bulkCreate(arrayFotos); // mando el Array de Objetos Foto a la BD
-            
-            let productoGenero = {
-                id_producto: productoInsertado.id,
-                id_genero_musical: req.body.generoMusical      
-            };
+                let productoInsertado = await db.Producto.create(productoNuevo);
 
-            db.Producto_Genero.create(productoGenero);
+                //---------v Imágenes v---------
+
+                let imagenes = req.files; // Obtengo las fotos
+                let arrayFotos = [];
+                let objetoFoto;
+
+                for(let i=0; i < imagenes.length; i++){
+                    objetoFoto = {
+                        id_producto: productoInsertado.id,
+                        url: imagenes[i].filename
+                    };
+                    arrayFotos.push(objetoFoto); //agrego el Objeto que contiene el ID PRODUCTO y la URL de la foto al Array de Objetos Foto
+                }
+
+            db.Foto.bulkCreate(arrayFotos); // mando el Array de Objetos Foto a la BD
+
+            //----------v Géneros Musicales v-----------
+                
+            let generos = req.body.generoMusical;
+            let arrayGeneros = [];
+            let objetoProductoGenero
+                
             
-            res.redirect("/products/all-ok");
-        }
-        else {
+            for(let i=0; i < generos.length; i++){
+                objetoProductoGenero = {
+                    id_producto: productoInsertado.id,
+                    id_genero_musical: generos[i]
+                };
+                arrayGeneros.push(objetoProductoGenero); //agrego el Objeto que contiene el ID PRODUCTO y la URL de la foto al Array de Objetos Foto
+            }
+            db.Producto_Genero.bulkCreate(arrayGeneros); // mando el Array de Objetos Foto a la BD
+
+            /*
+            productoGenero = {
+                    id_producto: productoInsertado.id,
+                    id_genero_musical: req.body.generoMusical      
+                };
+
+               db.Producto_Genero.create(productoGenero);
+            */
+                res.redirect("/products/all-ok");
+            }
+            else {
                 if (errors.errors.length > 0){
                     let pedidoCategoria = db.Categoria.findAll()
                     let pedidoGenero = db.Genero_Musical.findAll()
@@ -208,8 +247,11 @@ const controladorProducto = {
             let idURL = req.params.id;
             let productoEncontrado= await db.Producto.findByPk(idURL);
                
-                   if(productoEncontrado.id_usuario_FK == req.session.usuarioLogueado)
+                  
+            
+            if(productoEncontrado.id_usuario_FK == req.session.usuarioLogueado.id)
                    {
+                        
                         await db.Foto.destroy({
                             where: { id_producto: idURL} 
                         }); 
@@ -236,57 +278,113 @@ const controladorProducto = {
 
         resultadoBusqueda: (req, res) => {
             
-            let aBuscar = req.query.busqueda;
+            let { busqueda } = req.query;
+            let palabrasABuscar = busqueda.split(" "); //Obtengo un array con cada palabra a buscar
+           
             let productosEncontrados = [];
+           
+            if(palabrasABuscar.length > 1){
 
+                db.Producto.findAll({include: 
+                    [{association:'categoria'},
+                    {association: 'fotos'},
+                    {association: 'producto_genero'}],
+    
+                    where: {
+                        [op.or]: {
+                            titulo: {
+                                [op.like]: `%${palabrasABuscar[0]}%`
+                            },
+                            [op.or]: [
+                                {
+                                    marca: {
+                                        [op.like]: `%${palabrasABuscar[0]}%`
+                                    }
+                                },
+                                {
+                                    marca: {
+                                        [op.like]: `%${palabrasABuscar[1]}%`
+                                    }
+                                },
+                                
+                            ],
+                            [op.or]: [
+                                {
+                                    modelo: {
+                                        [op.like]: `%${palabrasABuscar[0]}%`
+                                    }
+                                },
+                                {
+                                    modelo: {
+                                        [op.like]: `%${palabrasABuscar[1]}%`
+                                    }
+                                },
+                                {
+                                    modelo: {
+                                        [op.like]: `%${palabrasABuscar[2]}%`
+                                    }
+                                },
+                                
+                            ]  
+                        }
+                    }
+                })
+                .then(function(resultados){
+                    productosEncontrados = resultados;
+                    res.render("results-search", {productos: productosEncontrados, busqueda: busqueda, genero: null}); //Busqueda Basica.
+                })    
+            }else{
+                db.Producto.findAll({include: 
+                    [{association:'categoria'},
+                    {association: 'fotos'},
+                    {association: 'producto_genero'}],
+    
+                    where: {
+                        [op.or]: {
+                            titulo: {
+                                [op.like]: `%${busqueda}%`
+                            },
+                            marca: {
+                                [op.like]: `%${busqueda}%`
+                            },
+                            modelo: {
+                                [op.like]: `%${busqueda}%`
+                            }
+                        }
+                    }
+                })
+                .then(function(resultados){
+                    productosEncontrados = resultados;
+                    res.render("results-search", {productos: productosEncontrados, busqueda: busqueda, genero:null}); //Busqueda Basica.
+                })    
+            }
+        },
+        busquedaPorGenero: (req, res) => { //Busqueda por Estilo Musical
+
+            let generoABuscar = req.query.genero;
+            let productosEncontrados = [];
+            
             db.Producto.findAll({include: 
                 [{association:'categoria'},
                 {association: 'fotos'},
-                {association: 'producto_genero'}],
+                {association: 'producto_genero'}
+            ],  where:{
+                '$producto_genero.id_genero_musical$': {
+                    [op.like]: generoABuscar
+                }
+            }
+        }) 
+  
+            .then(function(resultados){
+                productosEncontrados = resultados;
                 
-                    where:
-                        Sequelize.where(Sequelize.fn("concat", Sequelize.col("titulo"), Sequelize.col("marca")), {
-                            like: '%' + aBuscar + '%'
-                        })
-                        /*
-                        [op.or]:
-                        [
-                            {titulo: {
-                                [op.like]:  '%' + aBuscar + '%' }},
-                            {marca: {
-                                [op.like]:  '%' + aBuscar + '%' }},
-                            {modelo: {
-                                [op.like]:  '%' + aBuscar + '%' }},
-                            {modelo: {
-                                [op.like]:  '%' + aBuscar + '%' }}     
-                        ]*/
-                    
-                    })
-                        .then(function(resultados){
-                            productosEncontrados = resultados;
-                            res.render("results-search", {productos: productosEncontrados, busqueda: aBuscar}); //Busqueda Basica.
-                        })
-            
-            
-                /*
-            productosEncontrados = productos.filter(function(p) {
-                return (p.titulo.includes(aBuscar) || 
-                p.marca.includes(aBuscar) || 
-                p.modelo.includes(aBuscar) || 
-                p.generoMusical==aBuscar || 
-                p.categoria == aBuscar ||
-                ((p.titulo + ' ' + p.marca) == aBuscar) || 
-                ((p.titulo + ' ' + p.marca + ' ' + p.modelo) == aBuscar) ||
-                ((p.marca + ' ' + p.modelo) == aBuscar)
-                );
-            });*/
-            
-            
-            
+                res.render("results-search", {productos: productosEncontrados, busqueda: null, genero: generoABuscar});
+        
+            })    
+               
         },
-        busquedaPorCategoria: (req, res) => {
-            //productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-            
+        busquedaPorCategoria: (req, res) => { //Busqueda por Estilo Musical
+
             let catABuscar = req.query.categoria;
             let productosEncontrados = [];
             
@@ -295,21 +393,46 @@ const controladorProducto = {
                 {association: 'fotos'},
                 {association: 'producto_genero'}
             ],  where:{
-                categoria: {
-                    [op.like]: CatABuscar
+                id_categoria: {
+                    [op.like]: catABuscar
                 }
             }
-        }) //SIN TERMINAR
+        }) 
+  
             .then(function(resultados){
                 productosEncontrados = resultados;
-                res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar}); //Busqueda Basica.
+                
+                res.render("results-search", {productos: productosEncontrados, busqueda: catABuscar, genero: null});
         
             })    
-            /*
-            productosEncontrados = productos.filter(function(p) {
-                return (p.categoria == catABuscar );
-            });
-            */    
+               
+        },
+        listarProductoApi: (req, res) => {
+            db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
+                .then(productos => {
+
+                    return res.json( {
+                        total: productos.length,
+                        datos: productos })
+                })
+        },
+        countCategory: (req, res) => {
+            db.Categoria.findAll()
+                .then(categorias => {
+
+                    return res.json( {
+                        total: categorias.length
+                        })
+                })
+        },
+        listarProductoIdApi: (req,res) =>{
+            db.Producto.findByPk(req.params.id, {include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
+                .then(productos => {
+
+                    return res.json( {
+                        total: productos.length,
+                        datos: productos })
+                })
         }
 
 }

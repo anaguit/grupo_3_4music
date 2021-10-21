@@ -48,31 +48,31 @@
             <!--Imagenes debajo del primer carrusel-->
             <section id="contenedor-imgs">
                 <div class="imgEstilo">
-                    <a href="/products/search?busqueda=Tango">
+                    <a href="/products/searchByStyle?genero=1">
                         <img src="images/tango.jpg" alt="">
                         <p>Tango</p>
                     </a>
                 </div>
                 <div class="imgEstilo">
-                    <a href="/products/search?busqueda=Folklore">
+                    <a href="/products/searchByStyle?genero=2">
                         <img src="images/folklore.jpg" alt="">
                         <p>Folklore</p>
                     </a>
                 </div>
                 <div class="imgEstilo">
-                    <a href="/products/search?busqueda=Rock y Blues">
-                        <img src="images/rock.jpg" alt="">
-                        <p>Rock & Blues</p>
-                    </a>
-                </div>
-                <div class="imgEstilo">
-                    <a href="/products/search?busqueda=Jazz">
+                    <a href="/products/searchByStyle?genero=3">
                         <img src="images/jazz.jpg" alt="">
                         <p>Jazz</p>
                     </a>
                 </div>
                 <div class="imgEstilo">
-                    <a href="/products/search?busqueda=Otros">
+                    <a href="/products/searchByStyle?genero=4">
+                        <img src="images/rock.jpg" alt="">
+                        <p>Rock & Blues</p>
+                    </a>
+                </div>
+                <div class="imgEstilo">
+                    <a href="/products/searchByStyle?genero=5">
                         <img src="images/otros.jpg" alt="">
                         <p>Otros</p>
                     </a>
@@ -89,7 +89,7 @@
                             <section class="product-box">
                                 <a href="/products/detail/<%=producto.id %>" >
                                     <figure class="product-box_image">
-                                        <img class="d-block w-100" src="/images/products/<%=producto.fotos[0].url%>" alt="A">
+                                        <img class="d-block portadaProducto" src="/images/products/<%=producto.fotos[0].url%>" alt="A">
                                     </figure>
                                     <article class="product-box_data">
                                         <h2>$<%=producto.precio %></h2>

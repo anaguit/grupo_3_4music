@@ -235,8 +235,37 @@ const controladorUsers = {
 
             req.session.destroy();
             res.redirect("/"); 
-        }
+        },
+        listarUsuario: (req, res) =>{
+        
+            db.Usuario.findAll()
+                .then(usuarios => {
+
+                    return res.json( {
+                        total: usuarios.length,
+                        datos: usuarios })
+                })
                 
+        },   
+        mostrarUsuario: (req, res) =>{
+        
+            db.Usuario.findByPk(req.params.id)
+                .then(usuario => {
+                    return res.json ({
+                        id: usuario.id,
+                        nombre: usuario.nombre,
+                        apellido: usuario.apellido,
+                        email: usuario.email,
+                        telefono: usuario.telefono,
+                        foto_perfil: usuario.foto_perfil,
+                        rol: usuario.rol
+                    })   
+                
+                        
+                   
+        })
+    }
+
 }
 
 module.exports = controladorUsers;
