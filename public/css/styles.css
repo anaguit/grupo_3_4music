@@ -15,8 +15,9 @@ a {
 }
 
 .contenedorMain{
-    margin:0 auto 0 auto;
+    display: flex;
     width:90vw;
+    height: 500px;
 }
 
 main{
@@ -268,14 +269,18 @@ a:hover{
 
 .formulario{
     text-align: center;
-    width:50%;
+    width:30%;
     background-color:rgb(246, 241, 241);
     opacity: .9;
-    margin-left:auto;
-    margin-right:auto;
+    margin:auto;
     padding: 15px 2% 3px 2%;
     font-size: 16px;
     border-radius: 2%;
+    
+}
+
+.formulario .lineaForm{
+    width: 100%;
 }
 
 .formulario:hover{
@@ -306,35 +311,53 @@ input:hover{
     color: #999;
 }
 
+.lineaForm 
 input[type = "text"],
 input[type = "email"],
 input[type = "password"]{
-    border: solid blue 1px;
     font-size: 20px;
     width: 82%;
     padding: 10px;
     border: none;
+    background-color:rgb(246, 241, 241);
 }
 .lineaForm{
     /*margin-top: 15px;
     margin-bottom: 15px;*/
-    margin-bottom: 15px;
+    
     border: solid 1px #aaa;
+    width: 50%;
+    margin: 15px auto;
+    
 }
-.lineaForm label, .lineaForm input{
+
+
+
+/*.lineaForm label, .lineaForm input{
     display: inline;
-}
+}*/
+
+/*
+
+
+
+*/
+
+
+
+
 .boton-registro{
-    background-color:#212529;
+    background-color: #1a2537;
     color: white;
-    border-radius: 4px;
-    width: 40%;
-    max-width: 200px;
-    font-size: 16px;
-    display: block;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    
     margin: 10px auto;
-    padding: 5px;
+    padding: 15px 20px;
     box-shadow: 2px 1px rgb(136, 134, 134);
+    cursor: pointer;
 }
 .boton-registro:hover{
     background-color:blue
@@ -1032,5 +1055,31 @@ input[type = "password"]{
     }
     .headerDerecha{
         padding-left:1px !important
+    }
+}
+
+@media(max-width: 768px){
+    .formulario{
+        margin: auto;
+        width: 70%;
+        margin-top: 10px;
+        border-radius: 2%;
+    }
+
+    
+}
+
+
+
+@media(max-width: 300px){
+    .formulario{
+        margin: auto;
+        width: 80%;
+        margin-top: 10px;
+        border-radius: 2%;
+    }
+
+    .lineaForm input{
+        height: 20px;
     }
 }

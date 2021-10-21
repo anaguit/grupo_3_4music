@@ -9,41 +9,40 @@
 
     <main>
         <div class="contenedorMain fondoLogin">
-            <div class="formulario">         
+            <div class="formulario">
                 <h2 class="bienvenida">Bienvenido a 4Music!</h2>
                 <form id="login" action="/users" method="POST" >
-                    <div class="lineaForm">
+                    
                         <p id="errorEmail" style="color: red"></p>
-                     
+                    
                         <% if(locals.errors && errors.email) { %>
                             <p style="color: red;"> <%= errors.email.msj %></p>
                         <% } %>
+                        <div class="lineaForm">
                         <i class="fas fa-envelope icon"></i>
                         <input type="email" name="email" id="email" value="<%= locals.old && old.email ? old.email : '' %>" placeholder="Introduce tu email"><span id="iconoX"></span>     
                     </div>
-                    <div class="lineaForm">
+                    
                         <p id="errorContraseña" style="color: red"></p>
-                        <label for="contraseña">Contraseña:</label>
+                    
                         <% if(locals.errors && errors.contraseña && errors.contraseña.msj){ %>
                             <p style="color: red;"><%= errors.contraseña.msj %></p>
                         <% } %>
-                        <input type="password" name="contraseña" id="contraseña">    
+                        <div class="lineaForm">
+                        <i class="fas fa-key icon"></i>
+                        <input type="password" name="contraseña" id="contraseña" placeholder="Ingresa tu contraseña">    
                     </div>
-                    <div class="lineaForm"> 
+                    <div class="lineaForm" style="border: none;"> 
                         <a href="">Olvidaste tu contaseña?</a>
                     </div>
-                    <div class="lineaForm"> 
+                    <div class="lineaForm" style="border: none"> 
                         <button type="submit" class="boton-registro">Ingresar</button>
                     </div>
-                    <div class="lineaForm"> 
+                    <p>¿No tienes una cuenta? <a href="/users/register" class ="link">Registrate</a></p>
+                    <div class="lineaForm" style="border: none;"> 
                         <input type="checkbox" class="check" name="recordarUsuario">Permanecer conectado
                     </div>
-                    <div class="lineaForm"> 
-                        <a href="/users/register">No tenés cuenta?</a>
-                    </div>
-                    <div class="lineaForm"> 
-                        <a href="/users/register"><button type="button" class="boton-registro">Crea tu cuenta</button></a>
-                    </div>
+                    
                 </form>
             </div>
         </div>
