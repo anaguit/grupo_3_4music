@@ -267,69 +267,11 @@ a:hover{
     font-weight: 600;
 }
 
-.formulario{
-    text-align: center;
-    width:30%;
-    background-color:rgb(246, 241, 241);
-    opacity: .9;
-    margin:auto;
-    padding: 15px 2% 3px 2%;
-    font-size: 16px;
-    border-radius: 2%;
-    
-}
 
-.formulario .lineaForm{
-    width: 100%;
-}
 
-.formulario:hover{
-    opacity: 1;
-}
 
-.formulario input{
-    width:60%;
-    margin: 5px auto;
-    max-width: 350px;
-    opacity: 1;
-}
-.check{
-    width:auto !important;
-    margin-right: 10px !important;
-    display: inline !important;
-}
-input:hover{
-    background-color: rgb(172, 215, 221);
-}
-.fondoLogin {
-    background-image: url("https://images3.alphacoders.com/589/58905.jpg");
-    width: 100vw;
-}
-.icon{
-    min-width: 50px;
-    text-align: center;
-    color: #999;
-}
 
-.lineaForm 
-input[type = "text"],
-input[type = "email"],
-input[type = "password"]{
-    font-size: 20px;
-    width: 82%;
-    padding: 10px;
-    border: none;
-    background-color:rgb(246, 241, 241);
-}
-.lineaForm{
-    /*margin-top: 15px;
-    margin-bottom: 15px;*/
-    
-    border: solid 1px #aaa;
-    width: 50%;
-    margin: 15px auto;
-    
-}
+
 
 
 
@@ -346,22 +288,7 @@ input[type = "password"]{
 
 
 
-.boton-registro{
-    background-color: #1a2537;
-    color: white;
-    border-radius: 5px;
-    width: 100%;
-    border: none;
-    font-size: 20px;
-    
-    margin: 10px auto;
-    padding: 15px 20px;
-    box-shadow: 2px 1px rgb(136, 134, 134);
-    cursor: pointer;
-}
-.boton-registro:hover{
-    background-color:blue
-}
+
 
 
 /*-------Item-Detail--------*/

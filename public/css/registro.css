@@ -4,13 +4,21 @@
     margin: 0;
 }
 
+.registro{
+    height: 950px;
+}
+
+
+
+.contenedorFormLogin{
+    width: 100%;
+    padding: 15px;
+}
 
 
 .contenedorFormRegistro{
     width: 100%;
     padding: 15px;
-    
-    
 }
 
 .formularioRegistro{
@@ -29,15 +37,19 @@
 }
 
 
-.bienvenidaRegistro{
+.bienvenidaRegistro {
     text-align: center;
     color: #1a2537;
     font-size: 30px;
+    
 }
 
-
+.formularioRegistro
 input[type = "email"],
-input[type = "password"]{
+input[type = "password"],
+input[type = "text"],
+input[type = "reset"],
+input[type = "submit"]{
     border: solid blue 1px;
     font-size: 20px;
     width: 82%;
@@ -45,10 +57,26 @@ input[type = "password"]{
     border: none;
 }
 
+
+input[type = "file"]{
+    font-size: 17px;
+}
+
+.contenedorInput select{
+    width: 30%;
+}
+
 .contenedorInput{
     margin-bottom: 15px;
     border: solid 1px #aaa;
 }
+
+
+
+
+
+
+
 
 .icon{
     min-width: 50px;
@@ -85,12 +113,19 @@ input[type = "password"]{
 
 
 
+
+
+
 @media(max-width: 768px){
     .formularioRegistro{
         margin: auto;
-        width: 400px;
-        margin-top: 150px;
+        
+        width: 340px;
+        margin-top: 0;
         border-radius: 2%;
+    }
+    .icon{
+        display: none;
     }
      
 }

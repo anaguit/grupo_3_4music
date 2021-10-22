@@ -16,7 +16,7 @@
                     <h2 class="bienvenidaRegistro">Bienvenido a 4Music!</h2>
 
 
-                    <div class="contenedorFormRegistro">
+                    <div class="contenedorFormLogin">
                         <p id="errorEmail" style="color: red"></p>
                         <% if(locals.errors && errors.email) { %>
                             <p style="color: red; text-align: center;"> <%= errors.email.msj %></p>
@@ -58,8 +58,8 @@
 
 
 
-                    <div class="contenedorInput" style="border: none; text-align: center;"> 
-                        <input type="checkbox" class="check" name="recordarUsuario">Permanecer conectado
+                    <div class="contenedorInput" style="border: none;">
+                        Permanecer conectado <input type="checkbox" class="check" name="recordarUsuario">
                     </div>
 
 
