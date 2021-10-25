@@ -40,8 +40,8 @@ usersRouter.post("/", validationLogin, controladorUsers.ingresar);
 
 /*Rutas APIS*/
 
-usersRouter.get("/list", controladorUsers.listarUsuario);
-usersRouter.get("/show/:id", controladorUsers.mostrarUsuario)
+usersRouter.get("/list", controladorUsers.listadoUsuarios);
+usersRouter.get("/show/:id", controladorUsers.usuario)
 
 
 /* Cerrar Sesion */

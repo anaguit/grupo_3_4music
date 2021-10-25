@@ -236,18 +236,18 @@ const controladorUsers = {
             req.session.destroy();
             res.redirect("/"); 
         },
-        listarUsuario: (req, res) =>{
+        listadoUsuarios: (req, res) =>{
         
             db.Usuario.findAll()
                 .then(usuarios => {
 
                     return res.json( {
-                        total: usuarios.length,
-                        datos: usuarios })
+                        count: usuarios.length,
+                        users: usuarios })
                 })
                 
         },   
-        mostrarUsuario: (req, res) =>{
+        usuario: (req, res) =>{
         
             db.Usuario.findByPk(req.params.id)
                 .then(usuario => {
