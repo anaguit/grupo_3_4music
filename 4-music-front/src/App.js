@@ -26,14 +26,16 @@ function App() {
                 <PanelContador urlApi="http://localhost:3000/products/countCategory" titulo="Total de Categorias"></PanelContador>
               </div>
               <div className="row">
-                <PanelDatosUltimos></PanelDatosUltimos>
+                <PanelDatosUltimos urlApi="http://localhost:3000/users/show/:id" titulo="Ultimo usuario creado"></PanelDatosUltimos>
+                <PanelDatosUltimos urlApi="http://localhost:3000/products/searchApi/:id" titulo="Ultimo producto creado"></PanelDatosUltimos>
+
                 <PanelCategorias></PanelCategorias>
               </div>
             </div>
     </div>
-    <footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
+    <footer className="sticky-footer bg-white">
+				<div className="container my-auto">
+					<div className="copyright text-center my-auto">
 						<span>Copyright &copy; 4Music-Dashboard 2021</span>
 					</div>
 				</div>
