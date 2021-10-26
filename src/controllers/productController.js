@@ -438,7 +438,7 @@ const controladorProducto = {
                 .then(categorias => {
 
                     return res.json( {
-                        total: categorias.length
+                        count: categorias.length
                         })
                 })
         },

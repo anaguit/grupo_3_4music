@@ -1,25 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import TotalUsuario from './components/TotalUsuario';
+import PanelContador from './components/PanelContador';
 import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <TotalUsuario></TotalUsuario>
+      
+        <PanelContador urlApi="http://localhost:3000/users/list" titulo="Total de Usuarios"></PanelContador>
+        <PanelContador urlApi="http://localhost:3000/products/listProducts" titulo="Total de Productos"></PanelContador>
+        <PanelContador urlApi="http://localhost:3000/products/countCategory" titulo="Total de Categorias"></PanelContador>
       </header>
     </div>
   );
