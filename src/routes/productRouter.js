@@ -31,7 +31,7 @@ const uploadFile = multer({ storage: configuracionImagen });
 
 /* Listar Todos los Productos */
 productRouter.get("/", controladorProducto.listadoProductos); // Listado de Productos
-productRouter.get("/listProduct", controladorProducto.listarProductoApi); // Ruta API
+productRouter.get("/listProducts", controladorProducto.productos); // Ruta API
 
 /* Listar los Productos Correspondientes a un Usuario */
 productRouter.get("/showAll/:idUser", controladorProducto.listadoProductosUsuario); // Listado de Productos de un Usuario
@@ -57,7 +57,7 @@ productRouter.delete("/:id", controladorProducto.eliminarProducto); // Eliminar 
 
 /* Buscar Productos */
 productRouter.get("/search", controladorProducto.resultadoBusqueda); // Busqueda Basica a mejorar
-productRouter.get("/searchApi/:id", controladorProducto.listarProductoIdApi);
+productRouter.get("/searchApi/:id", controladorProducto.producto);
 
 
 /* Buscar Productos por Estilo Musical */
@@ -65,7 +65,7 @@ productRouter.get("/searchByStyle", controladorProducto.busquedaPorGenero); // B
 
 /* Buscar Productos por Categoría */
 productRouter.get("/searchByCategory", controladorProducto.busquedaPorCategoria); // Busqueda por categoria
-productRouter.get("/countCategory", controladorProducto.countCategory); // Ruta API
+productRouter.get("/countCategory", controladorProducto.categorias); // Ruta API
 
 
 

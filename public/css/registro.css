@@ -1,0 +1,131 @@
+.contenedorForm{
+    background-image: url("https://images3.alphacoders.com/589/58905.jpg");
+    height: 540px;
+    margin: 0;
+}
+
+.registro{
+    height: 950px;
+}
+
+
+
+.contenedorFormLogin{
+    width: 100%;
+    padding: 15px;
+}
+
+
+.contenedorFormRegistro{
+    width: 100%;
+    padding: 15px;
+}
+
+.formularioRegistro{
+    background-color: white;
+    opacity: .9;
+    
+    padding: 20px 3px;
+    width: 35%;
+    border-radius: 5%;
+    margin: auto;
+        
+}
+
+.formularioRegistro:hover{
+    opacity: 1;
+}
+
+
+.bienvenidaRegistro {
+    text-align: center;
+    color: #1a2537;
+    font-size: 30px;
+    
+}
+
+.formularioRegistro
+input[type = "email"],
+input[type = "password"],
+input[type = "text"],
+input[type = "reset"],
+input[type = "submit"]{
+    border: solid blue 1px;
+    font-size: 20px;
+    width: 82%;
+    padding: 12px;
+    border: none;
+}
+
+
+input[type = "file"]{
+    font-size: 17px;
+}
+
+.contenedorInput select{
+    width: 30%;
+}
+
+.contenedorInput{
+    margin-bottom: 15px;
+    border: solid 1px #aaa;
+}
+
+
+
+
+
+
+
+
+.icon{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+}
+
+#errorEmail, #errorContraseña{
+    text-align: center;
+}
+
+.contenedorInput button{
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background-color: #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contenedorInput button:hover{
+    background-color: blue;
+}
+
+.p-Registro{
+    text-align: center;
+}
+
+.contenedorInput input:hover{
+    background-color: white;}
+
+
+
+
+
+
+
+@media(max-width: 768px){
+    .formularioRegistro{
+        margin: auto;
+        
+        width: 340px;
+        margin-top: 0;
+        border-radius: 2%;
+    }
+    .icon{
+        display: none;
+    }
+     
+}

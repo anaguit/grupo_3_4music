@@ -7,6 +7,8 @@ const {validationResult} = require("express-validator");
 const db = require ("../../database/models");
 const { sequelize, Sequelize } = require('../../database/models');
 const { Session } = require('inspector');
+const Producto = require('../../database/models/Producto');
+const { Console } = require('console');
 //const { where } = require('sequelize/types');
 const op = Sequelize.Op;
 
@@ -265,12 +267,6 @@ const controladorProducto = {
                         }); 
                         
             
-                        await db.Producto_Genero.destroy({
-                            where:{
-                                id_producto:idURL
-                            }
-                        });
-            
                    }
                    res.redirect("/")
                    
@@ -407,25 +403,46 @@ const controladorProducto = {
             })    
                
         },
-        listarProductoApi: (req, res) => {
-            db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
+        productos: (req, res) => {
+            let productosPorCategoria = [];
+            let objetoProductoCategoria;
+
+            db.Producto.findAll({ attributes: ['id_categoria', 
+                [sequelize.fn('COUNT', sequelize.col('titulo')), 'cantidadPorCategoria'] 
+                ],
+                group: 'id_categoria'})
+            .then(productos => {
+                
+                for(let i=0; i<productos.length; i++){
+                     objetoProductoCategoria = {
+                        id_categoria:productos[i].id_categoria,
+                        cantidad: productos[i].dataValues.cantidadPorCategoria
+                    };
+                    productosPorCategoria.push(objetoProductoCategoria);
+                }
+                
+                db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
                 .then(productos => {
 
                     return res.json( {
-                        total: productos.length,
-                        datos: productos })
+                        count: productos.length,
+                        countByCategory: productosPorCategoria,
+                        products: productos })
                 })
+            });  
+
+            
         },
-        countCategory: (req, res) => {
+        categorias: (req, res) => {
             db.Categoria.findAll()
                 .then(categorias => {
 
                     return res.json( {
-                        total: categorias.length
+                        count: categorias.length
                         })
                 })
         },
-        listarProductoIdApi: (req,res) =>{
+        producto: (req,res) =>{
             db.Producto.findByPk(req.params.id, {include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
                 .then(productos => {
 

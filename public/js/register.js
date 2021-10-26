@@ -1,6 +1,6 @@
 window.addEventListener("load", function(){
 
-    let formulario = document.getElementById("registrar");
+    let formulario = document.querySelector(".formularioRegistro");
     let nombre = document.getElementById("nombre");
     let apellido = document.getElementById("apellido");
     let email = document.getElementById("email");
@@ -12,25 +12,25 @@ window.addEventListener("load", function(){
 
 
     let errorNombre = document.getElementById("errorNombreP");
-    errorNombre.style.color = "blue";
+    errorNombre.style.color = "crimson";
 
     let errorApellido = document.getElementById("errorApellidoP");
-    errorApellido.style.color = "blue";
+    errorApellido.style.color = "crimson";
 
     let errorEmail = document.getElementById("errorEmailP");
-    errorEmail.style.color = "blue";
+    errorEmail.style.color = "crimson";
 
     let errorContraseña = document.getElementById("errorContraseñaP");
-    errorContraseña.style.color = "blue";
+    errorContraseña.style.color = "crimson";
 
     let errorTelefono = document.getElementById("errorTelefonoP");
-    errorTelefono.style.color = "blue";
+    errorTelefono.style.color = "crimson";
 
     let errorFoto = document.getElementById("errorFotoP");
-    errorFoto.style.color = "blue";
+    errorFoto.style.color = "crimson";
 
     let errorTipoUsuario = document.getElementById("errorTipoUsuarioP");
-    errorTipoUsuario.style.color = "blue";
+    errorTipoUsuario.style.color = "crimson";
 
 
 
@@ -74,7 +74,7 @@ window.addEventListener("load", function(){
         }
 
         if (!regexEmail.test(email.value)){
-            errorMail.push("Ingrese un email valido")
+            errorMail.push("Ingrese un email valida")
             key = true;
         }
 

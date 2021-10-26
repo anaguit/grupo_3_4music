@@ -1,5 +1,5 @@
 window.addEventListener("load", function(){
-    let formulario = document.getElementById("login");
+    let formulario = document.querySelector(".formularioRegistro");
     let email = document.getElementById("email");
     let contraseña = document.getElementById("contraseña");
 

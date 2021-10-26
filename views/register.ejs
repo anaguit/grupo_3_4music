@@ -1,70 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <%-include("partials/head.ejs", {title: 'Registración'})%>
+<link rel="stylesheet" href="/css/registro.css">
 
 <body class="fourMusic">
     
     <%-include("partials/header.ejs")%>
 
     <main>
-        <div class="contenedorMain">
-            <div class="formulario">
+        <div class="contenedorForm registro">
+            
                 
-                <h2 class="bienvenida">Bienvenido a 4Music!</h2> 
+                
              
-                <form id="registrar" action="/users/register" method="POST" enctype="multipart/form-data">
-                    <div class="lineaForm">
-                        <p id="errorNombreP"></p>
-                        <label for="nombre">Nombre:</label>
+                <form class="formularioRegistro" action="/users/register" method="POST" enctype="multipart/form-data">
+                    <h2 class="bienvenidaRegistro">Bienvenido a 4Music!</h2> 
+
+                    <div class="contenedorFormRegistro">
+                        <p id="errorNombreP" style="text-align: center;"></p>
+                        
                         <% if(locals.errors && errors.nombre) { %>
                             <p style="color: red;"><%= errors.nombre.msg %></p>
                         <% } %>
-                        <input type="text" name="nombre" id="nombre"  value="<%= locals.old && old.nombre ? old.nombre : '' %>" >
+                    <div class="contenedorInput">
+                        
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" name="nombre" id="nombre"  value="<%= locals.old && old.nombre ? old.nombre : '' %>" placeholder="Ingresa tu nombre">
                         
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorApellidoP"></p>
-                        <label for="apellido">Apellido:</label>
+                    <p id="errorApellidoP" style="text-align: center;"></p>
+                        
                         <% if(locals.errors && errors.apellido) { %>
                             <p style="color: red;"><%= errors.apellido.msg %></p>
                         <% } %>
-                        <input type="text" name="apellido" id="apellido"  value="<%= locals.old && old.apellido ? old.apellido : '' %>" >
+                    <div class="contenedorInput">
+                        
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" name="apellido" id="apellido"  value="<%= locals.old && old.apellido ? old.apellido : '' %>" placeholder="Ingresa tu apellido">
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorEmailP"></p>
-                        <label for="email">Email:</label>
+
+                    <p id="errorEmailP" style="text-align: center;"></p>
+                        
                         <% if(locals.errors && errors.email) { %>
                             <p style="color: red;"><%= errors.email.msg %></p>
                         <% } %>
-                        <input type="text" name="email" id="email"  value="<%= locals.old && old.email ? old.email : '' %>" >
+                    <div class="contenedorInput">
+                        
+                        <i class="fas fa-envelope icon"></i>
+                        <input type="text" name="email" id="email"  value="<%= locals.old && old.email ? old.email : '' %>" placeholder="Ingresa tu email">
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorContraseñaP"></p>
-                        <label for="contraseña">Contraseña:</label>
+
+                    <p id="errorContraseñaP" style="text-align: center;"></p>
+                        
                         <% if(locals.errors && errors.contraseña){ %>
                             <p style="color: red;"><%= errors.contraseña.msg %></p>
                         <% } %>
-                        <input type="password" name="contraseña" id="contraseña" >
+                    <div class="contenedorInput">
+                        
+                        <i class="fas fa-key icon"></i>
+                        <input type="password" name="contraseña" id="contraseña" placeholder="Ingresa una contraseña">
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorTelefonoP"></p>
-                        <label for="telefono">Teléfono:</label>
+
+                    <p id="errorTelefonoP" style="text-align: center;"></p>
+                        
                         <% if(locals.errors && errors.telefono) { %>
                             <p style="color: red;"><%= errors.telefono.msg %></p>
                         <% } %>
-                        <input type="text" name="telefono" id="telefono"  value="<%= locals.old && old.telefono ? old.telefono : '' %>" >
+                    <div class="contenedorInput">
+                        
+                        <i class="fas fa-phone icon"></i>
+                        <input type="text" name="telefono" id="telefono"  value="<%= locals.old && old.telefono ? old.telefono : '' %>" placeholder="Ingresa un numero de telefono">
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorFotoP"></p>
+
+                    <p id="errorFotoP" style="text-align: center;"></p>
+                    
                         <label for="avatar">Seleccionar Foto de Perfil:</label>
                         <% if(locals.errors && errors.avatar) { %>
                             <p style="color: red;"><%= errors.avatar.msg %></p>
                         <% } %>
+                    <div class="contenedorInput">
+                        <i class="fas fa-image icon"></i>
                         <input type="file" name="avatar" id="avatar">
                         
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorTipoUsuarioP"></p>
+                    <div class="contenedorInput" style="border: none;">
+                        <p id="errorTipoUsuarioP" style="text-align: center;"></p>
                         <label for="tipoUsuario">Tipo de Usuario</label>
                         <select name="tipoUsuario" id="tipoUsuario"> 
                             <option value="">Seleccionar</option>
@@ -72,17 +92,16 @@
                             <option value="2" <%= locals.old && old.tipoUsuario === "2" ? "selected" : " "; %>>Vendedor</option>
                         </select>
                     </div>
-                    <div class="lineaForm">
+                    <div class="contenedorInput" style="border: none;">
                         <button type="reset" value="borrar" class="boton-registro">Borrar datos</button>
                     </div>
-                    <div class="lineaForm">
+                    <div class="contenedorInput" style="border: none;">
                         <button type="submit" class="boton-registro">Crear cuenta</button>
                     </div>
-                    <div class="lineaForm">
-                        <input type="checkbox" name="recibir-ofertas" class="check">Deseo recibir ofertas y novedades por email
+                   
                     </div>
                 </form>
-            </div>
+            
         </div>
     </main>
     

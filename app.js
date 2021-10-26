@@ -6,6 +6,8 @@ const path = require ("path");
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 const userLoggedMiddleware = require ('./src/middlewares/userLoggedMiddleware');
 const cookie = require("cookie-parser");
+const cors = require('cors');
+
 
 // Express
 const app = express();
@@ -24,6 +26,8 @@ app.use(session({
     saveUninitialized: false
 }));  // Session como Middleware Global
 app.use(cookie());
+
+app.use(cors());
 
 app.use(userLoggedMiddleware); // Debe estar siempre despues del Middleware de Session
 
