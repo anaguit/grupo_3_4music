@@ -26,7 +26,7 @@ function App() {
                 <PanelContador urlApi="http://localhost:3000/products/countCategory" titulo="Total de Categorias"></PanelContador>
               </div>
               <div className="row">
-                <PanelDatosUltimos urlApi="http://localhost:3000/users/show/:id" titulo="Ultimo usuario creado"></PanelDatosUltimos>
+                <PanelDatosUltimos urlApi="http://localhost:3000/users/list" titulo="Ultimo usuario creado"></PanelDatosUltimos>
                 <PanelDatosUltimos urlApi="http://localhost:3000/products/searchApi/:id" titulo="Ultimo producto creado"></PanelDatosUltimos>
 
                 <PanelCategorias></PanelCategorias>

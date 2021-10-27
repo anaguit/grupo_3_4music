@@ -5,14 +5,12 @@ import { useState, useEffect, useRef } from 'react';
 
 
 function PanelDatosUltimos(prop) {
-    //cantidad total de Usuarios traida desde la API
-   // var urlApiUsuarios = "http://localhost:3000/users/show/:id";
-   // url ultimo producto = http://localhost:3000/products/searchApi/22
+
 
    var urlApi = prop.urlApi;
    var tituloTraido = prop.titulo;
 
-   const estado = useState ({nombre: 0, apellido: 0, titulo: tituloTraido});
+   const estado = useState ({nombre: "", apellido: "", fotoPerfil:"", titulo: tituloTraido});
    const valoresEstado = estado[0];
    const setEstado = estado[1];
  
@@ -20,15 +18,24 @@ function PanelDatosUltimos(prop) {
    let traerUltimosDatos = function(url){ 
        fetch(url)
            .then(response => response.json() )
-           .then(data => {console.log(data); setEstado( {nombre: data.nombre} )})
+           .then(data => {
+               console.log(data.users[0].foto_perfil); 
+               setEstado( {nombre: data.users[0].nombre, 
+                apellido: data.users[0].apellido,
+                fotoPerfil: data.users[0].foto_perfil} 
+                )
+            })
            .catch(e =>console.log(e))
         }
 
    const divDatosUltimos = useRef();  // en esta variable se almacena un objeto con la propiedad current
- 
+   const divFotoPerfil = useRef();
+   
+   
    useEffect( () => { 
-       traerUltimosDatos(urlApi);
-       divDatosUltimos.current.innerHTML= valoresEstado.nombre;
+        traerUltimosDatos(urlApi);
+        divDatosUltimos.current.innerHTML= valoresEstado.nombre + ' ' + valoresEstado.apellido;
+        //divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="'+valoresEstado.fotoPerfil+'" alt="image dummy"></img>';
        //alert( "Montaje" ); 
    }, [] )   
 
@@ -38,12 +45,15 @@ function PanelDatosUltimos(prop) {
                     <div className="card-header py-3">
                     <h6 className="m-0 font-weight-bold text-primary">{tituloTraido}</h6>
                     </div>
-                    <div ref={divDatosUltimos}className="card-body">
-                    <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: '25' + 'rem'}} src="assets/images/product_dummy.svg" alt="image dummy"/>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa exercitationem ratione?</p>
-                    <a target="_blank" rel="nofollow" href="/">View product detail</a>
+                    <div className="card-body">
+                        <div ref={divDatosUltimos}>
+
+                        </div>
+                        <div ref={divFotoPerfil} className="text-center">
+                            
+                        </div>
+                            <p></p>
+                        <a target="_blank" rel="nofollow" href="/">View product detail</a>
                     </div>
                 </div>
             </div>

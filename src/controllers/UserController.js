@@ -238,7 +238,10 @@ const controladorUsers = {
         },
         listadoUsuarios: (req, res) =>{
         
-            db.Usuario.findAll()
+            db.Usuario.findAll({
+                order: [
+                    ['id', 'DESC']
+            ]})
                 .then(usuarios => {
 
                     return res.json( {
