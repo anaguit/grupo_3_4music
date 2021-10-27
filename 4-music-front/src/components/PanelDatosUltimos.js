@@ -35,9 +35,24 @@ function PanelDatosUltimos(prop) {
    useEffect( () => { 
         traerUltimosDatos(urlApi);
         divDatosUltimos.current.innerHTML= valoresEstado.nombre + ' ' + valoresEstado.apellido;
-        //divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="'+valoresEstado.fotoPerfil+'" alt="image dummy"></img>';
-       //alert( "Montaje" ); 
-   }, [] )   
+        divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/users/'+valoresEstado.fotoPerfil+'" alt="image dummy"></img>';
+        //alert( "Montaje" ); 
+   }, [] ) 
+   
+
+
+
+   const isFirstRun = useRef(true);
+   useEffect( () => { 
+    if (isFirstRun.current) {
+        isFirstRun.current = false;
+        return;
+      }
+    traerUltimosDatos(urlApi);
+    divDatosUltimos.current.innerHTML= valoresEstado.nombre + ' ' + valoresEstado.apellido;
+    divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/users/'+valoresEstado.fotoPerfil+'" alt="image dummy"></img>';
+    //alert( "Actualizacion" ); 
+}, [valoresEstado] ) 
 
         return (
             <div className="col-lg-6 mb-4">
@@ -45,10 +60,11 @@ function PanelDatosUltimos(prop) {
                     <div className="card-header py-3">
                     <h6 className="m-0 font-weight-bold text-primary">{tituloTraido}</h6>
                     </div>
+                    
                     <div className="card-body">
-                        <div ref={divDatosUltimos}>
+                        <h4 ref={divDatosUltimos}>
 
-                        </div>
+                        </h4>
                         <div ref={divFotoPerfil} className="text-center">
                             
                         </div>

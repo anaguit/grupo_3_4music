@@ -421,14 +421,17 @@ const controladorProducto = {
                     productosPorCategoria.push(objetoProductoCategoria);
                 }
                 
-                db.Producto.findAll({include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
-                .then(productos => {
+                db.Producto.findAll({ order: [
+                    ['id', 'DESC']
+                    ],
+                    include: [{association:'categoria'},{association: 'fotos'},{association: 'producto_genero'}]})
+                    .then(productos => {
 
-                    return res.json( {
-                        count: productos.length,
-                        countByCategory: productosPorCategoria,
-                        products: productos })
-                })
+                        return res.json( {
+                            count: productos.length,
+                            countByCategory: productosPorCategoria,
+                            products: productos })
+                    })
             });  
 
             
