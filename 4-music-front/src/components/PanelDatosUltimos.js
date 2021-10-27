@@ -9,21 +9,32 @@ function PanelDatosUltimos(prop) {
 
    var urlApi = prop.urlApi;
    var tituloTraido = prop.titulo;
+   var tabla = prop.tabla;
 
-   const estado = useState ({nombre: "", apellido: "", fotoPerfil:"", titulo: tituloTraido});
+   const estado = useState ({campo1: "", campo2: "", campoFoto:"", titulo: tituloTraido});
    const valoresEstado = estado[0];
    const setEstado = estado[1];
  
-   
+  
    let traerUltimosDatos = function(url){ 
        fetch(url)
            .then(response => response.json() )
            .then(data => {
-               console.log(data.users[0].foto_perfil); 
-               setEstado( {nombre: data.users[0].nombre, 
-                apellido: data.users[0].apellido,
-                fotoPerfil: data.users[0].foto_perfil} 
-                )
+               if(tabla=="users"){
+                  
+                setEstado( {campo1: data.users[0].nombre, 
+                    campo2: data.users[0].apellido,
+                    campoFoto: data.users[0].foto_perfil} 
+                    )
+               }else if(tabla=="products"){
+                   
+                setEstado( {campo1: data.products[0].titulo, 
+                    apellido: data.products[0].marca,
+                    campoFoto: data.products[0].fotos[0].url} 
+                    )
+               }
+               console.log(); 
+               
             })
            .catch(e =>console.log(e))
         }
@@ -34,9 +45,16 @@ function PanelDatosUltimos(prop) {
    
    useEffect( () => { 
         traerUltimosDatos(urlApi);
-        divDatosUltimos.current.innerHTML= valoresEstado.nombre + ' ' + valoresEstado.apellido;
-        divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/users/'+valoresEstado.fotoPerfil+'" alt="image dummy"></img>';
+        divDatosUltimos.current.innerHTML= valoresEstado.campo1 + ' ' + valoresEstado.campo2;
+        if(tabla=="users"){
+            divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/users/'+valoresEstado.campoFoto+'" alt="image dummy"></img>';
+        }else if(tabla =="products"){
+            
+            divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/products/'+valoresEstado.campoFoto+'" alt="image dummy"></img>';
+        
+        }
         //alert( "Montaje" ); 
+        
    }, [] ) 
    
 
@@ -49,9 +67,17 @@ function PanelDatosUltimos(prop) {
         return;
       }
     traerUltimosDatos(urlApi);
-    divDatosUltimos.current.innerHTML= valoresEstado.nombre + ' ' + valoresEstado.apellido;
-    divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/users/'+valoresEstado.fotoPerfil+'" alt="image dummy"></img>';
+    
+    divDatosUltimos.current.innerHTML= valoresEstado.campo1 + ' ' + valoresEstado.campo2;
+    if(tabla=="users"){
+        divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/users/'+valoresEstado.campoFoto+'" alt="image dummy"></img>';
+    }else if(tabla =="products"){
+            
+        divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/products/'+valoresEstado.campoFoto+'" alt="image dummy"></img>';
+
+    }
     //alert( "Actualizacion" ); 
+    
 }, [valoresEstado] ) 
 
         return (
