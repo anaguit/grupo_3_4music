@@ -8,36 +8,21 @@ function PanelCategorias() {
 
     var urlApi = "http://localhost:3000/products/listProducts";
 
-    const estado = useState ({nombreCategoria:"", cantidadProductos:0});
+    const estado = useState ([]);
     const valoresEstado = estado[0];
     const setEstado = estado[1];
 
-    let traerCategorias = function(url){ 
-        fetch(url)
+
+         useEffect( () => { 
+            fetch(urlApi)
             .then(response => response.json() )
             .then(data => {
                 //console.log(data.countByCategory);
-                
-                for(let i=0; i<data.countByCategory.length; i++){
-                    setEstado( {
-                        nombreCategoria:data.countByCategory.nombre_categoria,
-                        cantidadProductos:data.countByCategory.cantidad} 
-                         )
-                }
-               
-                 
-                
+                setEstado( 
+                        data.countByCategory
+                    ) 
              })
             .catch(e =>console.log(e))
-         }
-
-         const divCategorias = useRef();
-
-         useEffect( () => { 
-            traerCategorias(urlApi);
-            //divDatosUltimos.current.innerHTML= valoresEstado.campo1 + ' ' + valoresEstado.campo2;
-            
-            //alert( "Montaje" ); 
             
        }, [] ) 
 
@@ -45,18 +30,29 @@ function PanelCategorias() {
         <div className="col-lg-6 mb-4">						
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h6 className="m-0 font-weight-bold text-primary">Categorias de Productos</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Categorias con Productos publicados</h6>
                 </div>
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-info text-white shadow">
-                                <div ref={divCategorias} className="card-body">
-                                    Category 01
+                        {valoresEstado.length === 0 && <p>Cargando...</p>}
+                        {valoresEstado.map((estado, i) => {
+                            return(
+                                <div className="col-lg-6 mb-4">
+                                    <div className="card bg-info text-white shadow">
+                                        <div className="card-body" >
+                                            <div>
+                                                <h5>{estado.nombre_categoria}</h5>
+                                            </div>
+                                            <hr className="sidebar-divider d-none d-md-block"/>
+                                            <div>
+                                                {estado.cantidad} Productos
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        
+                            )
+                        })}
+                    
                     </div>
                 </div>
             </div>
