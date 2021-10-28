@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 
 
 
-function PanelCategorias() {
+function PanelListaProductos() {
 
     var urlApi = "http://localhost:3000/products/listProducts";
 
@@ -18,7 +18,7 @@ function PanelCategorias() {
             .then(response => response.json() )
             .then(data => {
                 setEstado( 
-                        data.countByCategory
+                        data.products
                     ) 
              })
             .catch(e =>console.log(e))
@@ -29,7 +29,7 @@ function PanelCategorias() {
         <div className="col-lg-6 mb-4">						
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h6 className="m-0 font-weight-bold text-primary">Categorias con Productos</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Lista de Productos publicados</h6>
                 </div>
                 <div className="card-body">
                     <div className="row">
@@ -40,11 +40,11 @@ function PanelCategorias() {
                                     <div className="card bg-info text-white shadow">
                                         <div className="card-body" >
                                             <div>
-                                                <h5>{estado.nombre_categoria}</h5>
+                                                <h5>{estado.titulo} {estado.marca} {estado.modelo} </h5>
                                             </div>
                                             <hr className="sidebar-divider d-none d-md-block"/>
                                             <div>
-                                                {estado.cantidad} Productos
+                                                $ {estado.precio} 
                                             </div>
                                         </div>
                                     </div>
@@ -59,4 +59,4 @@ function PanelCategorias() {
     );
 }
     
-export default PanelCategorias;
+export default PanelListaProductos;

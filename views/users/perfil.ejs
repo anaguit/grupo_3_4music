@@ -41,6 +41,14 @@
             Carrito de Compras
         </button>
     </a>
+    <%if(locals.usuarioLogueado.rol =="Vendedor"){ %>
+    <a href="http://localhost:3001/">
+        <button type="button" class="boton-registro">
+            Panel de Administración
+        </button>
+    </a>
+    <%}%>
+    <a href="#">
     <form action="/users/<%=locals.usuarioLogueado.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?');">
         <button type="submit" class="boton-registro">Eliminar Cuenta</button>
     </form>

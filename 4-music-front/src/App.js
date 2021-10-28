@@ -1,11 +1,15 @@
 import './components/app.css';
+import './components/tipografias.css';
+
 import PanelContador from './components/PanelContador';
 import BarraLateral from './components/BarraLateral';
 import PanelDatosUltimos from './components/PanelDatosUltimos';
 import PanelCategorias from './components/PanelCategorias';
 import BarraSuperior from './components/BarraSuperior';
-import './components/tipografias.css';
+import PanelListaProductos from './components/panelListaProductos';
+
 import { Link, Route, Switch } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -30,6 +34,7 @@ function App() {
                 <PanelDatosUltimos urlApi="http://localhost:3000/products/listProducts" titulo="Ultimo producto creado" tabla="products"></PanelDatosUltimos>
 
                 <PanelCategorias></PanelCategorias>
+                <PanelListaProductos></PanelListaProductos>
               </div>
             </div>
     </div>

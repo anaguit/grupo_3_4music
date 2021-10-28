@@ -1,6 +1,7 @@
 import React from 'react';
 import './app.css';
 import { useState, useEffect, useRef } from 'react';
+import { header } from 'express-validator';
 
 
 
@@ -24,13 +25,13 @@ function PanelDatosUltimos(prop) {
                   
                 setEstado( {campo1: data.users[0].nombre, 
                     campo2: data.users[0].apellido,
-                    campoFoto: <img class="img-fluid px-3 px-sm-4 mt-3 mb-4"  src={"http://localhost:3000/images/users/"+data.users[0].foto_perfil}  alt="image dummy"></img>                } 
+                    campoFoto: <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{height:"250px"}} src={"http://localhost:3000/images/users/"+data.users[0].foto_perfil}  alt="image dummy"></img>                } 
                     );
                 }else if(tabla=="products"){
                    
                 setEstado( {campo1: data.products[0].titulo, 
                 campo2: data.products[0].marca,
-                campoFoto: <img class="img-fluid px-3 px-sm-4 mt-3 mb-4"  src={"http://localhost:3000/images/products/"+data.products[0].fotos[0].url}  alt="image dummy"></img>
+                campoFoto: <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{height:"250px"}} src={"http://localhost:3000/images/products/"+data.products[0].fotos[0].url}  alt="image dummy"></img>
                 });
                }
             
