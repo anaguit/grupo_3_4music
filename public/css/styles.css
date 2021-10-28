@@ -15,9 +15,8 @@ a {
 }
 
 .contenedorMain{
-    display: flex;
+    margin:0 auto 0 auto;
     width:90vw;
-    height: 500px;
 }
 
 main{
@@ -266,29 +265,52 @@ a:hover{
     font-size: 25px;
     font-weight: 600;
 }
+.formulario{
+    text-align: center;
+    width:80%;
+    background-color:rgb(246, 241, 241);
+    margin-left:auto;
+    margin-right:auto;
+    padding-top: 3%;
+    padding-bottom: 2%;
+    font-size: 16px;
+}
 
-
-
-
-
-
-
-
-
-/*.lineaForm label, .lineaForm input{
-    display: inline;
-}*/
-
-/*
-
-
-
-*/
-
-
-
-
-
+.formulario input{
+    width:60%;
+    margin: 5px auto;
+    max-width: 350px;
+}
+.check{
+    width:auto !important;
+    margin-right: 10px !important;
+    display: inline !important;
+}
+input:hover{
+    background-color: rgb(172, 215, 221);
+}
+.lineaForm{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.lineaForm label, .lineaForm input{
+    display: block;
+}
+.boton-registro{
+    background-color:#212529;
+    color: white;
+    border-radius: 4px;
+    width: 40%;
+    max-width: 200px;
+    font-size: 16px;
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    box-shadow: 2px 1px rgb(136, 134, 134);
+}
+.boton-registro:hover{
+    background-color:blue
+}
 
 
 /*-------Item-Detail--------*/
@@ -982,31 +1004,5 @@ a:hover{
     }
     .headerDerecha{
         padding-left:1px !important
-    }
-}
-
-@media(max-width: 768px){
-    .formulario{
-        margin: auto;
-        width: 70%;
-        margin-top: 10px;
-        border-radius: 2%;
-    }
-
-    
-}
-
-
-
-@media(max-width: 300px){
-    .formulario{
-        margin: auto;
-        width: 80%;
-        margin-top: 10px;
-        border-radius: 2%;
-    }
-
-    .lineaForm input{
-        height: 20px;
     }
 }

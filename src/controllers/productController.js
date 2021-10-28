@@ -410,12 +410,13 @@ const controladorProducto = {
             db.Producto.findAll({ attributes: ['id_categoria', 
                 [sequelize.fn('COUNT', sequelize.col('titulo')), 'cantidadPorCategoria'] 
                 ],
-                group: 'id_categoria'})
+                group: 'id_categoria', include: [{association:'categoria'}]})
             .then(productos => {
                 
                 for(let i=0; i<productos.length; i++){
                      objetoProductoCategoria = {
                         id_categoria:productos[i].id_categoria,
+                        nombre_categoria:productos[i].categoria.nombre,
                         cantidad: productos[i].dataValues.cantidadPorCategoria
                     };
                     productosPorCategoria.push(objetoProductoCategoria);

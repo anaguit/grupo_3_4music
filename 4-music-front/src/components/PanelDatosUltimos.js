@@ -29,7 +29,7 @@ function PanelDatosUltimos(prop) {
                }else if(tabla=="products"){
                    
                 setEstado( {campo1: data.products[0].titulo, 
-                    apellido: data.products[0].marca,
+                    campo2: data.products[0].marca,
                     campoFoto: data.products[0].fotos[0].url} 
                     )
                }
@@ -53,12 +53,12 @@ function PanelDatosUltimos(prop) {
             divFotoPerfil.current.innerHTML = '<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://localhost:3000/images/products/'+valoresEstado.campoFoto+'" alt="image dummy"></img>';
         
         }
-        //alert( "Montaje" ); 
+        alert( "Montaje" ); 
         
    }, [] ) 
    
 
-
+/*
 
    const isFirstRun = useRef(true);
    useEffect( () => { 
@@ -79,7 +79,7 @@ function PanelDatosUltimos(prop) {
     //alert( "Actualizacion" ); 
     
 }, [valoresEstado] ) 
-
+*/
         return (
             <div className="col-lg-6 mb-4">
                 <div className="card shadow mb-4">
