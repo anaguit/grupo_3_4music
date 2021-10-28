@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <%-include("../partials/head.ejs", {title: 'Publicar nuevo producto'})%>
+<link rel="stylesheet" href="/css/formulario-NewItem.css">
 
-<body class="fourMusic">
+<body>
     
     <%-include("../partials/header.ejs")%>
 
-    <main>
-        <div class="contenedorMain">
-            <div class="formulario">         
-                <h2 class="bienvenida">Publicar Nuevo Producto</h2>
-                <form id="publicarProducto" action="/products" method="POST" enctype="multipart/form-data" >
-                    <div class="lineaForm">
+    
+                
+             <div class="contenedorFormNewItem">
+                <form class="formulario-NewItem" action="/products" method="POST" enctype="multipart/form-data" >
+                    <h1>Publicar nuevo producto</h1>
+
+                <div class="contenedor-formItem">
+                    <div class="lineaFormItem">
                         <label for="titulo">Título del Aviso</label>
                         <p id="errorTitulo" style="color:green"></p>
                         <% if(locals.errors && errors.titulo) { %>
@@ -19,64 +22,37 @@
                         <% } %>
                         <input type="text" placeholder="Ej: Fender" name="titulo" id="titulo"  value="<%= locals.old && old.titulo ? old.titulo : '' %>" > 
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorMarca" style="color:green"></p>
+                    <div class="lineaFormItem">
+                        
                         <label for="marca">Marca</label>
+                        <p id="errorMarca" style="color:green"></p>
                         <% if(locals.errors && errors.marca) { %>
                             <p style="color: red;"><%= errors.marca.msg %></p>
                         <% } %>
                         <input type="text" placeholder="Ej: Fender" name="marca" id="marca"  value="<%= locals.old && old.marca ? old.marca : '' %>" >     
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorModelo" style="color:green"></p>
+                    <div class="lineaFormItem">
+                        
                         <label for="modelo">Modelo</label>
+                        <p id="errorModelo" style="color:green"></p>
                         <% if(locals.errors && errors.modelo) { %>
                             <p style="color: red;"><%= errors.modelo.msg %></p>
                         <% } %>
                         <input type="text" name="modelo" id="modelo" placeholder="Ej: Stratocaster"  value="<%= locals.old && old.modelo ? old.modelo : '' %>" >
                     </div>
-                    <div class="lineaForm">
-                        <p id="errorPrecio" style="color:green"></p>
+                    <div class="lineaFormItem">
+                        
                         <label for="precio">Precio: $</label>
+                        <p id="errorPrecio" style="color:green"></p>
                         <% if(locals.errors && errors.precio) { %>
                             <p style="color: red;"><%= errors.precio.msg %></p>
                         <% } %>
                         <input type="text" name="precio" id="precio" value="<%= locals.old && old.precio ? old.precio : '' %>" >  
                     </div>
-                    <div class="lineaForm"> 
-                        <p id="errorCategoria" style="color:green"></p>
-                        <label for="categoria">Categoría</label>
-                        <% if(locals.errors && errors.categoria) { %>
-                            <p style="color: red;"><%= errors.categoria.msg %></p>
-                        <% } %>
-                        <select name="categoria" id="categoria">
-                            <option value="">Seleccionar</option>
-                        <% for (let i = 0; i < categoria.length; i++) {%>
-                            <option value="<%=categoria[i].id%>"><%=categoria[i].nombre%></option>
-                            <% } %>
-                        </select>
+                    <div class="lineaFormItem">
                         
-                    </div>
-                    <div class="lineaForm">
-                        <p id="errorDescripcion" style="color:green"></p>
-                        <label for="descripcion">Descripción</label>
-                        <% if(locals.errors && errors.descripcion) { %>
-                            <p style="color: red;"><%= errors.descripcion.msg %></p>
-                        <% } %>
-                       <textarea class="areaTexto" tabindex="0" name="descripcion"  id="descripcion" ><%= locals.old && old.descripcion ? old.descripcion : '' %></textarea>   
-                    </div>
-                    <div class="lineaForm">
-                        <p id="errorImagenes" style="color:green"></p>
-                        <label for="imagenes">Imágenes</label>
-                        <% if(locals.errors && errors.imagenes) { %>
-                            <p style="color: red;"><%= errors.imagenes.msg %></p>
-                        <% } %>
-                        <input type="file" name="imagenes" id="imagenes" multiple accept="image/png, image/gif, image/jpeg" / >
-                    </div>
-                    <br>
-                    <div class="lineaForm">
+                        <label for="generoMusical">Seleccione el Género Musical</label>
                         <p id="errorGeneroMusical" style="color:green"></p>
-                        <label for="generoMusical">Seleccione el Género Musical correspondiente</label>
                         <% if(locals.errors && errors.generoMusical) { %>
                             <p style="color: red;"><%= errors.generoMusical.msg %></p>
                         <% } %>
@@ -90,26 +66,61 @@
                             <% } %>
                         </select> 
                     </div>
-                    <div class="lineaForm">
+                    
+                    <div class="lineaFormItem block">
+                        
+                        <label for="descripcion">Descripción</label>
+                        <p id="errorDescripcion" style="color:green; font-size: 1rem;"></p>
+                        <% if(locals.errors && errors.descripcion) { %>
+                            <p style="color: red;"><%= errors.descripcion.msg %></p>
+                        <% } %>
+                       <textarea class="areaTexto" tabindex="0" name="descripcion"  id="descripcion" ><%= locals.old && old.descripcion ? old.descripcion : '' %></textarea>   
+                    </div>
+                    <div class="lineaFormItem img">
+                        
+                        <label for="imagenes">Imágenes</label>
+                        <p id="errorImagenes" style="color:green"></p>
+                        <% if(locals.errors && errors.imagenes) { %>
+                            <p style="color: red;"><%= errors.imagenes.msg %></p>
+                        <% } %>
+                        <input type="file" name="imagenes" id="imagenes" multiple accept="image/png, image/gif, image/jpeg" / >
+                    </div>
+                    <br>
+                    <div class="lineaFormItem category"> 
+                        <p id="errorCategoria" style="color:green"></p>
+                        <label for="categoria">Categoría</label>
+                        <% if(locals.errors && errors.categoria) { %>
+                            <p style="color: red;"><%= errors.categoria.msg %></p>
+                        <% } %>
+                        <select name="categoria" id="categoria">
+                            <option value="">Seleccionar</option>
+                        <% for (let i = 0; i < categoria.length; i++) {%>
+                            <option value="<%=categoria[i].id%>"><%=categoria[i].nombre%></option>
+                            <% } %>
+                        </select>
+                        
+                    </div>
+                    <div class="lineaFormItem stock">
                         <p id="errorStock" style="color:green"></p>
                         <label for="stock">Cantidad Disponible</label>
                         <% if(locals.errors && errors.stock) { %>
                             <p style="color: red;"><%= errors.stock.msg %></p>
                         <% } %>
-                        <input type="text" name="stock" id="stock" placeholder="Ingresá el Stock" value="<%= locals.old && old.stock ? old.stock : '' %>" >
+                        <input type="number" name="stock" id="stock" placeholder="0" value="<%= locals.old && old.stock ? old.stock : '' %>" >
                     </div>
-                    <div class="lineaForm"> 
+                    <div class="lineaFormItem"> 
                         <a href="/users/profile">
                             <button type="button" class="boton-registro">Volver</button>
                         </a>
                     </div>
-                    <div class="lineaForm">
+                    <div class="lineaFormItem">
                         <button type="submit" class="boton-registro">Publicar Artículo</button>
                     </div>
+                    </div>
                 </form>
-            </div>
-        </div>
-    </main>
+                </div>
+           
+    
     
     <%-include("../partials/footer.ejs")%>
 

@@ -1,0 +1,111 @@
+.contenedorFormNewItem{
+    background-image: url("https://previews.123rf.com/images/belchonock/belchonock1802/belchonock180282616/96363386-viol%C3%ADn-con-saxof%C3%B3n-y-piano-primer-plano.jpg");
+    background-size: cover;
+    
+   
+}
+
+.formulario-NewItem{
+    
+    background-color: #fff;
+    margin: 60px auto;
+    padding: 30px;
+    width: 50%;
+    border-radius: 5%;
+    opacity: .7;
+    
+}
+
+.formulario-NewItem:hover{
+    opacity: 1;
+}
+
+.formulario-NewItem label{
+    font-size: 20px;
+}
+
+
+.contenedor-formItem{
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+
+.block{
+    grid-column: 1 / 3;
+    font-size: 20px;
+}
+
+.block textarea{
+    height: 20px;
+    width: 100%;
+}
+
+.lineaFormItem button{
+    
+        grid-column: 1 / 3;
+        font-size: 20px;
+        height: 50px;
+        border: none;
+        color: white;
+        background-color: #1a2537;
+        cursor: pointer;
+}
+   
+
+.lineaFormItem button:hover{
+    background-color: cadetblue;
+}
+
+input[type="text"],input[type="number"], input[type="file"]{
+    width: 90%;
+    height: 40px;
+    border-radius: 3%;
+    
+}
+
+
+.stock input{
+    height: 20px;
+    width: 20%;
+}
+
+.lineaFormItem{
+    
+        margin-bottom: 20px;
+    
+}
+
+
+@media(max-width:1000px){
+    .formulario-NewItem{
+        
+        width: 80%;
+        padding: 10px;
+    }
+
+    .category select{
+        width: 110px;
+    }
+
+    .lineaFormItem button{
+        width: 100px;
+    }
+    .contenedorFormNewItem{
+        height: 1100px;
+    }
+
+    
+
+    
+}
+
+
+
+
+
+
+
