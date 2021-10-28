@@ -1,6 +1,6 @@
 window.addEventListener("load", function(){
 
-    let formulario = document.getElementById("publicarProducto");
+    let formulario = document.querySelector(".formulario-NewItem");
     let titulo = document.getElementById("titulo");
     let marca = document.getElementById("marca");
     let modelo = document.getElementById("modelo");
