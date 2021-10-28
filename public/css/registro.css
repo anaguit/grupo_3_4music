@@ -4,8 +4,14 @@
     margin: 0;
 }
 
+.edicion{
+    background-image: url("https://thumbs.dreamstime.com/b/guitarra-ac%C3%BAstica-negra-en-fondo-de-madera-68326959.jpg");
+    background-size: cover;
+}
+
+
 .registro{
-    height: 950px;
+    height: 700px;
 }
 
 
