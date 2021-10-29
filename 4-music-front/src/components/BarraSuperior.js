@@ -33,11 +33,11 @@ function BarraSuperior() {
 
                 
                 <li className="nav-item dropdown no-arrow">
-                    <Link to="/http://localhost:3001/users/profile" className="nav-link dropdown-toggle" href="/" id="userDropdown">
+                    <Link to="/http://localhost:3000/users/profile" className="nav-link dropdown-toggle" href="/" id="userDropdown">
                         <span className="mr-2 d-none d-lg-inline text-gray-600 small">Usuario Administrador</span>
                     </Link>
-                    <Route path='/http://localhost:3001/users/profile' component={() => { 
-                        window.location.href = 'http://localhost:3001/users/profile'; 
+                    <Route path='/http://localhost:3000/users/profile' component={() => { 
+                        window.location.href = 'http://localhost:3000/users/profile'; 
                         return null;
                     }}/>
                 
