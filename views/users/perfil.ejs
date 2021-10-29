@@ -10,12 +10,19 @@
 
 <div class="contenedorPerfilUsuario">
     <h2 class="bienvenida">Bienvenido <%= locals.usuarioLogueado.nombre %> <%= locals.usuarioLogueado.apellido %>!</h2>
-
-    <a href="/products/create">
-        <button type="button" class="boton-registro">
-            Publicar nuevo producto
-        </button>
-    </a>
+    
+    <%if(locals.usuarioLogueado.rol =="Vendedor"){ %>
+        <a href="/products/create">
+            <button type="button" class="boton-registro">
+                Publicar nuevo producto
+            </button>
+        </a>
+        <a href="http://localhost:3001/">
+            <button type="button" class="boton-registro">
+                Panel de Administración
+            </button>
+        </a>
+    <%}%>
     <a href="/users/userData/<%=locals.usuarioLogueado.id%>">
         <button type="button" class="boton-registro">
             Mis datos
@@ -41,14 +48,7 @@
             Carrito de Compras
         </button>
     </a>
-    <%if(locals.usuarioLogueado.rol =="Vendedor"){ %>
-    <a href="http://localhost:3001/">
-        <button type="button" class="boton-registro">
-            Panel de Administración
-        </button>
-    </a>
-    <%}%>
-    <a href="#">
+    <a href="/">
     <form action="/users/<%=locals.usuarioLogueado.id%>?_method=DELETE" method="POST" onclick="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?');">
         <button type="submit" class="boton-registro">Eliminar Cuenta</button>
     </form>

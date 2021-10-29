@@ -224,17 +224,41 @@ const controladorUsers = {
                 res.render("detallePerfil", {usuarioDetalle: usuarioEncontrado});
             });
         },
-        eliminarCuenta: (req, res) => {
+        eliminarCuenta: async (req, res) => {
             let idURL = req.params.id;
+            let productosEncontrados= await db.Producto.findAll({
+                where:{
+                    id_usuario_FK: idURL
+                }});
+            if(productosEncontrados.length > 0){
 
-            db.Usuario.destroy({
+                for(let x=0; x < productosEncontrados.length; x++){
+                    await db.Foto.destroy({
+                        where: { id_producto: productosEncontrados[x].id} 
+                    }); 
+                    await db.Producto_Genero.destroy({
+                        where: { id_producto: productosEncontrados[x].id} 
+                    });
+                    await db.Producto.destroy({
+                        where:{
+                            id: productosEncontrados[x].id
+                        }
+                    }); 
+        
+                }  
+            }
+           
+            await db.Usuario.destroy({
                 where: {
                     id: idURL
                 }
             })
-
+    
+               
+            
             req.session.destroy();
             res.redirect("/"); 
+           
         },
         listadoUsuarios: (req, res) =>{
         
