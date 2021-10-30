@@ -51,10 +51,26 @@ main{
 .logoRedes, .opcionUsuario, .logoCarrito {
     padding-left: 10px;
 }
+
+.opcionUsuario a:hover{
+    color: #e6e4df;
+}
+
+.logoCarrito a:hover{
+    color: #e6e4df;
+}
+
+
 .logoRedes i{
     font-size: 26px;
     padding-top:20px;
 }
+
+.logoRedes a:hover{
+    color: #e6e4df;
+}
+
+
 #linkLogo img{
     max-height: 100px;
 }
