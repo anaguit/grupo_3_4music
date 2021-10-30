@@ -54,8 +54,8 @@ function PanelDatosUltimos(prop) {
                         <div className="text-center">                     
                             {valoresEstado.campoFoto}
                         </div>
-                            <p></p>
-                        <a target="_blank" rel="nofollow" href="/">View product detail</a>
+                            
+                      
                     </div>
                 </div>
             </div>

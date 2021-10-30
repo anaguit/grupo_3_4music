@@ -1,5 +1,7 @@
 import React from 'react';
 import './app.css';
+import { Link, Route, Switch } from 'react-router-dom';
+
 //import { useState, useEffect, useRef } from 'react';
 
 function BarraSuperior() {
@@ -31,10 +33,14 @@ function BarraSuperior() {
 
                 
                 <li className="nav-item dropdown no-arrow">
-                    <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
-                    <span className="mr-2 d-none d-lg-inline text-gray-600 small">Usuario Administrador</span>
-                    <img className="img-profile rounded-circle" src="assets/images/dummy-avatar.jpg" width="60"/>
-                    </a>
+                    <Link to="/http://localhost:3000/users/profile" className="nav-link dropdown-toggle" href="/" id="userDropdown">
+                        <span className="mr-2 d-none d-lg-inline text-gray-600 small">Usuario Administrador</span>
+                    </Link>
+                    <Route path='/http://localhost:3000/users/profile' component={() => { 
+                        window.location.href = 'http://localhost:3000/users/profile'; 
+                        return null;
+                    }}/>
+                
                 </li>
 
             </ul>

@@ -222,7 +222,8 @@ const controladorProducto = {
                    
                 }
                 
-                res.redirect("/products"); 
+                res.redirect("/products/all-ok");
+            
             }
             else {
                     if (errors.errors.length > 0){
@@ -237,7 +238,7 @@ const controladorProducto = {
                                     old: req.body,
                                     producto: producto, 
                                     categoria: categoria
-                            })
+                                })
                         })
                     
                 }
