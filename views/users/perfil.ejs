@@ -11,7 +11,7 @@
 <div class="contenedorPerfilUsuario">
     <h2 class="bienvenida">Bienvenido <%= locals.usuarioLogueado.nombre %> <%= locals.usuarioLogueado.apellido %>!</h2>
     
-    <%if(locals.usuarioLogueado.rol =="Vendedor"){ %>
+    <%if(locals.usuarioLogueado.rol =="Vendedor" || locals.usuarioLogueado.rol =="vendedor" || locals.usuarioLogueado.rol == "2"){ %>
         <a href="/products/create">
             <button type="button" class="boton-registro">
                 Publicar nuevo producto
