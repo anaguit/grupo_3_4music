@@ -41,7 +41,7 @@ window.addEventListener("load", function() {
             errorTitulo.push("Ingrese un titulo")
             key = true;
         }
-        else if (titulo.value.length < 2 && titulo.value.length > 25) {
+        else if (titulo.value.length < 3 || titulo.value.length > 25) {
             errorTitulo.push("Ingrese un titulo de hasta 25 carácteres")
             key = true;
         }
@@ -95,6 +95,11 @@ window.addEventListener("load", function() {
 
         if (imagen.value === undefined  || imagen.value === null || imagen.value === ""){
             errorImagen.push("Ingresa una imagen")
+            key = true;
+        }
+
+        else if(imagen.files.length > 4){
+            errorImagen.push("Puedes ingresar hasta 4 imagenes");
             key = true;
         }
 
