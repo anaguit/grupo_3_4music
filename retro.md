@@ -8,4 +8,12 @@ Las pequeñas complicaciones que surgieron pudieron ser solucionadas exitosament
 
 ### Conclusión:
 A partir de la experiencia obtenida en el presente trabajo, hemos adquirido un mayor dominio de numerosas herramientas que nos permitirán agilizar y organizar de manera más eficaz próximos trabajos.
+Estamos más que conformes con el resultado conseguido.
+
+### Equipo 4 Music - ©2021
+
+## Ana Santoandré
+## Julian Polimeni
+## Estefania Colodro
+## Agustín Faggiano
 
