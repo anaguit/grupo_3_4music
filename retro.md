@@ -2,9 +2,18 @@
 ### "Proyecto Grupo 3 - 4Music".
 
 ### Qué cosas han funcionado bien.
-Finalizando el Sprint 7, se puede destacar: el esfuerzo grupal, la comunicación que hay entre los integrantes y la predisposición de cada uno. El desempeño de cada integrante en el grupo logro una mejoría en la realización del trabajo, lo que lleva a una resolución concisa, precisa y determinante. Todos estuvieron disponibles, compartiendo pantalla y aportando datos para terminar el trabajo en tiempo y forma. Los conflictos y problemas presentados fueron solucionados exitosamente.
+Habiendo finalizado el último Sprint, podemos destacar: el esfuerzo grupal, la comunicación entre los integrantes y la predisposición de cada uno. 
+El desempeño de cada integrante hizo posible la concreción del trabajo en tiempo y forma. 
+Las pequeñas complicaciones que surgieron pudieron ser solucionadas exitosamente logrando un mayor conocimiento mutuo.
 
-### A mejorar:
-Respecto al Sprint anterior, se mejoró: el manejo de ciertas herramientas para agilizar el trabajo, la integración de lo realizado dejó de ser un problema y el tiempo dispoinible fue aprovechado con creces.
-La falta de comunicación eventualmente puede ser un problema pero se esta trabajando para solucionarlo. 
+### Conclusión:
+A partir de la experiencia obtenida en el presente trabajo, hemos adquirido un mayor dominio de numerosas herramientas que nos permitirán agilizar y organizar de manera más eficaz próximos trabajos.
+Estamos más que conformes con el resultado conseguido.
+
+### Equipo 4 Music - ©2021
+
+## Ana Santoandré
+## Julian Polimeni
+## Estefania Colodro
+## Agustín Faggiano
 
