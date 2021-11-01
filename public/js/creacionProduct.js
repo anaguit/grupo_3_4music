@@ -99,14 +99,11 @@ window.addEventListener("load", function() {
         }
 
 
-
         if(generoMusical.value === "" || generoMusical.value === null) {
             errorGeneroMusical.push("Seleccione un género musical")
             key = true;
         }
         
-
-
 
         if(stock.value === "" || stock.value === null) {
             errorStock.push("Ingrese una cantidad disponible")
