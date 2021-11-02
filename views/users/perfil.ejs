@@ -22,20 +22,20 @@
                 Panel de Administración
             </button>
         </a>
+        <a href="/products/showAll/<%=locals.usuarioLogueado.id%>">
+            <button type="button" class="boton-registro">
+                Mis publicaciones
+            </button>
+        </a>
+        <a href="#">
+            <button type="button" class="boton-registro">
+                Mis ventas
+            </button>
+        </a>
     <%}%>
     <a href="/users/userData/<%=locals.usuarioLogueado.id%>">
         <button type="button" class="boton-registro">
             Mis datos
-        </button>
-    </a>
-    <a href="/products/showAll/<%=locals.usuarioLogueado.id%>">
-        <button type="button" class="boton-registro">
-            Mis publicaciones
-        </button>
-    </a>
-    <a href="#">
-        <button type="button" class="boton-registro">
-            Mis ventas
         </button>
     </a>
     <a href="#">
